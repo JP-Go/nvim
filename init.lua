@@ -10,3 +10,4 @@ require('nv-tree')
 
 require('lsp')
 require('lsp.tsserver')
+require('lsp.python')
