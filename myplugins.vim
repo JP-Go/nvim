@@ -5,12 +5,14 @@ Plug 'tpope/vim-surround'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'JP-Go/simple-latex'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim' " required by telescope
+Plug 'nvim-lua/plenary.nvim' " required by telescope
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
 Plug 'terrortylor/nvim-comment'
 Plug 'hrsh7th/nvim-compe'
 Plug 'neovim/nvim-lspconfig'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons (require by nivm-tree)
+Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()

@@ -6,6 +6,7 @@ require('nvim-autopairs').setup()
 require('nvim-treesitter').setup()
 require('nvim_comment').setup()
 require('nv-compe')
+require('nv-tree')
 
 require('lsp')
 require('lsp.tsserver')

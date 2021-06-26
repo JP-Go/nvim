@@ -17,13 +17,16 @@ bindkeys('t','<Esc>','<C-\\><C-N>',opts)
 bindkeys('n','<tab>',':bNext<cr>',opts)
 bindkeys('n','<s-tab>',':bprevious<cr>',opts)
 
--- Telescope keybindings
+-- Telescope 
 bindkeys('n','<leader>ff','<cmd>lua require(\'telescope.builtin\').find_files()<cr>',{noremap=true})
 bindkeys('n','<leader>fg','<cmd>lua require(\'telescope.builtin\').live_grep()<cr>',{noremap=true})
 bindkeys('n','<leader>fb','<cmd>lua require(\'telescope.builtin\').buffers()<cr>',{noremap=true})
 bindkeys('n','<leader>fh','<cmd>lua require(\'telescope.builtin\').help_tags()<cr>',{noremap=true})
--- Nv-compe keybindins
+-- Nv-compe 
 bindkeys('i','<expr> <C-Space>','<cmd> lua requre(\'compe\').compe#complete()',opts)
 bindkeys('i','<expr> <CR>     ','<cmd> lua requre(\'compe\').compe#confirm(\'<CR>\')',opts)
 bindkeys('i','<expr> <C-e>    ','<cmd> lua requre(\'compe\').compe#close(\'<C-e>\')',opts)
-
+-- Nvim tree
+bindkeys('n','<leader>e','<cmd> NvimTreeToggle<CR>',opts)
+bindkeys('n','<leader>r','<cmd> NvimTreeRefresh<CR>',opts)
+bindkeys('n','<leader>n','<cmd> NvimTreeFindFile<CR>',opts)
