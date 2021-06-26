@@ -22,3 +22,8 @@ bindkeys('n','<leader>ff','<cmd>lua require(\'telescope.builtin\').find_files()<
 bindkeys('n','<leader>fg','<cmd>lua require(\'telescope.builtin\').live_grep()<cr>',{noremap=true})
 bindkeys('n','<leader>fb','<cmd>lua require(\'telescope.builtin\').buffers()<cr>',{noremap=true})
 bindkeys('n','<leader>fh','<cmd>lua require(\'telescope.builtin\').help_tags()<cr>',{noremap=true})
+-- Nv-compe keybindins
+bindkeys('i','<expr> <C-Space>','<cmd> lua requre(\'compe\').compe#complete()',opts)
+bindkeys('i','<expr> <CR>     ','<cmd> lua requre(\'compe\').compe#confirm(\'<CR>\')',opts)
+bindkeys('i','<expr> <C-e>    ','<cmd> lua requre(\'compe\').compe#close(\'<C-e>\')',opts)
+
