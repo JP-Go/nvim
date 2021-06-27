@@ -8,6 +8,8 @@ require('nvim_comment').setup()
 require('nv-compe')
 require('nv-tree')
 
-require('lsp')
-require('lsp.tsserver')
-require('lsp.python')
+require('lsps')
+
+-- require('lsp')
+-- require('lsp.tsserver')
+-- require('lsp.python')
