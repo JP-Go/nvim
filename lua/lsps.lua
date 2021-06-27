@@ -34,7 +34,7 @@ buf_set_keymap('n','<space>l', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostic
 buf_set_keymap('n','[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 buf_set_keymap('n',']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 buf_set_keymap('n','<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-buf_set_keymap("n","<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+buf_set_keymap("n","<space>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 -- Set Default Prefix.
 -- Note: You can set a prefix per lsp server in the lv-globals.lua file
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -98,13 +98,13 @@ local function documentHighlight(client, bufnr)
 end
 
 -- automatically setup these servers with no configuration
-local servers = {'tsserver','pylsp','vimls'}
+local servers = {'tsserver','pylsp','vimls','efm'}
 --enable snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 for _,server in ipairs(servers) do
        require('lspconfig')[server].setup{
-                capabilities = capabilities
+                capabilities = capabilities;
        } 
 end

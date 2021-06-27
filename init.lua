@@ -9,7 +9,3 @@ require('nv-compe')
 require('nv-tree')
 
 require('lsps')
-
--- require('lsp')
--- require('lsp.tsserver')
--- require('lsp.python')
