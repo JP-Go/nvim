@@ -98,7 +98,7 @@ local function documentHighlight(client, bufnr)
 end
 
 -- automatically setup these servers with no configuration
-local servers = {'tsserver','pylsp','vimls','efm'}
+local servers = {'tsserver','pylsp','vimls','efm','html'}
 --enable snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
