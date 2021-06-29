@@ -1,7 +1,5 @@
 -- Helpers
-local bo = vim.bo
-local wo = vim.wo
-local o = vim.o
+local o = vim.opt
 vim.cmd('filetype on')
 vim.cmd('syntax enable')
 
@@ -9,23 +7,23 @@ o.tgc = true
 o.enc = "utf-8"
 o.splitbelow = true
 o.clipboard = "unnamedplus"
-o.path = ",.,/usr/include,**"
+o.path:append("**")
 o.incsearch = true
 o.hlsearch = false
 o.signcolumn='yes'
 o.mouse = "a"
-o.pumheight = 10
+o.pumheight = 12
 o.pumwidth = 20
 o.scrolloff = 10
 o.cmdheight = 2
 o.hidden = true
 o.inccommand = "split"
-bo.ts = 8
-bo.expandtab=true
-bo.swapfile = false
-bo.spelllang = "pt"
-wo.rnu = true
-wo.cursorline = true
+o.ts = 8
+o.expandtab=true
+o.swapfile = false
+o.spelllang = "pt"
+o.rnu = true
+o.cursorline = true
 
 -- Plugin specific opttions
 vim.g.simple_latex_viewer = 'okular'
