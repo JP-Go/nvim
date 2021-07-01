@@ -24,4 +24,6 @@ use 'kyazdani42/nvim-tree.lua'
 use 'folke/tokyonight.nvim'
 use 'tjdevries/colorbuddy.vim'
 use 'tjdevries/gruvbuddy.nvim'
+use 'hrsh7th/vim-vsnip'
+use 'hrsh7th/vim-vsnip-integ'
 end )
