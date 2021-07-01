@@ -24,6 +24,7 @@ o.swapfile = false
 o.spelllang = "pt"
 o.rnu = true
 o.cursorline = true
+o.completeopt = "menuone,noselect"
 
 -- Plugin specific opttions
 vim.g.simple_latex_viewer = 'okular'
