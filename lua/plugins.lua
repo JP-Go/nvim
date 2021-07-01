@@ -15,7 +15,6 @@ use 'JP-Go/simple-latex'
 use 'nvim-lua/popup.nvim' -- required by telescope
 use 'nvim-lua/plenary.nvim' -- required by telescope
 use 'nvim-telescope/telescope.nvim'
-use 'folke/which-key.nvim'
 use 'terrortylor/nvim-comment'
 use 'hrsh7th/nvim-compe'
 use 'neovim/nvim-lspconfig'
@@ -26,4 +25,5 @@ use 'tjdevries/colorbuddy.vim'
 use 'tjdevries/gruvbuddy.nvim'
 use 'hrsh7th/vim-vsnip'
 use 'hrsh7th/vim-vsnip-integ'
+use "rafamadriz/friendly-snippets"
 end )
