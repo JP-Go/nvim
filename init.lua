@@ -1,4 +1,4 @@
-vim.cmd'source ~/.config/nvim/myplugins.vim'
+require('plugins')
 require('sets')
 require('bindings')
 require('nvim-autopairs').setup()
@@ -9,4 +9,4 @@ require('nv-tree')
 require('autocmds')
 
 require('lsps')
-vim.cmd'colorscheme lunar'
+require('colorbuddy').colorscheme('gruvbuddy')
