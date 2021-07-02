@@ -1,7 +1,7 @@
 -- Helpers
 local o = vim.opt
-vim.cmd('filetype on')
-vim.cmd('syntax enable')
+--vim.cmd('filetype on')
+--vim.cmd('syntax enable')
 
 o.tgc = true
 o.enc = "utf-8"
@@ -18,7 +18,7 @@ o.scrolloff = 10
 o.cmdheight = 2
 o.hidden = true
 o.inccommand = "split"
-o.ts = 8
+o.ts = 4
 o.expandtab=true
 o.swapfile = false
 o.spelllang = "pt"

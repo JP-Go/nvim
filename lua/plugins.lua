@@ -19,10 +19,11 @@ use 'nvim-telescope/telescope.nvim'
 use 'terrortylor/nvim-comment'
 use 'hrsh7th/nvim-compe'
 use 'neovim/nvim-lspconfig'
-use 'kyazdani42/nvim-web-devicons' -- for file icons (require by nivm-tree)
+use 'kyazdani42/nvim-web-devicons' -- for file icons require by nvim-tree
 use 'kyazdani42/nvim-tree.lua'
 use 'folke/tokyonight.nvim'
-use 'tjdevries/colorbuddy.vim'
-use 'tjdevries/gruvbuddy.nvim'
-use {'SirVer/Ultisnips',requires = 'honza/vim-snippets'}
+use 'hrsh7th/vim-vsnip'
+use 'hrsh7th/vim-vsnip-integ'
+use "rafamadriz/friendly-snippets"
+use 'marko-cerovac/material.nvim'
 end )

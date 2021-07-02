@@ -7,6 +7,6 @@ require('nvim_comment').setup()
 require('nv-compe')
 require('nv-tree')
 require('autocmds')
+require('nv-material')
 
 require('lsps')
-require('colorbuddy').colorscheme('gruvbuddy')
