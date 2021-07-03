@@ -25,6 +25,7 @@ o.spelllang = "pt"
 o.rnu = true
 o.cursorline = true
 o.completeopt = "menuone,noselect"
+o.formatoptions:remove({'c','r','o'}) 
 
 -- Plugin specific opttions
 vim.g.simple_latex_viewer = 'okular'
