@@ -16,27 +16,7 @@ vim.fn.sign_define(
     {texthl = "LspDiagnosticsDefaultInformation", text = "", numhl = "LspDiagnosticsDefaultInformation"}
 )
 
-local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
-local opts = {noremap=true,silent=true} 
-buf_set_keymap('n','gd',' <cmd>lua vim.lsp.buf.definition()<CR>',opts)
-buf_set_keymap('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>',opts)
-buf_set_keymap('n','gr','<cmd>lua vim.lsp.buf.references()<CR>',opts)
-buf_set_keymap('n','gr','<cmd>lua vim.lsp.buf.references()<CR>', opts)
-buf_set_keymap('n','gi','<cmd>lua vim.lsp.buf.implementation()<CR>',opts)
-buf_set_keymap('n','<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-buf_set_keymap('n','<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-buf_set_keymap('n','<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-buf_set_keymap('n','<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-buf_set_keymap('n','<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-buf_set_keymap('n','<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-buf_set_keymap('n','<space>l', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-buf_set_keymap('n','[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-buf_set_keymap('n',']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-buf_set_keymap('n','<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-buf_set_keymap("n","<space>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
--- Set Default Prefix.
--- Note: You can set a prefix per lsp server in the lv-globals.lua file
+-- Symbols to show in the text when the lsp provides diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = {
@@ -97,6 +77,33 @@ local function documentHighlight(client, bufnr)
     end
 end
 
+local on_attach = function (client, bufnr)
+        local opts = {noremap = true, silent = true}
+        local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr,...) end
+        vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+        buf_set_keymap('n','<leader>ca',':Lspsaga code_action<CR>',opts)
+        buf_set_keymap('v','<leader>ca',':<C-U>Lspsaga range_code_action<CR>',opts)
+        buf_set_keymap('n', 'K', ':Lspsaga hover_doc<CR>', opts)
+        buf_set_keymap('n','<C-f>',':lua require("lspsagaaction").smart_scroll_with_saga(1)<CR>',opts)
+        buf_set_keymap('n','<C-b>',':lua require("lspsagaaction").smart_scroll_with_saga(-1)<CR>',opts)
+        buf_set_keymap('n','<leader>rn',':Lspsaga rename<CR>',opts)
+        buf_set_keymap('n', 'gd', ':Lspsaga preview_definition<CR>', opts)
+        buf_set_keymap('n', 'gD', ':lua vim.lsp.buf.definition()<CR>', opts)
+        buf_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opts)
+        buf_set_keymap('n', '<C-k>', 'Lspsaga signature_help<CR>', opts)
+        buf_set_keymap('n', '<space>wa', ':lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+        buf_set_keymap('n', '<space>wr', ':lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+        buf_set_keymap('n', '<space>wl', ':lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+        buf_set_keymap('n', '<space>D', ':lua vim.lsp.buf.type_definition()<CR>', opts)
+        buf_set_keymap('n', 'gr', ':lua vim.lsp.buf.references()<CR>', opts)
+        buf_set_keymap('n', '<space>cd', ':Lspsaga show_line_diagnostics<CR>', opts)
+        buf_set_keymap('n', '[d', ':lua Lspsaga diagnostic_jump_prev<CR>', opts)
+        buf_set_keymap('n', '}d', ':lua Lspsaga diagnostic_jump_next<CR>', opts)
+        buf_set_keymap('n', '<space>ql', ':lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+        buf_set_keymap("n", "<space>fc", ":lua vim.lsp.buf.formatting()<CR>", opts)
+end
+
 -- automatically setup these servers with no configuration
 local servers = {'tsserver','pylsp','vimls','efm','html'}
 --enable snippet support
@@ -105,6 +112,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 for _,server in ipairs(servers) do
        require('lspconfig')[server].setup{
-                capabilities = capabilities;
+                on_attach = on_attach,
+                capabilities = capabilities
        } 
 end
