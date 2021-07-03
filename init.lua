@@ -11,5 +11,6 @@ require('nv-colorizer')
 require('nvim-autopairs').setup()
 require('nvim-treesitter').setup()
 require('nvim_comment').setup()
+require('lspsaga').init_lsp_saga()
 
 require('lsps')

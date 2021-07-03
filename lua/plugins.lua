@@ -27,4 +27,5 @@ use 'hrsh7th/vim-vsnip-integ'
 use "rafamadriz/friendly-snippets"
 use 'marko-cerovac/material.nvim'
 use 'norcalli/nvim-colorizer.lua'
+use 'glepnir/lspsaga.nvim'
 end )
