@@ -57,27 +57,9 @@ vim.lsp.protocol.CompletionItemKind = {
     "   (TypeParameter)"
 }
 
+local lsp = {}
 
-local function documentHighlight(client, bufnr)
-    -- Set autocommands conditional on server_capabilities
-    if client.resolved_capabilities.document_highlight then
-        vim.api.nvim_exec(
-            [[
-      hi LspReferenceRead cterm=bold ctermbg=red guibg=#464646
-      hi LspReferenceText cterm=bold ctermbg=red guibg=#464646
-      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#464646
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
-            false
-        )
-    end
-end
-
-local on_attach = function (client, bufnr)
+lsp.common_on_attach = function (client, bufnr)
         local opts = {noremap = true, silent = true}
         local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr,...) end
         vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
@@ -91,7 +73,7 @@ local on_attach = function (client, bufnr)
         buf_set_keymap('n', 'gd', ':Lspsaga preview_definition<CR>', opts)
         buf_set_keymap('n', 'gD', ':lua vim.lsp.buf.definition()<CR>', opts)
         buf_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opts)
-        buf_set_keymap('n', '<C-k>', 'Lspsaga signature_help<CR>', opts)
+        buf_set_keymap('n', '<C-k>', ':Lspsaga signature_help<CR>', opts)
         buf_set_keymap('n', '<space>wa', ':lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
         buf_set_keymap('n', '<space>wr', ':lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
         buf_set_keymap('n', '<space>wl', ':lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -99,20 +81,22 @@ local on_attach = function (client, bufnr)
         buf_set_keymap('n', 'gr', ':lua vim.lsp.buf.references()<CR>', opts)
         buf_set_keymap('n', '<space>cd', ':Lspsaga show_line_diagnostics<CR>', opts)
         buf_set_keymap('n', '[d', ':lua Lspsaga diagnostic_jump_prev<CR>', opts)
-        buf_set_keymap('n', '}d', ':lua Lspsaga diagnostic_jump_next<CR>', opts)
+        buf_set_keymap('n', ']d', ':lua Lspsaga diagnostic_jump_next<CR>', opts)
         buf_set_keymap('n', '<space>ql', ':lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
         buf_set_keymap("n", "<space>fc", ":lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
--- automatically setup these servers with no configuration
-local servers = {'tsserver','pylsp','vimls','efm','html'}
+-- automatically setup these servers with no configuration. I do not bother with these
+local servers = {'vimls','html'}
 --enable snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 for _,server in ipairs(servers) do
        require('lspconfig')[server].setup{
-                on_attach = on_attach,
+                on_attach = lsp.common_on_attach;
                 capabilities = capabilities
        } 
 end
+
+return lsp

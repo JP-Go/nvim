@@ -28,4 +28,5 @@ use "rafamadriz/friendly-snippets"
 use 'marko-cerovac/material.nvim'
 use 'norcalli/nvim-colorizer.lua'
 use 'glepnir/lspsaga.nvim'
+use 'tjdevries/astronauta.nvim'
 end )
