@@ -3,6 +3,7 @@ local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
 vim.cmd('filetype on')
+vim.cmd('set formatoptions -="cro"') 
 
 o.tgc = true
 o.enc = "utf-8"
@@ -20,10 +21,13 @@ o.hidden = true
 o.inccommand = "split"
 o.cursorline = true
 o.completeopt = "menuone,noselect"
-bo.ts = 4
+bo.tabstop = 4
+bo.shiftwidth = 0
+bo.softtabstop = 0
+bo.smartindent = true
+bo.expandtab = true
 bo.swapfile = false
 bo.spelllang = "pt"
-vim.cmd('set formatoptions -=cro') 
 wo.signcolumn='yes'
 wo.rnu = true
 wo.number = true
