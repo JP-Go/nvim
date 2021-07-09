@@ -3,7 +3,6 @@ local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
 vim.cmd('filetype on')
-vim.cmd('set formatoptions -="cro"') 
 
 o.tgc = true
 o.enc = "utf-8"
@@ -35,3 +34,4 @@ wo.number = true
 -- Plugin specific opttions
 vim.g.simple_latex_viewer = 'okular'
 vim.g.engines = {'pdflatex','xelatex','lualatex'}
+vim.g.gruvbox_contrast_dark='hard'
