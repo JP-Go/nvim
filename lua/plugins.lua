@@ -21,12 +21,11 @@ use 'hrsh7th/nvim-compe'
 use 'neovim/nvim-lspconfig'
 use 'kyazdani42/nvim-web-devicons' -- for file icons require by nvim-tree
 use 'kyazdani42/nvim-tree.lua'
-use 'folke/tokyonight.nvim'
 use 'hrsh7th/vim-vsnip'
 use 'hrsh7th/vim-vsnip-integ'
 use "rafamadriz/friendly-snippets"
-use 'marko-cerovac/material.nvim'
 use 'norcalli/nvim-colorizer.lua'
 use 'glepnir/lspsaga.nvim'
 use 'tjdevries/astronauta.nvim'
+use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 end )
