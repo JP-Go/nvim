@@ -67,31 +67,49 @@ lsp.common_on_attach = function (client, bufnr)
         buf_set_keymap('n','<leader>ca',':Lspsaga code_action<CR>',opts)
         buf_set_keymap('v','<leader>ca',':<C-U>Lspsaga range_code_action<CR>',opts)
         buf_set_keymap('n', 'K', ':Lspsaga hover_doc<CR>', opts)
-        buf_set_keymap('n','<C-f>',':lua require("lspsagaaction").smart_scroll_with_saga(1)<CR>',opts)
-        buf_set_keymap('n','<C-b>',':lua require("lspsagaaction").smart_scroll_with_saga(-1)<CR>',opts)
-        buf_set_keymap('n','<leader>rn',':Lspsaga rename<CR>',opts)
+        buf_set_keymap('n','<C-j>',':lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>',opts)
+        buf_set_keymap('n','<C-k>',':lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>',opts)
+        buf_set_keymap('n','<leader>r',':Lspsaga rename<CR>',opts)
         buf_set_keymap('n', 'gd', ':Lspsaga preview_definition<CR>', opts)
         buf_set_keymap('n', 'gD', ':lua vim.lsp.buf.definition()<CR>', opts)
         buf_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opts)
         buf_set_keymap('n', '<C-k>', ':Lspsaga signature_help<CR>', opts)
-        buf_set_keymap('n', '<space>wa', ':lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-        buf_set_keymap('n', '<space>wr', ':lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-        buf_set_keymap('n', '<space>wl', ':lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-        buf_set_keymap('n', '<space>D', ':lua vim.lsp.buf.type_definition()<CR>', opts)
+        buf_set_keymap('n', '<leader>wa', ':lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+        buf_set_keymap('n', '<leader>wr', ':lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+        buf_set_keymap('n', '<leader>wl', ':lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+        buf_set_keymap('n', '<leader>D', ':lua vim.lsp.buf.type_definition()<CR>', opts)
         buf_set_keymap('n', 'gr', ':lua vim.lsp.buf.references()<CR>', opts)
-        buf_set_keymap('n', '<space>cd', ':Lspsaga show_line_diagnostics<CR>', opts)
+        buf_set_keymap('n', '<leader>cd', ':Lspsaga show_line_diagnostics<CR>', opts)
         buf_set_keymap('n', '[d', ':lua Lspsaga diagnostic_jump_prev<CR>', opts)
         buf_set_keymap('n', ']d', ':lua Lspsaga diagnostic_jump_next<CR>', opts)
-        buf_set_keymap('n', '<space>ql', ':lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-        buf_set_keymap("n", "<space>fc", ":lua vim.lsp.buf.formatting()<CR>", opts)
+        buf_set_keymap('n', '<leader>ql', ':lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+        buf_set_keymap("n", "<leader>cf", ":lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
 -- automatically setup these servers with no configuration. I do not bother with these
-local servers = {'vimls','html'}
+local servers = {'vimls','html','texlab','emmet_ls'}
 --enable snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
+local nvim_lsp = require'lspconfig'
+local configs = require'lspconfig/configs'
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+configs.emmet_ls = {
+  default_config = {
+    cmd = {'emmet-ls', '--stdio'};
+    filetypes = {'html', 'css', 'javascript', 'typescript'};
+    root_dir = function()
+      return vim.loop.cwd()
+    end;
+    settings = {};
+  };
+}
+
+nvim_lsp.emmet_ls.setup{
+  -- on_attach = on_attach;
+}
 for _,server in ipairs(servers) do
        require('lspconfig')[server].setup{
                 on_attach = lsp.common_on_attach;
