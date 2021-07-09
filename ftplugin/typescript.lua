@@ -14,3 +14,4 @@ require('lspconfig').tsserver.setup{
 }
 
 vim.cmd('LspStart')
+vim.cmd('set ts=4 sts=4 sw=0')
