@@ -19,13 +19,12 @@ use {'nvim-telescope/telescope.nvim'}
 use {'tjdevries/astronauta.nvim'}
 use {'nvim-treesitter/nvim-treesitter'}
 use {'JP-Go/simple-latex',ft='tex'}
--- Lazy loading
+-- TODO Lazy loading
 use {'hrsh7th/nvim-compe'}
 use { "hrsh7th/vim-vsnip"}
 use { "rafamadriz/friendly-snippets"}
 use {'windwp/nvim-autopairs'}
 use {'norcalli/nvim-colorizer.lua'}
-use 'kyazdani42/nvim-web-devicons' -- for file icons require by nvim-tree
+use {'kyazdani42/nvim-web-devicons'} -- for tree icons required by nvim-tree
 use {'kyazdani42/nvim-tree.lua'}
-
 end )
