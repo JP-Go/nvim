@@ -12,7 +12,7 @@ bindkeys('n','<C-l>','<C-w>l<CR>',opts)
 -- Alternative exit insert mode
 bindkeys('i','jj','<Escape>',opts)
 -- Control + s to save
-bindkeys('n','<C-s>',':w<CR>')
+bindkeys('n','<C-s>',':w<CR>',{noremap=true})
 -- Exit terminal mode
 bindkeys('t','<Esc>','<C-\\><C-N>',opts)
 -- Exit terminal mode
@@ -33,3 +33,6 @@ bindkeys('i','<expr><CR>','<cmd> lua requre(\'compe\').compe#confirm(\'<CR>\')',
 bindkeys('n','<leader>e','<cmd> NvimTreeToggle<CR>',opts)
 bindkeys('n','<leader>r','<cmd> NvimTreeRefresh<CR>',opts)
 bindkeys('n','<leader>n','<cmd> NvimTreeFindFile<CR>',opts)
+-- TODO: Make this shit work
+-- bindkeys('i','<C-j>','vsnip#expandable()  ? vsnip#expand() : "<C-j>"',{expr=true})
+-- bindkeys('i','<C-j>','vsnip#expandable()  ? vsnip#expand() : "<C-j>"',{expr=true})

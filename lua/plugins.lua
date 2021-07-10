@@ -11,7 +11,6 @@ end
 return require('packer').startup( function()
 use {'wbthomason/packer.nvim'}
 use {'neovim/nvim-lspconfig'}
-use {'glepnir/lspsaga.nvim'}
 use {"terrortylor/nvim-comment" }
 use {'nvim-lua/popup.nvim'} -- required by telescope
 use {'nvim-lua/plenary.nvim'} -- required by telescope

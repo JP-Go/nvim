@@ -8,7 +8,6 @@ require('nv-tree')
 require('nv-autopairs')
 require("nv-treesitter")
 require('nvim_comment').setup()
-require('lspsaga').init_lsp_saga()
 require('lsps')
 vim.o.background = "dark"
 vim.cmd([[colorscheme spacegray]])
