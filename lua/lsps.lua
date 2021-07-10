@@ -64,7 +64,7 @@ lsp.common_on_attach = function (client, bufnr)
         local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr,...) end
         vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-        buf_set_keymap('n','<leader>ca',':lua vim.lsp.buf.code_action()',opts)
+        buf_set_keymap('n','<leader>ca',':lua vim.lsp.buf.code_action()<CR>',opts)
         buf_set_keymap('v','<leader>ca',':<C-U>lua vim.lsp.buf.range_code_action<CR>',opts)
         buf_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
         buf_set_keymap('n','<leader>r',':lua vim.lsp.buf.rename()<CR>',opts)
