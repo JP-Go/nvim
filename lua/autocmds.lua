@@ -1,8 +1,9 @@
--- Special set of rules for my latex workflow
 vim.api.nvim_exec([[
-        augroup latex
+        augroup jstsreact
         au!
-        au BufNewFile,BufRead *.tex  set ft=tex wrap tw=100
-        au FileType tex lua require('simple-latex')
+        au BufWritePost *.js lua vim.lsp.buf.formatting_seq_sync()
+        au BufWritePost *.ts lua vim.lsp.buf.formatting_seq_sync()
+        au BufWritePost *.tsx lua vim.lsp.buf.formatting_seq_sync()
+        au BufWritePost *.jsx lua vim.lsp.buf.formatting_seq_sync()
         augroup END
 ]],false)

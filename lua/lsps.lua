@@ -84,6 +84,7 @@ lsp.common_on_attach = function (client, bufnr)
         buf_set_keymap('n', ']d', ':lua Lspsaga diagnostic_jump_next<CR>', opts)
         buf_set_keymap('n', '<leader>ql', ':lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
         buf_set_keymap("n", "<leader>cf", ":lua vim.lsp.buf.formatting()<CR>", opts)
+
 end
 
 -- automatically setup these servers with no configuration. I do not bother with these
