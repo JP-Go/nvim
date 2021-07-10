@@ -9,23 +9,23 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup( function()
-use 'wbthomason/packer.nvim'
-use 'windwp/nvim-autopairs'
-use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-use 'JP-Go/simple-latex'
-use 'nvim-lua/popup.nvim' -- required by telescope
-use 'nvim-lua/plenary.nvim' -- required by telescope
-use 'nvim-telescope/telescope.nvim'
-use 'terrortylor/nvim-comment'
-use 'hrsh7th/nvim-compe'
-use 'neovim/nvim-lspconfig'
+use {'wbthomason/packer.nvim'}
+use {'neovim/nvim-lspconfig'}
+use {'glepnir/lspsaga.nvim'}
+use {"terrortylor/nvim-comment" }
+use {'nvim-lua/popup.nvim'} -- required by telescope
+use {'nvim-lua/plenary.nvim'} -- required by telescope
+use {'nvim-telescope/telescope.nvim'}
+use {'tjdevries/astronauta.nvim'}
+use {'nvim-treesitter/nvim-treesitter'}
+use {'JP-Go/simple-latex',ft='tex'}
+-- Lazy loading
+use {'hrsh7th/nvim-compe'}
+use { "hrsh7th/vim-vsnip"}
+use { "rafamadriz/friendly-snippets"}
+use {'windwp/nvim-autopairs'}
+use {'norcalli/nvim-colorizer.lua'}
 use 'kyazdani42/nvim-web-devicons' -- for file icons require by nvim-tree
-use 'kyazdani42/nvim-tree.lua'
-use 'hrsh7th/vim-vsnip'
-use 'hrsh7th/vim-vsnip-integ'
-use "rafamadriz/friendly-snippets"
-use 'norcalli/nvim-colorizer.lua'
-use 'glepnir/lspsaga.nvim'
-use 'tjdevries/astronauta.nvim'
-use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+use {'kyazdani42/nvim-tree.lua'}
+
 end )
