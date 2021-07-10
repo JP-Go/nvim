@@ -11,6 +11,10 @@ bindkeys('n','<C-k>','<C-w>k<CR>',opts)
 bindkeys('n','<C-l>','<C-w>l<CR>',opts)
 -- Alternative exit insert mode
 bindkeys('i','jj','<Escape>',opts)
+-- Control + s to save
+bindkeys('n','<C-s>',':w<CR>')
+-- Exit terminal mode
+bindkeys('t','<Esc>','<C-\\><C-N>',opts)
 -- Exit terminal mode
 bindkeys('t','<Esc>','<C-\\><C-N>',opts)
 -- Cycle trough buffers
@@ -26,7 +30,6 @@ bindkeys('n','<leader>fh','<cmd>lua require(\'telescope.builtin\').help_tags()<c
 bindkeys('i','<C-Space>','<cmd> lua requre(\'compe\').compe#complete()',{noremap=true,silent=true,expr=true})
 bindkeys('i','<expr><CR>','<cmd> lua requre(\'compe\').compe#confirm(\'<CR>\')',{noremap=true,silent=true})
 -- Nvim tree
-
 bindkeys('n','<leader>e','<cmd> NvimTreeToggle<CR>',opts)
 bindkeys('n','<leader>r','<cmd> NvimTreeRefresh<CR>',opts)
 bindkeys('n','<leader>n','<cmd> NvimTreeFindFile<CR>',opts)
