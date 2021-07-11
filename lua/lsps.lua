@@ -81,7 +81,7 @@ lsp.common_on_attach = function (client, bufnr)
         buf_set_keymap('n', '[d', ':lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
         buf_set_keymap('n', ']d', 'lua vim.lsp.diagnostic.goto_next()<CR>', opts)
         buf_set_keymap('n', '<leader>ql', ':lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-        buf_set_keymap("n", "<leader>cf", ":lua vim.lsp.buf.formatting()<CR>", opts)
+        buf_set_keymap("n", "<leader>cf", ":Format<CR>", opts)
 
 end
 
@@ -98,7 +98,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 configs.emmet_ls = {
   default_config = {
     cmd = {'emmet-ls', '--stdio'};
-    filetypes = {'html', 'css', 'javascript', 'typescript'};
+    filetypes = {'html', 'css'};
     root_dir = function()
       return vim.loop.cwd()
     end;
