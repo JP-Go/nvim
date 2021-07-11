@@ -86,7 +86,7 @@ lsp.common_on_attach = function (client, bufnr)
 end
 
 -- automatically setup these servers with no configuration. I do not bother with these
-local servers = {'vimls','html','texlab','emmet_ls'}
+local servers = {'vimls','html','texlab','emmet_ls','cssls'}
 --enable snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
