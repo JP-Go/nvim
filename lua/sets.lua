@@ -1,37 +1,37 @@
 -- Helpers
-local o = vim.o
-local bo = vim.bo
-local wo = vim.wo
+local opt = vim.opt
 vim.cmd('filetype on')
 
-o.tgc = true
-o.enc = "utf-8"
-o.splitbelow = true
-o.clipboard = "unnamedplus"
-o.path=".,/usr/include,,**"
-o.incsearch = true
-o.hlsearch = false
-o.mouse = "a"
-o.pumheight = 12
-o.pumwidth = 20
-o.scrolloff = 10
-o.cmdheight = 2
-o.hidden = true
-o.inccommand = "split"
-o.cursorline = true
-o.completeopt = "menuone,noselect"
-bo.tabstop = 4
-bo.shiftwidth = 0
-bo.softtabstop = 0
-bo.smartindent = true
-bo.expandtab = true
-bo.swapfile = false
-bo.spelllang = "pt"
-wo.signcolumn='yes'
-wo.rnu = true
-wo.number = true
+opt.termguicolors = true
+opt.encoding = "utf-8"
+opt.splitbelow = true
+opt.clipboard = "unnamedplus"
+opt.path = ".,/usr/include,,**"
+opt.incsearch = true
+opt.hlsearch = false
+opt.mouse = "a"
+opt.pumheight = 12
+opt.pumwidth = 20
+opt.scrolloff = 10
+opt.cmdheight = 2
+opt.hidden = true
+opt.inccommand = "split"
+opt.cursorline = true
+opt.completeopt = "menuone,noselect"
+opt.tabstop = 4
+opt.shiftwidth = 0
+opt.softtabstop = 0
+opt.smartindent = true
+opt.expandtab = false
+opt.swapfile = false
+opt.spelllang = "pt"
+opt.signcolumn='yes'
+opt.relativenumber = true
+opt.number = true
+opt.listchars = 'tab:-> ,trail:⸱,space:⸱,extends:⋯,precedes:⋯'
+opt.formatoptions = {j=true,q=true}
+
 
 -- Plugin specific opttions
 vim.g.simple_latex_viewer = 'okular'
 vim.g.engines = {'pdflatex','xelatex','lualatex'}
-vim.g.gruvbox_contrast_dark='hard'
