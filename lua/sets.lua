@@ -22,13 +22,14 @@ opt.tabstop = 4
 opt.shiftwidth = 0
 opt.softtabstop = 0
 opt.smartindent = true
-opt.expandtab = false
+opt.expandtab = true
 opt.swapfile = false
 opt.spelllang = "pt"
 opt.signcolumn='yes'
 opt.relativenumber = true
 opt.number = true
-opt.listchars = 'tab:-> ,trail:⸱,space:⸱,extends:⋯,precedes:⋯'
+opt.list = true
+opt.listchars = 'tab:-> ,trail:⸱,space:⸱,extends:⋯,precedes:⋯,nbsp:‽,eol:'
 opt.formatoptions = {j=true,q=true}
 
 
