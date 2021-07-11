@@ -1,5 +1,5 @@
-require('plugins')
 require('sets')
+require('plugins')
 require('bindings')
 require('autocmds')
 require('nv-colorizer')
@@ -9,5 +9,5 @@ require('nv-autopairs')
 require("nv-treesitter")
 require('nvim_comment').setup()
 require('lsps')
-vim.o.background = "dark"
+require('format')
 vim.cmd([[colorscheme spacegray]])
