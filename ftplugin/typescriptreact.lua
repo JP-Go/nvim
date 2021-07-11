@@ -1,17 +1,1 @@
-local on_attach = require('lsps').common_on_attach
-local nvim_lsp = require('lspconfig')
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true;
-
-nvim_lsp.tsserver.setup{
-    on_attach = on_attach;
-    capabilities = capabilities;
-    filetypes = {
-        "javascript", "javascriptreact", "javascript.jsx", "typescript",
-        "typescriptreact", "typescript.tsx"
-    },
-}
-
-vim.cmd('LspStart')
-vim.cmd('set ts=4 sts=4 sw=0')
+javascript.lua
