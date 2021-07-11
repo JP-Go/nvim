@@ -26,13 +26,7 @@ bindkeys('n','<leader>ff','<cmd>lua require(\'telescope.builtin\').find_files()<
 bindkeys('n','<leader>fg','<cmd>lua require(\'telescope.builtin\').live_grep()<cr>',{noremap=true})
 bindkeys('n','<leader>fb','<cmd>lua require(\'telescope.builtin\').buffers()<cr>',{noremap=true})
 bindkeys('n','<leader>fh','<cmd>lua require(\'telescope.builtin\').help_tags()<cr>',{noremap=true})
--- Nv-compe 
-bindkeys('i','<C-Space>','<cmd> lua requre(\'compe\').compe#complete()',{noremap=true,silent=true,expr=true})
-bindkeys('i','<expr><CR>','<cmd> lua requre(\'compe\').compe#confirm(\'<CR>\')',{noremap=true,silent=true})
 -- Nvim tree
 bindkeys('n','<leader>e','<cmd> NvimTreeToggle<CR>',opts)
 bindkeys('n','<leader>r','<cmd> NvimTreeRefresh<CR>',opts)
 bindkeys('n','<leader>n','<cmd> NvimTreeFindFile<CR>',opts)
--- TODO: Make this shit work
--- bindkeys('i','<C-j>','vsnip#expandable()  ? vsnip#expand() : "<C-j>"',{expr=true})
--- bindkeys('i','<C-j>','vsnip#expandable()  ? vsnip#expand() : "<C-j>"',{expr=true})
