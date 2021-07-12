@@ -18,6 +18,9 @@ npairs.add_rules({
 		-- don't delete if the next character is xx
 		:with_del(cond.not_after_regex_check("xx"))
 		-- disable  add newline when press <cr>
-		:with_cr(cond.none())
+		:with_cr(cond.none()),
+	Rule("\\[", "\\]",{"tex", "latex"})
+		-- don't add a pair if the next character is %
+		:with_pair(cond.not_after_regex_check("%%"))
 		}
 )
