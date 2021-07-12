@@ -20,8 +20,8 @@ use {'nvim-treesitter/nvim-treesitter'}
 use {'JP-Go/simple-latex'}
 -- TODO Lazy loading
 use {'hrsh7th/nvim-compe'}
-use { "hrsh7th/vim-vsnip"}
-use { "rafamadriz/friendly-snippets"}
+use {"hrsh7th/vim-vsnip"}
+use {"rafamadriz/friendly-snippets"}
 use {'windwp/nvim-autopairs'}
 use {'norcalli/nvim-colorizer.lua'}
 use {'kyazdani42/nvim-web-devicons'} -- for tree icons required by nvim-tree
