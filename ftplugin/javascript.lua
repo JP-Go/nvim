@@ -1,16 +1,23 @@
-local on_attach = require('lsps').common_on_attach
-local nvim_lsp = require('lspconfig')
+local tsserver_on_attach = function(client,bufnr)
+  client.resolved_capabilities.document_formatting = false
+end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true;
-
-nvim_lsp.tsserver.setup{
-    on_attach = on_attach;
-    capabilities = capabilities;
-    filetypes = {
-        "javascript", "javascriptreact", "javascript.jsx", "typescript",
-        "typescriptreact", "typescript.tsx"
-    },
+require("lspconfig").tsserver.setup {
+  cmd = {
+    "typescript-language-server",
+    "--stdio"
+  },
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+  },
+  on_attach = tsserver_on_attach,
+  root_dir = require("lspconfig/util").root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+  settings = { documentFormatting = false },
 }
 
 vim.cmd('set ts=4 sts=4 sw=0')
