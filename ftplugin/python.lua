@@ -10,11 +10,4 @@ require('lspconfig').pylsp.setup{
     filetypes = { 'python'},
 }
 
-require"lspconfig".efm.setup {
-    init_options = {documentFormatting = true, codeAction = false},
-    filetypes = {"python"},
-    settings = {
-        rootMarkers = {".git/", "requirements.txt"},
-    }
-}
 vim.cmd('LspStart')

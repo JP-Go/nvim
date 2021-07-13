@@ -1,6 +1,7 @@
 vim.api.nvim_exec([[
-        augroup jstsreact
+        augroup formater
         au!
         au BufWritePost *.js,*.ts,*.jsx,*.tsx FormatWrite prettier
+        au BufWritePost *.py FormatWrite black
         augroup END
 ]],false)
