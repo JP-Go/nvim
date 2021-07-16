@@ -2,7 +2,14 @@ local common_jsts_conf = {
    function()
       return {
         exe = "prettier",
-        args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), '--single-quote','--trailing-comma=all','--print-width=100','--tab-width=4'},
+        args = {
+                "--stdin-filepath", 
+                vim.api.nvim_buf_get_name(0),
+                '--single-quote',
+                '--trailing-comma=all',
+                '--print-width=120',
+                '--tab-width=4'
+            },
         stdin = true
       }
     end
