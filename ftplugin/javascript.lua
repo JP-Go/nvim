@@ -22,5 +22,5 @@ require("lspconfig").tsserver.setup {
   settings = { documentFormatting = false },
 }
 
-vim.cmd('set ts=4 sts=4 sw=0')
+vim.cmd('set ts=4 sts=4 sw=0 nowrap')
 vim.cmd('LspStart')
