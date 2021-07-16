@@ -32,7 +32,26 @@ opt.list = true
 opt.listchars = 'tab:-> ,trail:⸱,space:⸱,extends:⋯,precedes:⋯,nbsp:‽,eol:'
 opt.formatoptions = {j=true,q=true}
 
+-- Source files or lines
 
--- Plugin specific opttions
-vim.g.simple_latex_viewer = 'okular'
-vim.g.engines = {'pdflatex','xelatex','lualatex'}
+source_file = function()
+    local ft = vim.api.nvim_buf_get_option(0,'filetype')
+    if ft == 'lua' then
+        vim.cmd('luafile %') 
+    elseif ft=='vim' then
+        vim.cmd('source %')
+    end
+end
+
+execute_line = function()
+    local ft = vim.api.nvim_buf_get_option(0,'filetype')
+    local line = vim.api.nvim_get_current_line()
+    if ft == 'lua' then
+        vim.cmd('lua print(' .. line .. ')') 
+    elseif ft=='vim' then
+        vim.cmd('exec ' .. line)
+    end
+end
+
+vim.api.nvim_set_keymap('n','<leader>x',':lua execute_line()<CR>',{noremap = true})
+vim.api.nvim_set_keymap('n','<leader><leader>x',':lua  source_file()<CR>',{noremap = true})
