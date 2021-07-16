@@ -28,4 +28,5 @@ use {'kyazdani42/nvim-web-devicons'} -- for tree icons required by nvim-tree
 use {'kyazdani42/nvim-tree.lua'}
 use {'mhartington/formatter.nvim'}
 use {'folke/tokyonight.nvim'}
+use {'windwp/nvim-ts-autotag'}
 end )
