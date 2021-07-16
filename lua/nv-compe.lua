@@ -18,7 +18,7 @@ require'compe'.setup {
     nvim_lua = true;
     vsnip = true;
     path = true;
-    buffer = true;
+    buffer = false;
   };
 }
 local t = function(str)
