@@ -2,7 +2,7 @@
 
 ## Features
 
-* Native LSP configuration (For js,ts,python,viml,css(and its preprocessors) and html for now)
+* Native LSP configuration (For js,ts,lua,python,viml,css(and its preprocessors) and html for now)
 * Plugin manager written in lua (Packer)
 * Personal key mappings
 * IDE-like features such rename symbols, go-to definition and others
@@ -15,5 +15,3 @@
 1. clone this repository to `.config/nvim` (Linux) `git clone https://www.github.com/JP-Go/jpnvimrc ~/.config/nvim`
 1. Follow the [packer.nvim](https://github.com/wbthomason/packer.nvim) guide to install packer
 1. Open neovim and run `:PackerInstall` to install all the plugins.
-
-
