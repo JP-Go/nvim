@@ -27,7 +27,6 @@ require('formatter').setup({
             function()
                 return {
                     exe = 'yapf',
-                    args = {'-'},
                     stdin=true,
                 }
         end

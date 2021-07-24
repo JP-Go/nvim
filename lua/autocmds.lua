@@ -2,6 +2,6 @@ vim.api.nvim_exec([[
         augroup formater
         au!
         au BufWritePost *.js,*.ts,*.jsx,*.tsx FormatWrite prettier
-        au BufWritePost *.py FormatWrite black
+        au BufWritePost *.py FormatWrite yapf
         augroup END
 ]],false)
