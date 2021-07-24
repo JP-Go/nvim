@@ -1,6 +1,6 @@
 
 require('simple-latex').setup{
-    viewer = 'okular'
+    viewer = 'qpdfview'
 }
 vim.bo.ts=4
 vim.bo.sts=4
