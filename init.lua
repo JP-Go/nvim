@@ -11,4 +11,9 @@ require('nvim_comment').setup()
 require('lsps')
 require('format')
 require('tokyo')
+require('lualine').setup{
+    options = {
+        theme = 'tokyonight'
+    }
+}
 vim.opt.background = 'dark'

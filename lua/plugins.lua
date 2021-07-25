@@ -30,4 +30,5 @@ use {'kyazdani42/nvim-tree.lua'}
 use {'mhartington/formatter.nvim'}
 use {'windwp/nvim-ts-autotag'}
 use {'folke/tokyonight.nvim'}
+use {'hoob3rt/lualine.nvim'}
 end )
