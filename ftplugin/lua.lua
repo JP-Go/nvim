@@ -1,5 +1,5 @@
 local common_on_attach = require('lsps').common_on_attach
-local sumneko_root_path = '/home/jp/Builds/lsp/lua-language-server'
+local sumneko_root_path = '/home/jp/Builds/lua-language-server'
 local sumneko_binary = sumneko_root_path.."/bin/"..'Linux'.."/lua-language-server"
 
 local runtime_path = vim.split(package.path, ';')
