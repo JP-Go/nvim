@@ -31,6 +31,7 @@ opt.number = true
 opt.list = true
 opt.listchars = 'tab:-> ,trail:⸱,space:⸱,extends:⋯,precedes:⋯,nbsp:‽,eol:'
 opt.formatoptions = {j=true,q=true}
+opt.undofile = true
 
 -- Source files or lines
 

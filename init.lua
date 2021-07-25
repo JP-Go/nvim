@@ -11,4 +11,4 @@ require('nvim_comment').setup()
 require('lsps')
 require('format')
 require('tokyo')
--- vim.cmd([[colorscheme spacegray]])
+vim.opt.background = 'dark'
