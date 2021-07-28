@@ -17,7 +17,9 @@ use {'nvim-lua/plenary.nvim'} -- required by telescope
 use {'nvim-telescope/telescope.nvim'}
 use {'tjdevries/astronauta.nvim'}
 use {'nvim-treesitter/nvim-treesitter'}
-use {'JP-Go/simple-latex'}
+use {'JP-Go/simple-latex',ft={'tex'},config =  function ()
+    require('simple-latex').setup{viewer = 'qpdfview'}
+end}
 use {'romgrk/barbar.nvim'}
 -- TODO Lazy loading
 use {'hrsh7th/nvim-compe'}
