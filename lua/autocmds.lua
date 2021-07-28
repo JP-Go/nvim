@@ -1,7 +1,11 @@
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+    [[
         augroup formater
         au!
-        au BufWritePost *.js,*.ts,*.jsx,*.tsx FormatWrite prettier
-        au BufWritePost *.py FormatWrite yapf
+        au BufWritePost *.js,*.ts,*.jsx,*.tsx FormatWrite
+        au BufWritePost *.py FormatWrite
+        au BufWritePost *.lua FormatWrite
         augroup END
-]],false)
+]],
+    false
+)
