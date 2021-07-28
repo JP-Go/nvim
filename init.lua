@@ -1,19 +1,14 @@
-require('sets')
-require('plugins')
-require('bindings')
-require('autocmds')
-require('nv-colorizer')
-require('nv-compe')
-require('nv-tree')
-require('nv-autopairs')
-require("nv-treesitter")
-require('nvim_comment').setup()
-require('lsps')
-require('format')
-require('tokyo')
-require('lualine').setup{
+require("sets")
+require("plugins")
+require("bindings")
+require("autocmds")
+require("nv-colorizer")
+require("nv-tree")
+require("lsps")
+require("tokyo")
+require("lualine").setup {
     options = {
-        theme = 'tokyonight'
+        theme = "tokyonight"
     }
 }
-vim.opt.background = 'dark'
+vim.opt.background = "dark"
