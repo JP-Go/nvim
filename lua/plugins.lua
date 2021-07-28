@@ -11,26 +11,51 @@ end
 return require('packer').startup( function()
 use {'wbthomason/packer.nvim'}
 use {'neovim/nvim-lspconfig'}
-use {"terrortylor/nvim-comment" }
 use {'nvim-lua/popup.nvim'} -- required by telescope
 use {'nvim-lua/plenary.nvim'} -- required by telescope
 use {'nvim-telescope/telescope.nvim'}
 use {'tjdevries/astronauta.nvim'}
-use {'nvim-treesitter/nvim-treesitter'}
-use {'JP-Go/simple-latex',ft={'tex'},config =  function ()
-    require('simple-latex').setup{viewer = 'qpdfview'}
-end}
 use {'romgrk/barbar.nvim'}
--- TODO Lazy loading
-use {'hrsh7th/nvim-compe'}
-use {"hrsh7th/vim-vsnip"}
-use {"rafamadriz/friendly-snippets"}
-use {'windwp/nvim-autopairs'}
-use {'norcalli/nvim-colorizer.lua'}
 use {'kyazdani42/nvim-web-devicons'} -- for tree icons required by nvim-tree
-use {'kyazdani42/nvim-tree.lua'}
-use {'mhartington/formatter.nvim'}
-use {'windwp/nvim-ts-autotag'}
 use {'folke/tokyonight.nvim'}
 use {'hoob3rt/lualine.nvim'}
+use {'kyazdani42/nvim-tree.lua'}
+use {'nvim-treesitter/nvim-treesitter'}
+use {'norcalli/nvim-colorizer.lua' }
+use {'windwp/nvim-ts-autotag'}
+
+-- Lazy loading
+
+use {"terrortylor/nvim-comment",
+    event='VimEnter',
+    config = function()
+        require('nvim_comment').setup()
+    end
+    }
+use {'JP-Go/simple-latex',
+    ft={'tex'},
+    config =  function ()
+        require('simple-latex').setup{viewer = 'qpdfview'}
+    end
+}
+use {'hrsh7th/nvim-compe',
+    event = 'InsertEnter',
+    config = function ()
+        require('nv-compe')
+    end
+}
+use {'windwp/nvim-autopairs',
+    after='nvim-compe',
+    config = function ()
+        require('nv-autopairs')
+    end
+}
+use {'mhartington/formatter.nvim',
+    ft = {'javascript','javscriptreact','typescript','typescriptreact','python','lua'},
+    config = function ()
+        require('format')
+    end
+}
+use {"hrsh7th/vim-vsnip",after = 'nvim-compe'}
+use {"rafamadriz/friendly-snippets",after='vim-vsnip'}
 end )
