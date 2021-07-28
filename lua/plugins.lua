@@ -21,7 +21,6 @@ return require("packer").startup(
         use {"folke/tokyonight.nvim"}
         use {"hoob3rt/lualine.nvim"}
         use {"kyazdani42/nvim-tree.lua"}
-        use {"norcalli/nvim-colorizer.lua"}
 
         -- Lazy loading
         use {
@@ -70,5 +69,12 @@ return require("packer").startup(
         }
         use {"hrsh7th/vim-vsnip", after = "nvim-compe"}
         use {"rafamadriz/friendly-snippets", after = "vim-vsnip"}
+        use {
+            "norcalli/nvim-colorizer.lua",
+            event = "BufWinEnter",
+            config = function()
+                require("nv-colorizer")
+            end
+        }
     end
 )
