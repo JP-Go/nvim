@@ -1,45 +1,43 @@
 local common_jsts_conf = {
     function()
         return {
-            exe = "prettier",
+            exe = 'prettier',
             args = {
-                "--stdin-filepath",
+                '--stdin-filepath',
                 vim.api.nvim_buf_get_name(0),
-                "--single-quote",
-                "--trailing-comma=all",
-                "--print-width=120",
-                "--tab-width=4"
+                '--single-quote',
+                '--trailing-comma=all',
+                '--print-width=120',
+                '--tab-width=4',
             },
-            stdin = true
+            stdin = true,
         }
-    end
+    end,
 }
 
-require("formatter").setup(
-    {
-        logging = false,
-        filetype = {
-            javascript = common_jsts_conf,
-            typescript = common_jsts_conf,
-            javascriptreact = common_jsts_conf,
-            typescriptreact = common_jsts_conf,
-            python = {
-                function()
-                    return {
-                        exe = "yapf",
-                        stdin = true
-                    }
-                end
-            },
-            lua = {
-                function()
-                    return {
-                        exe = "luafmt",
-                        args = {"--stdin"},
-                        stdin = true
-                    }
-                end
-            }
-        }
-    }
-)
+require('formatter').setup({
+    logging = false,
+    filetype = {
+        javascript = common_jsts_conf,
+        typescript = common_jsts_conf,
+        javascriptreact = common_jsts_conf,
+        typescriptreact = common_jsts_conf,
+        python = {
+            function()
+                return {
+                    exe = 'yapf',
+                    stdin = true,
+                }
+            end,
+        },
+        lua = {
+            function()
+                return {
+                    exe = 'stylua',
+                    args = { '--config-path=/home/jp/.dotfiles/stylua.toml', '-' },
+                    stdin = true,
+                }
+            end,
+        },
+    },
+})

@@ -11,6 +11,9 @@ bindkeys("n", "<leader><leader>x", ":lua _G.source_file()<CR>", {noremap = true}
 bindkeys("v", ">", ">gv", opts)
 bindkeys("v", "<", "<gv", opts)
 
+-- Open terminal
+bindkeys("n", "<C-t>", ":vsplit | term<CR>", opts)
+
 -- hlsearch toggle
 bindkeys("n", "<leader>h", ":set hlsearch!<CR>", opts)
 
@@ -23,10 +26,10 @@ bindkeys("n", "<C-l>", "<C-w>l<CR>", opts)
 -- Move lines with alt+jk
 bindkeys("i", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 bindkeys("i", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-bindkeys("n", "<A-j>", ":m .+1<CR>", opts)
-bindkeys("n", "<A-k>", ":m .-2<CR>", opts)
-bindkeys("v", "<A-j>", ":m '>+1<CR>gv-gv", opts)
-bindkeys("v", "<A-k>", ":m '<-2<CR>gv-gv", opts)
+bindkeys("n", "<A-j>", ":m .+1<CR>==", opts)
+bindkeys("n", "<A-k>", ":m .-2<CR>==", opts)
+bindkeys("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+bindkeys("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- Alternative exit insert mode
 bindkeys("i", "jj", "<Escape>", opts)
