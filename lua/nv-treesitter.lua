@@ -1,12 +1,12 @@
-require "nvim-treesitter.configs".setup {
+require('nvim-treesitter.configs').setup({
     highlight = {
         enable = true,
-        disable = {"tex", "latex"}
+        disable = { 'tex', 'latex' },
     },
     indent = {
-        enable = true
+        enable = true,
     },
     autotag = {
-        enable = true
-    }
-}
+        enable = true,
+    },
+})
