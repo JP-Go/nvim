@@ -5,6 +5,7 @@ vim.api.nvim_exec(
         au BufWritePost *.js,*.ts,*.jsx,*.tsx FormatWrite
         au BufWritePost *.py FormatWrite
         au BufWritePost *.lua FormatWrite
+        au BufWritePost *.rs FormatWrite
         augroup END
 ]],
     false

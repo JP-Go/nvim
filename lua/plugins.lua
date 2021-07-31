@@ -61,7 +61,7 @@ return require('packer').startup(function()
     })
     use({
         'mhartington/formatter.nvim',
-        ft = { 'javascript', 'javscriptreact', 'typescript', 'typescriptreact', 'python', 'lua' },
+        ft = { 'javascript', 'javscriptreact', 'typescript', 'typescriptreact', 'python', 'lua', 'rust' },
         config = function()
             require('format')
         end,
