@@ -46,10 +46,30 @@ bindkeys('n', '<s-tab>', ':bprevious<CR>', opts)
 bindkeys('n', '<C-q>', ':bdelete<CR>', opts)
 
 -- Telescope
-bindkeys('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
-bindkeys('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
-bindkeys('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<CR>", { noremap = true })
-bindkeys('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", { noremap = true })
+bindkeys(
+    'n',
+    '<leader>ff',
+    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy())<CR>",
+    { noremap = true }
+)
+bindkeys(
+    'n',
+    '<leader>fg',
+    "<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_ivy())<CR>",
+    { noremap = true }
+)
+bindkeys(
+    'n',
+    '<leader>fb',
+    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_ivy())<CR>",
+    { noremap = true }
+)
+bindkeys(
+    'n',
+    '<leader>fh',
+    "<cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_ivy())<CR>",
+    { noremap = true }
+)
 
 -- Nvim tree
 bindkeys('n', '<leader>e', '<cmd> NvimTreeToggle<CR>', opts)
