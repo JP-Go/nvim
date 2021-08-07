@@ -6,9 +6,9 @@ local common_jsts_conf = {
                 '--stdin-filepath',
                 vim.api.nvim_buf_get_name(0),
                 '--single-quote',
-                '--trailing-comma=all',
-                '--print-width=120',
+                '--print-width=80',
                 '--tab-width=4',
+                '--parser=babel-ts',
             },
             stdin = true,
         }
