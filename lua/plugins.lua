@@ -42,7 +42,7 @@ return require('packer').startup(function()
         'JP-Go/simple-latex',
         ft = { 'tex' },
         config = function()
-            require('simple-latex').setup({ viewer = 'qpdfview' })
+            require('simple-latex').setup({ viewer = 'mupdf' })
         end,
     })
     use({
