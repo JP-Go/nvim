@@ -75,4 +75,11 @@ return require('packer').startup(function()
             require('nv-colorizer')
         end,
     })
+    use({
+        'glepnir/lspsaga.nvim',
+        event = 'BufEnter',
+        config = function()
+            require('lspsaga').init_lsp_saga()
+        end,
+    })
 end)
