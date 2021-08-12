@@ -1,6 +1,6 @@
 require('sets')
 require('plugins')
-require('bindings')
+require('remaps')
 require('autocmds')
 require('nv-tree')
 require('lsps')
