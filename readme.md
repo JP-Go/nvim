@@ -2,7 +2,7 @@
 
 ## Features
 
-* Native LSP configuration (For js,ts,lua,python,viml,css(and its preprocessors) and html for now)
+* Native LSP configuration
 * Plugin manager written in lua (Packer)
 * Personal key mappings
 * Code formatter
