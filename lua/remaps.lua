@@ -24,14 +24,14 @@ bindkeys('n', '<C-k>', '<C-w>k<CR>', opts)
 bindkeys('n', '<C-l>', '<C-w>l<CR>', opts)
 
 -- Move lines with alt+jk
-bindkeys('i', '<A-j>', '<Esc>:m .+1<CR>==gi', opts)
-bindkeys('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
 bindkeys('n', '<A-j>', ':m .+1<CR>==', opts)
 bindkeys('n', '<A-k>', ':m .-2<CR>==', opts)
 bindkeys('v', '<A-j>', ":m '>+1<CR>gv=gv", opts)
 bindkeys('v', '<A-k>', ":m '<-2<CR>gv=gv", opts)
+bindkeys('i', '<A-j>', '<Esc>:m .+1<CR>==gi', opts)
+bindkeys('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
 
--- Alternative exit insert mode
+-- Alternative to exit insert mode
 bindkeys('i', 'jj', '<Escape>', opts)
 
 -- Control + s to save
