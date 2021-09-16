@@ -92,6 +92,7 @@ local nvim_lsp = require('lspconfig')
 local configs = require('lspconfig/configs')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.workspace.configuration = true
 
 configs.emmet_ls = {
     default_config = {
