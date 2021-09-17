@@ -4,10 +4,12 @@ require('remaps')
 require('autocmds')
 require('nv-tree')
 require('lsps')
-require('tokyo')
 require('lualine').setup({
     options = {
-        theme = 'tokyonight',
+        -- theme = 'tokyonight', -- uncomment to use tokyonight in statusline
+        theme = 'dracula-nvim',
     },
 })
 vim.opt.background = 'dark'
+vim.cmd('colorscheme dracula')
+-- require('tokyo') -- uncomment to use tokyonight

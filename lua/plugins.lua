@@ -18,6 +18,7 @@ return require('packer').startup(function()
     use({ 'romgrk/barbar.nvim' })
     use({ 'kyazdani42/nvim-web-devicons' }) -- for tree icons required by nvim-tree
     use({ 'folke/tokyonight.nvim' })
+    use({ 'Mofiqul/dracula.nvim' })
     use({ 'hoob3rt/lualine.nvim' })
     use({ 'kyazdani42/nvim-tree.lua' })
 
@@ -80,17 +81,6 @@ return require('packer').startup(function()
         event = 'BufEnter',
         config = function()
             require('lspsaga').init_lsp_saga()
-        end,
-    })
-
-    use({
-        'mfussenegger/nvim-jdtls',
-        ft = { 'java' },
-        config = function()
-            local config = {}
-            config.cmd = {'start-jdtls.sh'}
-            config.on_attach = require('lsps').common_on_attach
-            require('jdtls').start_or_attach(config)
         end,
     })
 end)
