@@ -14,11 +14,11 @@ require('compe').setup({
     documentation = true,
 
     source = {
-        nvim_lsp = {priority = 9},
-        nvim_lua = {priority = 8},
-        vsnip = {priority=7},
-        path = {priority = 5},
-        buffer = true,
+        nvim_lsp = {priority = 1},
+        vsnip = {priority=2},
+        nvim_lua = {priority = 1},
+        path = {priority = 3},
+        buffer = {priority = 4},
     },
 })
 
