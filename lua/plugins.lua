@@ -82,4 +82,15 @@ return require('packer').startup(function()
             require('lspsaga').init_lsp_saga()
         end,
     })
+
+    use({
+        'mfussenegger/nvim-jdtls',
+        ft = { 'java' },
+        config = function()
+            local config = {}
+            config.cmd = {'start-jdtls.sh'}
+            config.on_attach = require('lsps').common_on_attach
+            require('jdtls').start_or_attach(config)
+        end,
+    })
 end)
