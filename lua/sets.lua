@@ -25,13 +25,13 @@ opt.softtabstop = 0
 opt.smartindent = true
 opt.expandtab = true
 opt.swapfile = false
-opt.spelllang = 'pt'
+opt.spelllang = 'brazil'
 opt.signcolumn = 'yes'
 opt.relativenumber = true
 opt.number = true
 opt.list = true
-opt.listchars = 'tab:-> ,trail:⸱,space:⸱,extends:⋯,precedes:⋯,nbsp:‽'
-opt.formatoptions = { j = true, q = true, c = false, r = false, o = false }
+opt.listchars = 'tab:-> ,trail:·,space:·,extends:⋯,precedes:⋯,nbsp:‽'
+opt.formatoptions = { j = true, q = true, c = false, r = false, o = false, t = true }
 opt.undofile = true
 
 -- Source files or lines
