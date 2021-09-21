@@ -7,6 +7,10 @@ vim.g.mapleader = ' '
 remap('n', '<leader>x', ':lua _G.execute_line()<CR>', { noremap = true })
 remap('n', '<leader><leader>x', ':lua _G.source_file()<CR>', { noremap = true })
 
+-- Execute commands faster in normal mode
+remap('n', ';', ':', { noremap = true })
+remap('n', ':', ';', { noremap = true })
+
 -- Shift lines in visual mode
 remap('v', '>', '>gv', opts)
 remap('v', '<', '<gv', opts)
@@ -46,30 +50,10 @@ remap('n', '<s-tab>', ':bprevious<CR>', opts)
 remap('n', '<C-q>', ':bdelete<CR>', opts)
 
 -- Telescope
-remap(
-    'n',
-    '<leader>ff',
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy())<CR>",
-    { noremap = true }
-)
-remap(
-    'n',
-    '<leader>fg',
-    "<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_ivy())<CR>",
-    { noremap = true }
-)
-remap(
-    'n',
-    '<leader>fb',
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_ivy())<CR>",
-    { noremap = true }
-)
-remap(
-    'n',
-    '<leader>fh',
-    "<cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_ivy())<CR>",
-    { noremap = true }
-)
+remap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
+remap('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
+remap('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<CR>", { noremap = true })
+remap('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", { noremap = true })
 
 -- Nvim tree
 remap('n', '<leader>e', '<cmd> NvimTreeToggle<CR>', opts)
