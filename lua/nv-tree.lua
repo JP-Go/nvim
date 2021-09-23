@@ -11,7 +11,7 @@ vim.g.nvim_tree_hijack_netrw = 1
 vim.g.nvim_tree_add_trailing = 1
 vim.g.nvim_tree_group_empty = 1
 vim.g.nvim_tree_lsp_diagnostics = 1
-vim.g.nvim_tree_auto_open = 1
+vim.g.nvim_tree_auto_open = 0
 vim.g.nvim_tree_window_picker_exclude = {
     filetype = {
         'packer',
