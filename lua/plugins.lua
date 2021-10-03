@@ -83,4 +83,5 @@ return require('packer').startup(function()
             require('lspsaga').init_lsp_saga()
         end,
     })
+    use({ 'ThePrimeagen/vim-be-good' })
 end)
