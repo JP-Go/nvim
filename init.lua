@@ -2,7 +2,7 @@ require('sets')
 require('plugins')
 require('remaps')
 require('autocmds')
-require('nv-tree')
+-- require('nv-tree')
 require('lsps')
 require('lualine').setup({
     options = {

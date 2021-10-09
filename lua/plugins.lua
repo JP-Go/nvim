@@ -20,7 +20,13 @@ return require('packer').startup(function()
     use({ 'folke/tokyonight.nvim' })
     use({ 'Mofiqul/dracula.nvim' })
     use({ 'hoob3rt/lualine.nvim' })
-    use({ 'kyazdani42/nvim-tree.lua' })
+    use({
+        'kyazdani42/nvim-tree.lua',
+        cmd = 'NvimTreeToggle',
+        config = function()
+            require('nv-tree')
+        end,
+    })
 
     -- Lazy loading
     use({
