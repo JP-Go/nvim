@@ -1,26 +1,10 @@
-vim.fn.sign_define(
-    'LspDiagnosticsSignError',
-    { texthl = 'LspDiagnosticsDefaultError', text = '', numhl = 'LspDiagnosticsDefaultError' }
-)
-vim.fn.sign_define(
-    'LspDiagnosticsSignWarning',
-    { texthl = 'LspDiagnosticsDefaultWarning', text = '', numhl = 'LspDiagnosticsDefaultWarning' }
-)
-vim.fn.sign_define(
-    'LspDiagnosticsSignHint',
-    { texthl = 'LspDiagnosticsDefaultHint', text = '', numhl = 'LspDiagnosticsDefaultHint' }
-)
-vim.fn.sign_define(
-    'LspDiagnosticsSignInformation',
-    { texthl = 'LspDiagnosticsDefaultInformation', text = '', numhl = 'LspDiagnosticsDefaultInformation' }
-)
+local lsp_warning_types = { ['Error'] = '', ['Warning'] = '', ['Hint'] = '', ['Information'] = '' }
 
--- Symbols to show in the text when the lsp provides diagnostics
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    signs = true,
-    underline = true,
-    virtual_text = true,
-})
+for type, symb in pairs(lsp_warning_types) do
+    local warning_type = 'LspDiagnosticsSign' .. type
+    local params = { texthl = warning_type .. type, text = symb, numhl = warning_type .. type }
+    vim.fn.sign_define(warning_type, params)
+end
 
 -- symbols for autocomplete
 vim.lsp.protocol.CompletionItemKind = {
@@ -70,7 +54,6 @@ lsp.common_on_attach = function(client, bufnr)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-
     buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', '<leader>wa', ':lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -83,12 +66,13 @@ lsp.common_on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>cf', ':Format<CR>', opts)
 end
 
--- automatically setup these servers with no configuration. I do not bother with these
-local servers = { 'html', 'texlab', 'cssls', 'tailwindcss' }
---enable snippet support
+-- automatically setup these servers with no configuration. I do not bother configuring with these
+local servers = { 'html', 'texlab', 'cssls', 'tailwindcss', 'ccls', 'tsserver', 'pylsp', 'rust_analyzer', 'solargraph' }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.workspace.configuration = true
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+lsp.common_capabilities = capabilities
 
 for _, server in ipairs(servers) do
     require('lspconfig')[server].setup({
@@ -96,5 +80,70 @@ for _, server in ipairs(servers) do
         capabilities = capabilities,
     })
 end
+
+require('lspconfig').jdtls.setup({
+    capabilities = capabilities,
+    cmd = {
+        '/usr/lib/jvm/java-16-openjdk/bin/java',
+        '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+        '-Dosgi.bundles.defaultStartLevel=4',
+        '-Declipse.product=org.eclipse.jdt.ls.core.product',
+        '-Dlog.protocol=true',
+        '-Dlog.level=ALL',
+        '-Xms1g',
+        '-Xmx2G',
+        '-jar',
+        '/home/jp/.local/lib/java-lsp/plugins/org.eclipse.equinox.launcher_1.6.300.v20210813-1054.jar',
+        '-configuration',
+        '/home/jp/.local/lib/java-lsp/config_linux',
+        '-data',
+        '/home/jp/workspace',
+        '--add-modules=ALL-SYSTEM',
+        '--add-opens',
+        'java.base/java.util=ALL-UNNAMED',
+        '--add-opens',
+        'java.base/java.lang=ALL-UNNAMED',
+    },
+    on_attach = lsp.common_on_attach,
+})
+
+local sumneko_root_path = '/home/jp/Builds/lua-language-server'
+local sumneko_binary = sumneko_root_path .. '/bin/' .. 'Linux' .. '/lua-language-server'
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+
+require('lspconfig').sumneko_lua.setup({
+    on_attach = lsp.common_on_attach,
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+                -- Setup your lua path
+                path = runtime_path,
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { 'vim' },
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = {
+                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                },
+                maxPreload = 100000,
+                preloadFileSize = 1000,
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+})
 
 return lsp

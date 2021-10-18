@@ -43,6 +43,7 @@ return require('packer').startup(function()
             require('nvim_comment').setup()
         end,
     })
+
     use({
         'JP-Go/simple-latex',
         ft = { 'tex' },
@@ -50,16 +51,24 @@ return require('packer').startup(function()
             require('simple-latex').setup({ viewer = 'evince' })
         end,
     })
+
     use({
-        'hrsh7th/nvim-compe',
-        event = 'InsertEnter',
+        'hrsh7th/nvim-cmp',
         config = function()
-            require('nv-compe')
+            require('nv-cmp')
         end,
+        requires = {
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-vsnip' },
+            { 'hrsh7th/vim-vsnip' },
+        },
     })
+
+    use({ 'rafamadriz/friendly-snippets' })
+
     use({
         'windwp/nvim-autopairs',
-        after = 'nvim-compe',
         config = function()
             require('nv-autopairs')
         end,
@@ -71,8 +80,6 @@ return require('packer').startup(function()
             require('format')
         end,
     })
-    use({ 'hrsh7th/vim-vsnip', after = 'nvim-compe' })
-    use({ 'rafamadriz/friendly-snippets', after = 'vim-vsnip' })
     use({
         'norcalli/nvim-colorizer.lua',
         event = 'BufWinEnter',
@@ -80,6 +87,8 @@ return require('packer').startup(function()
             require('nv-colorizer')
         end,
     })
+
+    use({ 'onsails/lspkind-nvim' })
     use({ 'ThePrimeagen/vim-be-good' })
     use({ 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' })
 end)
