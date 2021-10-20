@@ -38,7 +38,18 @@ lsp.common_on_attach = function(client, bufnr)
 end
 
 -- automatically setup these servers with no configuration. I do not bother configuring with these
-local servers = { 'html', 'texlab', 'cssls', 'tailwindcss', 'ccls', 'tsserver', 'pylsp', 'rust_analyzer', 'solargraph' }
+local servers =
+    {
+        'html',
+        'texlab',
+        'cssls',
+        'tailwindcss',
+        'clangd',
+        'tsserver',
+        'pylsp',
+        'rust_analyzer',
+        'solargraph',
+    }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
