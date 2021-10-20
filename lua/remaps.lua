@@ -54,8 +54,3 @@ remap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>
 remap('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
 remap('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<CR>", { noremap = true })
 remap('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", { noremap = true })
-
--- Nvim tree
-remap('n', '<leader>e', '<cmd> NvimTreeToggle<CR>', opts)
-remap('n', '<leader>r', '<cmd> NvimTreeRefresh<CR>', opts)
-remap('n', '<leader>n', '<cmd> NvimTreeFindFile<CR>', opts)
