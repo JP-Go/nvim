@@ -4,9 +4,6 @@ require('remaps')
 require('autocmds')
 require('lsps')
 require('lualine').setup({
-    options = {
-        theme = 'dracula-nvim',
-    },
+    options = { theme = 'dracula-nvim' },
 })
-vim.opt.background = 'dark'
-vim.cmd('colorscheme dracula')
+vim.cmd[[colorscheme dracula]]

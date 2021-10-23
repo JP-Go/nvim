@@ -17,7 +17,8 @@ return require('packer').startup(function()
     use({ 'kyazdani42/nvim-web-devicons' }) -- for tree icons required by nvim-tree
     use({ 'folke/tokyonight.nvim' })
     use({ 'Mofiqul/dracula.nvim' })
-    use({ 'hoob3rt/lualine.nvim' })
+    use({ 'hoob3rt/lualine.nvim', })
+    use({ 'navarasu/onedark.nvim' })
 
     -- Lazy loading
     use({
