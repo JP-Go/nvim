@@ -38,6 +38,10 @@ remap('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
 -- Alternative to exit insert mode
 remap('i', 'jj', '<Escape>', opts)
 
+-- Delete word to the left of the cursor in ins-mode
+-- OBS:  = Backspace
+remap('i', '', '<C-w>', opts)
+
 -- Control + s to save
 remap('n', '<C-s>', ':w<CR>', { noremap = true })
 
