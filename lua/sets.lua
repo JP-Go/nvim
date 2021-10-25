@@ -35,7 +35,6 @@ opt.formatoptions = { j = true, q = true, c = false, r = false, o = false, t = t
 opt.undofile = true
 
 -- Source files or lines
-
 _G.source_file = function()
     local ft = vim.api.nvim_buf_get_option(0, 'filetype')
     if ft == 'lua' then
