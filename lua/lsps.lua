@@ -2,7 +2,7 @@ local lsp_warning_types = { ['Error'] = '', ['Warning'] = '', ['Hint'] = '
 
 for type, symb in pairs(lsp_warning_types) do
     local warning_type = 'LspDiagnosticsSign' .. type
-    local params = { texthl = warning_type .. type, text = symb, numhl = warning_type .. type }
+    local params = { texthl = warning_type, text = symb, numhl = warning_type }
     vim.fn.sign_define(warning_type, params)
 end
 
@@ -38,18 +38,17 @@ lsp.common_on_attach = function(client, bufnr)
 end
 
 -- automatically setup these servers with no configuration. I do not bother configuring with these
-local servers =
-    {
-        'html',
-        'texlab',
-        'cssls',
-        'tailwindcss',
-        'clangd',
-        'tsserver',
-        'pylsp',
-        'rust_analyzer',
-        'solargraph',
-    }
+local servers = {
+    'html',
+    'texlab',
+    'cssls',
+    'tailwindcss',
+    'clangd',
+    'tsserver',
+    'pylsp',
+    'rust_analyzer',
+    'solargraph',
+}
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
