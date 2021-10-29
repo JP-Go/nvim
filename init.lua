@@ -6,4 +6,4 @@ require('lsps')
 require('lualine').setup({
     options = { theme = 'codedark' },
 })
-vim.cmd([[colorscheme tomorrow-night-bright]])
+vim.cmd([[colorscheme Tomorrow-Night]])
