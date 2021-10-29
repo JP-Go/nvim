@@ -45,7 +45,7 @@ local servers = {
     'tailwindcss',
     'clangd',
     'tsserver',
-    'pylsp',
+    'pyright',
     'rust_analyzer',
     'solargraph',
 }
