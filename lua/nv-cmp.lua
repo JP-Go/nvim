@@ -1,4 +1,4 @@
-vim.cmd('set completeopt=menu,menuone,noselect')
+vim.cmd('set completeopt=menu,menuone')
 local lspkind = require('lspkind')
 local cmp = require('cmp')
 cmp.setup({
@@ -26,6 +26,7 @@ cmp.setup({
             with_text = true,
             maxwidth = 50,
             menu = {
+                path = '[Path]',
                 buffer = '[Buffer]',
                 nvim_lsp = '[LSP]',
                 vsnip = '[Vsnip]',
