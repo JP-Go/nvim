@@ -14,10 +14,10 @@ return require('packer').startup(function()
     use({ 'nvim-telescope/telescope.nvim' })
     use({ 'tjdevries/astronauta.nvim' })
     use({ 'romgrk/barbar.nvim' })
-    use({ 'kyazdani42/nvim-web-devicons' }) -- for tree icons required by nvim-tree
     use({ 'folke/tokyonight.nvim' })
     use({ 'Mofiqul/dracula.nvim' })
-    use({ 'hoob3rt/lualine.nvim', })
+    use({ 'hoob3rt/lualine.nvim' })
+    use({ 'kyazdani42/nvim-web-devicons' }) -- for tree icons required lualine
     use({ 'navarasu/onedark.nvim' })
 
     -- Lazy loading
@@ -55,7 +55,9 @@ return require('packer').startup(function()
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-vsnip' },
+            { 'hrsh7th/cmp-path' },
             { 'hrsh7th/vim-vsnip' },
+            { 'hrsh7th/cmp-nvim-lua' },
         },
     })
 
