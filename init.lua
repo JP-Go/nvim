@@ -4,6 +4,6 @@ require('remaps')
 require('autocmds')
 require('lsps')
 require('lualine').setup({
-    options = { theme = 'ayu_dark' },
+    options = { theme = 'onedark' },
 })
-vim.cmd([[colorscheme Tomorrow-Night-Bright]])
+vim.cmd([[colorscheme onedark]])
