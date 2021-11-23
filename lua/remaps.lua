@@ -39,7 +39,7 @@ remap('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
 remap('i', 'jj', '<Escape>', opts)
 
 -- Delete word to the left of the cursor in ins-mode
--- OBS:  = Backspace
+-- OBS:  = Ctrl+Backspace
 remap('i', '', '<C-w>', opts)
 
 -- Control + s to save
