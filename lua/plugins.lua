@@ -19,8 +19,10 @@ return require('packer').startup(function()
     use({ 'hoob3rt/lualine.nvim' })
     use({ 'kyazdani42/nvim-web-devicons' }) -- for tree icons required lualine
     use({ 'navarasu/onedark.nvim' })
+    use({ 'onsails/lspkind-nvim' })
+    use({ 'ThePrimeagen/vim-be-good' })
 
-    -- Lazy loading
+    -- Lazy loaded plugins
     use({
         'nvim-treesitter/nvim-treesitter',
         event = 'BufEnter',
@@ -71,7 +73,7 @@ return require('packer').startup(function()
     })
     use({
         'mhartington/formatter.nvim',
-        ft = { 'javascript', 'javscriptreact', 'typescript', 'typescriptreact', 'python', 'lua', 'rust' },
+        ft = { 'javascript', 'javscriptreact', 'typescript', 'typescriptreact', 'python', 'lua', 'rust', 'r' },
         config = function()
             require('format')
         end,
@@ -84,7 +86,5 @@ return require('packer').startup(function()
         end,
     })
 
-    use({ 'onsails/lspkind-nvim' })
-    use({ 'ThePrimeagen/vim-be-good' })
     use({ 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' })
 end)
