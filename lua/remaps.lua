@@ -55,5 +55,7 @@ remap('n', '<C-q>', ':bdelete<CR>', opts)
 
 -- Telescope
 remap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
+remap('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<CR>", { noremap = true })
 remap('n', '<leader>lg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
+remap('n', '<leader>fr', "<cmd>lua require('telescope.builtin').registers()<CR>", { noremap = true })
 remap('n', 'gb', "<cmd>lua require('telescope.builtin').buffers()<CR>", { noremap = true })
