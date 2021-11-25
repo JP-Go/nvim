@@ -11,7 +11,6 @@ return require('packer').startup(function()
     use({ 'neovim/nvim-lspconfig' })
     use({ 'nvim-lua/popup.nvim' }) -- required by telescope
     use({ 'nvim-lua/plenary.nvim' }) -- required by telescope
-    use({ 'nvim-telescope/telescope.nvim' })
     use({ 'tjdevries/astronauta.nvim' })
     use({ 'romgrk/barbar.nvim' })
     use({ 'nvim-lualine/lualine.nvim' })
@@ -34,6 +33,22 @@ return require('packer').startup(function()
             })
         end,
     })
+
+    use({
+        'nvim-telescope/telescope.nvim',
+        config = function()
+            require('telescope').setup({
+                extensions = {
+                    fzy_native = {
+                        override_generic_sorter = true,
+                        override_file_sorter = true,
+                    },
+                },
+            })
+            require('telescope').load_extension('fzy_native')
+        end,
+    })
+    use({ 'nvim-telescope/telescope-fzy-native.nvim' })
 
     use({
         'hrsh7th/nvim-cmp',
