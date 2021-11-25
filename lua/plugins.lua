@@ -14,15 +14,48 @@ return require('packer').startup(function()
     use({ 'nvim-telescope/telescope.nvim' })
     use({ 'tjdevries/astronauta.nvim' })
     use({ 'romgrk/barbar.nvim' })
-    use({ 'folke/tokyonight.nvim' })
-    use({ 'Mofiqul/dracula.nvim' })
-    use({ 'hoob3rt/lualine.nvim' })
+    use({ 'nvim-lualine/lualine.nvim' })
     use({ 'kyazdani42/nvim-web-devicons' }) -- for tree icons required lualine
     use({ 'navarasu/onedark.nvim' })
     use({ 'onsails/lspkind-nvim' })
     use({ 'ThePrimeagen/vim-be-good' })
     use({ 'TimUntersberger/neogit' })
+    use({
+        'EdenEast/nightfox.nvim',
+        config = function()
+            require('nightfox').setup({
+                fox = 'duskfox',
+                alt_nc = true,
+                styles = {
+                    comments = 'italic',
+                    keywords = 'bold',
+                    strings = 'italic',
+                },
+            })
+        end,
+    })
 
+    use({
+        'hrsh7th/nvim-cmp',
+        config = function()
+            require('nv-cmp')
+        end,
+        requires = {
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-vsnip' },
+            { 'hrsh7th/cmp-path' },
+            { 'hrsh7th/vim-vsnip' },
+            { 'hrsh7th/cmp-nvim-lua' },
+        },
+    })
+    use({
+        'windwp/nvim-autopairs',
+        config = function()
+            require('nv-autopairs')
+        end,
+    })
+    use({ 'rafamadriz/friendly-snippets' })
     -- Lazy loaded plugins
     use({
         'nvim-treesitter/nvim-treesitter',
@@ -49,29 +82,6 @@ return require('packer').startup(function()
         end,
     })
 
-    use({
-        'hrsh7th/nvim-cmp',
-        config = function()
-            require('nv-cmp')
-        end,
-        requires = {
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-vsnip' },
-            { 'hrsh7th/cmp-path' },
-            { 'hrsh7th/vim-vsnip' },
-            { 'hrsh7th/cmp-nvim-lua' },
-        },
-    })
-
-    use({ 'rafamadriz/friendly-snippets' })
-
-    use({
-        'windwp/nvim-autopairs',
-        config = function()
-            require('nv-autopairs')
-        end,
-    })
     use({
         'mhartington/formatter.nvim',
         ft = { 'javascript', 'javscriptreact', 'typescript', 'typescriptreact', 'python', 'lua', 'rust', 'r' },
