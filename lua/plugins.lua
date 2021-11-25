@@ -21,6 +21,7 @@ return require('packer').startup(function()
     use({ 'navarasu/onedark.nvim' })
     use({ 'onsails/lspkind-nvim' })
     use({ 'ThePrimeagen/vim-be-good' })
+    use({ 'TimUntersberger/neogit' })
 
     -- Lazy loaded plugins
     use({
