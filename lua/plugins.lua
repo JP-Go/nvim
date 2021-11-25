@@ -22,7 +22,8 @@ return require('packer').startup(function()
     use({
         'EdenEast/nightfox.nvim',
         config = function()
-            require('nightfox').setup({
+            local nightfox = require('nightfox')
+            nightfox.setup({
                 fox = 'duskfox',
                 alt_nc = true,
                 styles = {
@@ -31,6 +32,7 @@ return require('packer').startup(function()
                     strings = 'italic',
                 },
             })
+            nightfox.load()
         end,
     })
 
