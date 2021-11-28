@@ -9,6 +9,7 @@ cmp.setup({
     },
     mapping = {
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.close(),
@@ -19,7 +20,7 @@ cmp.setup({
         { name = 'vsnip' },
         { name = 'nvim_lua' },
         { name = 'path' },
-        { name = 'buffer', keyword_length = 6 },
+        { name = 'buffer', keyword_length = 5 },
     },
     formatting = {
         format = lspkind.cmp_format({
