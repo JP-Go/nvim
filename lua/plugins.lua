@@ -64,6 +64,7 @@ return require('packer').startup(function()
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/vim-vsnip' },
             { 'hrsh7th/cmp-nvim-lua' },
+            { 'hrsh7th/cmp-calc' },
         },
     })
     use({
