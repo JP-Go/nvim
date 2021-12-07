@@ -96,7 +96,7 @@ return require('packer').startup(function()
         'JP-Go/simple-latex',
         ft = { 'tex' },
         config = function()
-            require('simple-latex').setup({ viewer = 'evince' })
+            require('simple-latex').setup({ viewer = 'okular' })
         end,
     })
 
