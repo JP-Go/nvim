@@ -66,7 +66,7 @@ end
 require('lspconfig').jdtls.setup({
     capabilities = capabilities,
     cmd = {
-        '/usr/lib/jvm/java-16-openjdk/bin/java',
+        '/usr/lib/jvm/default/bin/java',
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
         '-Dosgi.bundles.defaultStartLevel=4',
         '-Declipse.product=org.eclipse.jdt.ls.core.product',
