@@ -5,7 +5,6 @@ require('autocmds')
 require('lsps')
 require('lualine').setup({
     options = {
-        theme = 'gruvbox',
         component_separators = {
             left = '|',
             right = '|',
@@ -16,7 +15,7 @@ require('lualine').setup({
         },
     },
 })
-vim.g.gruvbox_contrast_dark = 'hard'
+vim.g.gruvbox_contrast_dark = 'medium'
 vim.g.gruvbox_italicize_strings = true
 vim.cmd('colorscheme gruvbox')
-vim.cmd("hi! Normal guibg=NONE")
+vim.cmd('hi! Normal guibg=NONE') -- Transparent background
