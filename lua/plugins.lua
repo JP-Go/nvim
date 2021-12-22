@@ -98,6 +98,4 @@ return require('packer').startup(function()
             require('nv-colorizer')
         end,
     })
-
-    use({ 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' })
 end)
