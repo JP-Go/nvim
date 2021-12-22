@@ -1,11 +1,3 @@
-local lsp_warning_types = { ['Error'] = '', ['Warning'] = '', ['Hint'] = '', ['Information'] = '' }
-
-for type, symb in pairs(lsp_warning_types) do
-    local warning_type = 'LspDiagnosticsSign' .. type
-    local params = { texthl = warning_type, text = symb, numhl = warning_type }
-    vim.fn.sign_define(warning_type, params)
-end
-
 local lsp = {}
 
 ---@diagnostic disable-next-line: unused-local
