@@ -11,30 +11,15 @@ return require('packer').startup(function()
     use({ 'neovim/nvim-lspconfig' })
     use({ 'nvim-lua/popup.nvim' }) -- required by telescope
     use({ 'nvim-lua/plenary.nvim' }) -- required by telescope
+    use({ 'ellisonleao/gruvbox.nvim', requires = { 'rktjmp/lush.nvim' } })
     use({ 'tjdevries/astronauta.nvim' })
     use({ 'romgrk/barbar.nvim' })
     use({ 'nvim-lualine/lualine.nvim' })
     use({ 'kyazdani42/nvim-web-devicons' }) -- for tree icons required lualine
-    use({ 'navarasu/onedark.nvim' })
     use({ 'onsails/lspkind-nvim' })
     use({ 'ThePrimeagen/vim-be-good' })
     use({ 'TimUntersberger/neogit' })
-    use({
-        'EdenEast/nightfox.nvim',
-        config = function()
-            local nightfox = require('nightfox')
-            nightfox.setup({
-                fox = 'duskfox',
-                alt_nc = true,
-                styles = {
-                    comments = 'italic',
-                    keywords = 'bold',
-                    strings = 'italic',
-                },
-            })
-            nightfox.load()
-        end,
-    })
+    use({ 'EdenEast/nightfox.nvim' })
 
     use({
         'nvim-telescope/telescope.nvim',
@@ -64,7 +49,6 @@ return require('packer').startup(function()
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/vim-vsnip' },
             { 'hrsh7th/cmp-nvim-lua' },
-            { 'hrsh7th/cmp-calc' },
         },
     })
     use({
