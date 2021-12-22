@@ -26,7 +26,7 @@ require('formatter').setup({
             function()
                 return {
                     exe = 'black',
-                    args = { '-' },
+                    args = { '--fast', '-' },
                     stdin = true,
                 }
             end,
