@@ -49,7 +49,7 @@ _G.execute_line = function()
     local ft = vim.api.nvim_buf_get_option(0, 'filetype')
     local line = vim.api.nvim_get_current_line()
     if ft == 'lua' then
-        vim.cmd('lua print(' .. line .. ')')
+        vim.cmd('lua ' .. line)
     elseif ft == 'vim' then
         vim.cmd('exec ' .. line)
     end
