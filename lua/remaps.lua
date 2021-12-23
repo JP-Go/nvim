@@ -5,8 +5,8 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = ' '
 
 -- Source files or lines
-keymap('n', '<leader>x', ':lua _G.execute_line()<CR>', { noremap = true })
-keymap('n', '<leader><leader>x', ':lua _G.source_file()<CR>', { noremap = true })
+keymap('n', '<leader>x', '<cmd>lua _G.execute_line()<CR>', { noremap = true })
+keymap('n', '<leader><leader>x', '<cmd> source %<CR>', { noremap = true })
 
 -- Execute commands faster in normal mode
 keymap('n', ';', ':', { noremap = true })

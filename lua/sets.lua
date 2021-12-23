@@ -34,17 +34,6 @@ opt.listchars = 'tab:-> ,trail:·,space:·,extends:⋯,precedes:⋯,nbsp:‽'
 opt.formatoptions = { j = true, q = true, c = false, r = false, o = false, t = true }
 opt.undofile = true
 
--- Source files or lines
-_G.source_file = function()
-    local ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    if ft == 'lua' then
-        vim.cmd('luafile %')
-    elseif ft == 'vim' then
-        vim.cmd('source %')
-    end
-    print('File sourced')
-end
-
 _G.execute_line = function()
     local ft = vim.api.nvim_buf_get_option(0, 'filetype')
     local line = vim.api.nvim_get_current_line()
