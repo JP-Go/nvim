@@ -11,32 +11,22 @@ return require('packer').startup(function()
     use({ 'neovim/nvim-lspconfig' })
     use({ 'nvim-lua/popup.nvim' }) -- required by telescope
     use({ 'nvim-lua/plenary.nvim' }) -- required by telescope
-    use({ 'ellisonleao/gruvbox.nvim', requires = { 'rktjmp/lush.nvim' } })
     use({ 'tjdevries/astronauta.nvim' })
     use({ 'romgrk/barbar.nvim' })
     use({ 'nvim-lualine/lualine.nvim' })
-    use({ 'kyazdani42/nvim-web-devicons' }) -- for tree icons required lualine
+    use({ 'kyazdani42/nvim-web-devicons' }) -- icons required lualine
     use({ 'onsails/lspkind-nvim' })
     use({ 'ThePrimeagen/vim-be-good' })
     use({ 'TimUntersberger/neogit' })
     use({ 'EdenEast/nightfox.nvim' })
 
+    use({ 'rafamadriz/themes.nvim' })
     use({
         'nvim-telescope/telescope.nvim',
         config = function()
-            require('telescope').setup({
-                extensions = {
-                    fzy_native = {
-                        override_generic_sorter = true,
-                        override_file_sorter = true,
-                    },
-                },
-            })
-            require('telescope').load_extension('fzy_native')
+            require('telescope')
         end,
     })
-    use({ 'nvim-telescope/telescope-fzy-native.nvim' })
-
     use({
         'hrsh7th/nvim-cmp',
         config = function()
