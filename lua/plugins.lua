@@ -19,7 +19,9 @@ return require('packer').startup(function()
     use({ 'ThePrimeagen/vim-be-good' })
     use({ 'TimUntersberger/neogit' })
     use({ 'EdenEast/nightfox.nvim' })
+    use({ 'kyazdani42/nvim-tree.lua' })
 
+    use({ 'LunarVim/Colorschemes' })
     use({ 'rafamadriz/themes.nvim' })
     use({
         'nvim-telescope/telescope.nvim',
