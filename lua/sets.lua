@@ -33,6 +33,7 @@ opt.list = true
 opt.listchars = 'tab:-> ,trail:·,space:·,extends:⋯,precedes:⋯,nbsp:‽'
 opt.formatoptions = { j = true, q = true, c = false, r = false, o = false, t = true }
 opt.undofile = true
+opt.updatetime = 500
 
 _G.execute_line = function()
     local ft = vim.api.nvim_buf_get_option(0, 'filetype')
