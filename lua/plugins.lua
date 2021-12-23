@@ -45,9 +45,8 @@ return require('packer').startup(function()
         requires = {
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-vsnip' },
+            { 'saadparwaiz1/cmp_luasnip' },
             { 'hrsh7th/cmp-path' },
-            { 'hrsh7th/vim-vsnip' },
             { 'hrsh7th/cmp-nvim-lua' },
         },
     })
@@ -57,11 +56,11 @@ return require('packer').startup(function()
             require('nv-autopairs')
         end,
     })
+    use({ 'L3MON4D3/LuaSnip' })
     use({ 'rafamadriz/friendly-snippets' })
     -- Lazy loaded plugins
     use({
         'nvim-treesitter/nvim-treesitter',
-        event = 'BufEnter',
         config = function()
             require('nv-treesitter')
         end,
@@ -70,7 +69,6 @@ return require('packer').startup(function()
 
     use({
         'terrortylor/nvim-comment',
-        event = 'BufEnter',
         config = function()
             require('nvim_comment').setup()
         end,
@@ -86,14 +84,12 @@ return require('packer').startup(function()
 
     use({
         'mhartington/formatter.nvim',
-        ft = { 'javascript', 'javscriptreact', 'typescript', 'typescriptreact', 'python', 'lua', 'rust', 'r' },
         config = function()
             require('format')
         end,
     })
     use({
         'norcalli/nvim-colorizer.lua',
-        event = 'BufWinEnter',
         config = function()
             require('nv-colorizer')
         end,
