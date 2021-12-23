@@ -55,3 +55,6 @@ keymap('n', 'gb', "<cmd>lua require('telescope.builtin').buffers()<CR>", { norem
 
 -- Neogit
 keymap('n', '<leader>ng', "<cmd>lua require('neogit').open()<CR>", { noremap = true })
+
+-- Nvim Tree
+keymap('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', opts)
