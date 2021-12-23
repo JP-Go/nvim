@@ -7,3 +7,12 @@ vim.api.nvim_exec(
 ]],
     false
 )
+vim.api.nvim_exec(
+    [[
+        augroup source
+        au!
+        au BufWritePost plugins.lua source <afile> | PackerSync
+        augroup END
+]],
+    false
+)
