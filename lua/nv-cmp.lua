@@ -88,8 +88,8 @@ cmp.setup({
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'luasnip' },
         { name = 'nvim_lua' },
+        { name = 'luasnip' },
         { name = 'path' },
         { name = 'buffer', keyword_length = 5 },
     },
@@ -103,6 +103,7 @@ cmp.setup({
                 buffer = '[Buffer]',
                 path = '[Path]',
                 nvim_lsp = '[LSP]',
+                nvim_lua = '[Lua]',
             })[entry.source.name]
             return vim_item
         end,
