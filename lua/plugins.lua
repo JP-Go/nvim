@@ -41,6 +41,12 @@ return require('packer').startup(function()
     use({ 'EdenEast/nightfox.nvim' })
 
     use({
+        'blackCauldron7/surround.nvim', -- Surround objects
+        config = function()
+            require('surround').setup({ mappings_style = 'surround' })
+        end,
+    })
+    use({
         'hrsh7th/nvim-cmp', -- Completion engine
         config = function()
             require('cmp-config')
