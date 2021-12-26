@@ -4,6 +4,5 @@ require('remaps')
 require('autocmds')
 require('statusline')
 require('lsp')
-vim.cmd('colorscheme tomorrow')
-vim.cmd('hi! Normal guibg=NONE') -- Transparent background
+require('colorscheme')
 require('tree')

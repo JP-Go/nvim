@@ -21,6 +21,12 @@ return require('packer').startup(function()
     use({ 'TimUntersberger/neogit' }) -- Git interaction
     use({ 'kyazdani42/nvim-tree.lua' }) -- File tree
     use({
+        'glepnir/dashboard-nvim',
+        config = function()
+            vim.g.dashboard_default_executive = 'telescope'
+        end,
+    }) -- Dashboard
+    use({
         'nvim-telescope/telescope.nvim', -- Fuzzy finder
         config = function()
             require('telescope')
@@ -28,6 +34,8 @@ return require('packer').startup(function()
     })
 
     -- Themes
+    use({ 'sainnhe/gruvbox-material' })
+    use({ 'shaunsingh/nord.nvim' })
     use({ 'LunarVim/Colorschemes' })
     use({ 'rafamadriz/themes.nvim' })
     use({ 'EdenEast/nightfox.nvim' })
