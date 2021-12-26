@@ -7,32 +7,35 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function()
-    use({ 'wbthomason/packer.nvim' })
-    use({ 'neovim/nvim-lspconfig' })
+    -- General use plugins
+    use({ 'wbthomason/packer.nvim' }) -- Plugin manager
+    use({ 'neovim/nvim-lspconfig' }) -- LSP
     use({ 'nvim-lua/popup.nvim' }) -- required by telescope
     use({ 'nvim-lua/plenary.nvim' }) -- required by telescope
-    use({ 'tjdevries/astronauta.nvim' })
-    use({ 'romgrk/barbar.nvim' })
-    use({ 'nvim-lualine/lualine.nvim' })
+    use({ 'tjdevries/astronauta.nvim' }) -- Parse lua files (ftdetect and others)
+    use({ 'romgrk/barbar.nvim' }) -- Navbar
+    use({ 'nvim-lualine/lualine.nvim' }) -- Statusline
     use({ 'kyazdani42/nvim-web-devicons' }) -- icons required lualine
-    use({ 'onsails/lspkind-nvim' })
-    use({ 'ThePrimeagen/vim-be-good' })
-    use({ 'TimUntersberger/neogit' })
-    use({ 'EdenEast/nightfox.nvim' })
-    use({ 'kyazdani42/nvim-tree.lua' })
-
-    use({ 'LunarVim/Colorschemes' })
-    use({ 'rafamadriz/themes.nvim' })
+    use({ 'onsails/lspkind-nvim' }) -- Icons
+    use({ 'ThePrimeagen/vim-be-good' }) -- Just a training tool made by the man that vims
+    use({ 'TimUntersberger/neogit' }) -- Git interaction
+    use({ 'kyazdani42/nvim-tree.lua' }) -- File tree
     use({
-        'nvim-telescope/telescope.nvim',
+        'nvim-telescope/telescope.nvim', -- Fuzzy finder
         config = function()
             require('telescope')
         end,
     })
+
+    -- Themes
+    use({ 'LunarVim/Colorschemes' })
+    use({ 'rafamadriz/themes.nvim' })
+    use({ 'EdenEast/nightfox.nvim' })
+
     use({
-        'hrsh7th/nvim-cmp',
+        'hrsh7th/nvim-cmp', -- Completion engine
         config = function()
-            require('nv-cmp')
+            require('cmp-config')
         end,
         requires = {
             { 'hrsh7th/cmp-nvim-lsp' },
@@ -43,26 +46,26 @@ return require('packer').startup(function()
         },
     })
     use({
-        'windwp/nvim-autopairs',
+        'windwp/nvim-autopairs', -- complete delimiters
         config = function()
-            require('nv-autopairs')
+            require('autopairs-config')
         end,
     })
-    use({ 'L3MON4D3/LuaSnip' })
-    use({ 'rafamadriz/friendly-snippets' })
+    use({ 'L3MON4D3/LuaSnip' }) -- Snippet engine
+    use({ 'rafamadriz/friendly-snippets' }) -- Misc snippets
     -- Lazy loaded plugins
     use({
-        'nvim-treesitter/nvim-treesitter',
+        'nvim-treesitter/nvim-treesitter', -- File parsing
         config = function()
-            require('nv-treesitter')
+            require('treesitter-config')
         end,
     })
-    use({ 'windwp/nvim-ts-autotag', after = 'nvim-treesitter' })
+    use({ 'windwp/nvim-ts-autotag' }) -- Tag closer
 
     use({
         'terrortylor/nvim-comment',
         config = function()
-            require('nvim_comment').setup()
+            require('nvim_comment').setup() -- Commennter
         end,
     })
 
@@ -70,12 +73,12 @@ return require('packer').startup(function()
         'JP-Go/simple-latex',
         ft = { 'tex' },
         config = function()
-            require('simple-latex').setup({ viewer = 'okular' })
+            require('simple-latex').setup({ viewer = 'okular' }) -- My LaTeX plugin
         end,
     })
 
     use({
-        'mhartington/formatter.nvim',
+        'mhartington/formatter.nvim', -- Code formatter
         config = function()
             require('format')
         end,
@@ -83,7 +86,7 @@ return require('packer').startup(function()
     use({
         'norcalli/nvim-colorizer.lua',
         config = function()
-            require('nv-colorizer')
+            require('colorizer-config') -- Color highlighter
         end,
     })
 end)
