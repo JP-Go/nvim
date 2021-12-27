@@ -19,7 +19,21 @@ return require('packer').startup(function()
     use({ 'onsails/lspkind-nvim' }) -- Icons
     use({ 'ThePrimeagen/vim-be-good' }) -- Just a training tool made by the man that vims
     use({ 'TimUntersberger/neogit' }) -- Git interaction
-    use({ 'kyazdani42/nvim-tree.lua' }) -- File tree
+
+    -- Themes
+    use({ 'sainnhe/everforest' })
+    use({ 'sainnhe/gruvbox-material' })
+    use({ 'shaunsingh/nord.nvim' })
+    use({ 'LunarVim/Colorschemes' })
+    use({ 'rafamadriz/themes.nvim' })
+    use({ 'EdenEast/nightfox.nvim' })
+
+    use({
+        'kyazdani42/nvim-tree.lua', -- File tree
+        config = function()
+            require('nvim-tree-config')
+        end,
+    })
     use({
         'glepnir/dashboard-nvim',
         config = function()
@@ -32,15 +46,6 @@ return require('packer').startup(function()
             require('telescope')
         end,
     })
-
-    -- Themes
-    use({ 'sainnhe/everforest' })
-    use({ 'sainnhe/gruvbox-material' })
-    use({ 'shaunsingh/nord.nvim' })
-    use({ 'LunarVim/Colorschemes' })
-    use({ 'rafamadriz/themes.nvim' })
-    use({ 'EdenEast/nightfox.nvim' })
-
     use({
         'blackCauldron7/surround.nvim', -- Surround objects
         config = function()
@@ -95,7 +100,7 @@ return require('packer').startup(function()
     use({
         'mhartington/formatter.nvim', -- Code formatter
         config = function()
-            require('format')
+            require('formatter-config')
         end,
     })
     use({

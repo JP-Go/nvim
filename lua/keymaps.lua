@@ -36,16 +36,13 @@ keymap('i', 'jj', '<Escape>', opts)
 -- OBS:  = Ctrl+Backspace
 keymap('i', '', '<C-w>', opts)
 
--- Control + s to save
-keymap('n', '<C-s>', '<cmd>w<CR>', { noremap = true })
-
 -- Exit terminal mode
 keymap('t', '<Esc>', '<C-\\><C-N>', opts)
 
 -- Cycle trough buffers
 keymap('n', '<S-l>', '<cmd>bnext<CR>', opts)
 keymap('n', '<S-h>', '<cmd>bprevious<CR>', opts)
-keymap('n', '<C-q>', '<cmd>bdelete<CR>', opts)
+keymap('n', '<leader>q', '<cmd>bdelete<CR>', opts)
 
 -- Telescope
 keymap('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
