@@ -34,6 +34,7 @@ return require('packer').startup(function()
     })
 
     -- Themes
+    use({ 'sainnhe/everforest' })
     use({ 'sainnhe/gruvbox-material' })
     use({ 'shaunsingh/nord.nvim' })
     use({ 'LunarVim/Colorschemes' })

@@ -3,8 +3,4 @@ if not lualine_status_ok then
     vim.notify('Failed to require lualine')
 end
 
-lualine.setup({
-    options = {
-        theme = 'gruvbox-material',
-    },
-})
+lualine.setup()
