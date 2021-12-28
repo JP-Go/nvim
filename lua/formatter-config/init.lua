@@ -25,8 +25,8 @@ require('formatter').setup({
         python = {
             function()
                 return {
-                    exe = 'black',
-                    args = { '--fast', '-' },
+                    exe = 'yapf',
+                    args = { '' },
                     stdin = true,
                 }
             end,
