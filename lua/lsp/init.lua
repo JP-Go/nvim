@@ -3,7 +3,7 @@ local servers = handlers.servers
 
 local lspconfig_status_ok, lspconfig = pcall(require, 'lspconfig')
 if not lspconfig_status_ok then
-    vim.notify('Failed to require lspconfig')
+    vim.notify('Failed to require lspconfig', vim.log.levels.WARN)
     return
 end
 

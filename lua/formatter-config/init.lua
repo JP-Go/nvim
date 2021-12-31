@@ -15,7 +15,13 @@ local common_jsts_conf = {
     end,
 }
 
-require('formatter').setup({
+local formatter_ok, formatter = pcall(require, 'formatter')
+if not formatter_ok then
+    vim.notify('Failed to require formatter', vim.log.levels.WARN)
+    return
+end
+
+formatter.setup({
     logging = false,
     filetype = {
         javascript = common_jsts_conf,

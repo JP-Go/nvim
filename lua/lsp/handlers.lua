@@ -107,7 +107,13 @@ M.servers = {
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+local cmp_lsp_ok, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
+if not cmp_lsp_ok then
+    vim.notify('Failed to require cmp_nvim_lsp', vim.log.levels.WARN)
+end
+
+capabilities = cmp_lsp.update_capabilities(capabilities)
 
 M.common_capabilities = capabilities
 

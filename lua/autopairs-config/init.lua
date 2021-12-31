@@ -1,6 +1,6 @@
 local autopairs_ok, autopairs = pcall(require, 'nvim-autopairs')
 if not autopairs_ok then
-    vim.notify('Failed to require nvim-autopairs')
+    vim.notify('Failed to require nvim-autopairs', vim.log.levels.WARN)
     return
 end
 
@@ -10,11 +10,11 @@ autopairs.setup({
 
 local cmp_autopairs_ok, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
 if not cmp_autopairs_ok then
-    vim.notify('Failed to require nvim_autopairs.completion.cmp')
+    vim.notify('Failed to require nvim_autopairs.completion.cmp', vim.log.levels.WARN)
     return
 end
 local cmp_ok, cmp = pcall(require, 'cmp')
 if not cmp_ok then
-    vim.notify('Failed to require cmp')
+    vim.notify('Failed to require cmp', vim.log.levels.WARN)
 end
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '{' } }))

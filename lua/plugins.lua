@@ -35,11 +35,11 @@ return require('packer').startup(function()
         end,
     })
     use({
-        'glepnir/dashboard-nvim',
+        'glepnir/dashboard-nvim', -- Dashboard
         config = function()
             vim.g.dashboard_default_executive = 'telescope'
         end,
-    }) -- Dashboard
+    })
     use({
         'nvim-telescope/telescope.nvim', -- Fuzzy finder
         config = function()
@@ -49,7 +49,7 @@ return require('packer').startup(function()
     use({
         'blackCauldron7/surround.nvim', -- Surround objects
         config = function()
-            require('surround').setup({ mappings_style = 'surround' })
+            require('surround-config')
         end,
     })
     use({
@@ -85,7 +85,7 @@ return require('packer').startup(function()
     use({
         'terrortylor/nvim-comment',
         config = function()
-            require('nvim_comment').setup() -- Commennter
+            require('nvim-comment-config') -- Commennter
         end,
     })
 
