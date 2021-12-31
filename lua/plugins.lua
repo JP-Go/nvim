@@ -12,7 +12,7 @@ return require('packer').startup(function()
     use({ 'neovim/nvim-lspconfig' }) -- LSP
     use({ 'nvim-lua/popup.nvim' }) -- required by telescope
     use({ 'nvim-lua/plenary.nvim' }) -- required by telescope
-    use({ 'tjdevries/astronauta.nvim' }) -- Parse lua files (ftdetect and others)
+    use({ 'tjdevries/astronauta.nvim' }) -- Parse lua files in vim dirs other than lua
     use({ 'romgrk/barbar.nvim' }) -- Navbar
     use({ 'nvim-lualine/lualine.nvim' }) -- Statusline
     use({ 'kyazdani42/nvim-web-devicons' }) -- icons required lualine
@@ -27,6 +27,13 @@ return require('packer').startup(function()
     use({ 'LunarVim/Colorschemes' })
     use({ 'rafamadriz/themes.nvim' })
     use({ 'EdenEast/nightfox.nvim' })
+
+    use({
+        'rcarriga/nvim-notify',
+        config = function()
+            require('notify-config')
+        end,
+    })
 
     use({
         'kyazdani42/nvim-tree.lua', -- File tree
@@ -66,7 +73,7 @@ return require('packer').startup(function()
         },
     })
     use({
-        'windwp/nvim-autopairs', -- complete delimiters
+        'windwp/nvim-autopairs', -- Autodelimiter
         config = function()
             require('autopairs-config')
         end,
@@ -90,10 +97,10 @@ return require('packer').startup(function()
     })
 
     use({
-        'JP-Go/simple-latex',
+        'JP-Go/simple-latex', -- My LaTeX plugin
         ft = { 'tex' },
         config = function()
-            require('simple-latex').setup({ viewer = 'okular' }) -- My LaTeX plugin
+            require('simple-latex').setup({ viewer = 'okular' })
         end,
     })
 
@@ -104,9 +111,9 @@ return require('packer').startup(function()
         end,
     })
     use({
-        'norcalli/nvim-colorizer.lua',
+        'norcalli/nvim-colorizer.lua', -- Color highlighter
         config = function()
-            require('colorizer-config') -- Color highlighter
+            require('colorizer-config')
         end,
     })
 end)
