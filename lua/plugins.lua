@@ -29,6 +29,12 @@ return require('packer').startup(function()
     use({ 'EdenEast/nightfox.nvim' })
 
     use({
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns-config')
+        end,
+    })
+    use({
         'rcarriga/nvim-notify',
         config = function()
             require('notify-config')
