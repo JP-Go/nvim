@@ -56,7 +56,7 @@ return require('packer').startup(function()
     use({
         'nvim-telescope/telescope.nvim', -- Fuzzy finder
         config = function()
-            require('telescope')
+            require('telescope-config')
         end,
     })
     use({
