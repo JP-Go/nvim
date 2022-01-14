@@ -1,13 +1,29 @@
-local colorscheme = 'gruvbox-material'
+local colorscheme = 'tomorrow'
 
-if colorscheme == 'gruvbox-material' then
-    vim.g.gruvbox_material_background = 'hard'
-    vim.g.gruvbox_material_transparent_mode = 1
-end
+local colorscheme_options = {
+    ['gruvbox-material'] = {
+        predicate = 'gruvbox_material',
+        props = {
+            background = 'hard',
+            transparent_mode = 1,
+        },
+    },
+    everforest = {
+        predicate = 'everforest',
+        props = {
+            background = 'hard',
+            transparent_mode = 1,
+        },
+    },
+}
 
-if colorscheme == 'everforest' then
-    vim.g.everforest_background = 'hard'
-    vim.g.everforest_material_transparent_mode = 1
+for scheme, options in pairs(colorscheme_options) do
+    if colorscheme == scheme then
+        for prop, value in pairs(options.props) do
+            local var_name = options.predicate .. '_' .. prop
+            vim.g[var_name] = value
+        end
+    end
 end
 
 vim.cmd('colorscheme ' .. colorscheme)
