@@ -13,13 +13,13 @@ if not packer_ok then
     return
 end
 
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
-}
+packer.init({
+    display = {
+        open_fn = function()
+            return require('packer.util').float({ border = 'rounded' })
+        end,
+    },
+})
 
 return packer.startup({
     function()
@@ -35,6 +35,7 @@ return packer.startup({
         use({ 'onsails/lspkind-nvim' }) -- Icons
         use({ 'ThePrimeagen/vim-be-good' }) -- Just a training tool made by the man that vims
         use({ 'TimUntersberger/neogit' }) -- Git interaction
+        use({ 'lewis6991/impatient.nvim' }) -- Load time reducer?
 
         -- Themes
         use({ 'sainnhe/everforest' })
@@ -44,15 +45,21 @@ return packer.startup({
         use({ 'rafamadriz/themes.nvim' })
         use({ 'EdenEast/nightfox.nvim' })
 
+        -- Configured plugins
         use({
-            'lewis6991/gitsigns.nvim',
+            'akinsho/toggleterm.nvim',
+            config = function()
+                require('floatterm-config')
+            end,
+        }) -- Float terminal
+        use({
+            'lewis6991/gitsigns.nvim', -- Git files sings
             config = function()
                 require('gitsigns-config')
             end,
         })
-        use({ 'lewis6991/impatient.nvim' })
         use({
-            'rcarriga/nvim-notify',
+            'rcarriga/nvim-notify', -- Notifications
             config = function()
                 require('notify-config')
             end,
