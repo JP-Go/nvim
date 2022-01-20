@@ -1,5 +1,7 @@
 require('settings')
+require('impatient')
 require('plugins')
+require('packer_compiled')
 require('keymaps')
 require('autocmds')
 require('statusline')
