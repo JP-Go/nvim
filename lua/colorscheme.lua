@@ -1,4 +1,4 @@
-local colorscheme = 'tomorrow'
+local colorscheme = 'gruvbox-material'
 
 local colorscheme_options = {
     ['gruvbox-material'] = {
