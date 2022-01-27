@@ -44,6 +44,7 @@ return packer.startup({
         use({ 'LunarVim/Colorschemes' })
         use({ 'rafamadriz/themes.nvim' })
         use({ 'EdenEast/nightfox.nvim' })
+        use({ 'marko-cerovac/material.nvim' })
 
         -- Configured plugins
         use({
