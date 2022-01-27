@@ -82,12 +82,30 @@ local apply_lsp_mappings = function(bufnr)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<leader>sd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({border="rounded"})<CR>', opts)
     buf_set_keymap('n', '<leader>dl', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-    buf_set_keymap('n', '<leader>cf', '<cmd>Format<CR>', opts)
+    buf_set_keymap(
+        'n',
+        '<leader>cf',
+        '<cmd>lua vim.lsp.buf.formatting_sync(); vim.notify("Formatted buffer",vim.log.levels.INFO)<CR>',
+        opts
+    )
+end
+
+local apply_lsp_autcmds = function()
+    vim.api.nvim_exec(
+        [[
+        augroup formatting
+        autocmd!
+        autocmd BufWritePre *.mjs,*.js,*.ts,*.jsx,*.tsx,*.py,*.lua,*.rs,*.R lua vim.lsp.buf.formatting_sync(); vim.notify("Formatted buffer",vim.log.levels.INFO)
+        augroup END
+    ]],
+        false
+    )
 end
 
 M.common_on_attach = function(client, bufnr)
     apply_lsp_mappings(bufnr)
     highlight_document(client)
+    apply_lsp_autcmds()
 end
 
 M.servers = {

@@ -25,3 +25,5 @@ for _, server in ipairs(servers) do
 
     lspconfig[server].setup(options)
 end
+
+require('lsp.null-ls')

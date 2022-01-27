@@ -35,7 +35,7 @@ return packer.startup({
         use({ 'ThePrimeagen/vim-be-good' }) -- Just a training tool made by the man that vims
         use({ 'TimUntersberger/neogit' }) -- Git interaction
         use({ 'lewis6991/impatient.nvim' }) -- Load time reducer?
-
+        use({ 'jose-elias-alvarez/null-ls.nvim' })
         -- Themes
         use({ 'sainnhe/everforest' })
         use({ 'sainnhe/gruvbox-material' })
@@ -135,12 +135,6 @@ return packer.startup({
             end,
         })
 
-        use({
-            'mhartington/formatter.nvim', -- Code formatter
-            config = function()
-                require('formatter-config')
-            end,
-        })
         use({
             'norcalli/nvim-colorizer.lua', -- Color highlighter
             config = function()
