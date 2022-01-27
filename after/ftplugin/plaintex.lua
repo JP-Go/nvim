@@ -1,1 +1,1 @@
-vim.cmd('set ft=tex')
+vim.cmd("set ft=tex")
