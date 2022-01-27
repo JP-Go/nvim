@@ -1,15 +1,20 @@
+-- TODO: Find a way to set these options when the colorscheme changes
 local handlers = require('colorscheme.handlers')
 local colorscheme = 'material'
 
-local options_ok, options = pcall(handlers.get_colorscheme_options, colorscheme)
-if not options_ok then
+local options = handlers.get_colorscheme_options(colorscheme)
+
+local theme = 'auto'
+if not options then
     vim.cmd('colorscheme ' .. colorscheme) -- Just set the scheme
+    handlers.set_statusline_theme(theme)
     return
 end
 
 -- Set all options and colorscheme after
+theme = options.theme
 handlers.set_colorscheme_vars(options)
-handlers.set_statusline_theme(options.theme)
+handlers.set_statusline_theme(theme)
 if options.mappings then
     options.mappings()
 end
