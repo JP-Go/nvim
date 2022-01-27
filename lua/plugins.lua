@@ -29,7 +29,6 @@ return packer.startup({
         use({ 'nvim-lua/popup.nvim' }) -- required by telescope
         use({ 'nvim-lua/plenary.nvim' }) -- required by telescope
         use({ 'tjdevries/astronauta.nvim' }) -- Parse lua files in vim dirs other than lua
-        use({ 'romgrk/barbar.nvim' }) -- Navbar
         use({ 'nvim-lualine/lualine.nvim' }) -- Statusline
         use({ 'kyazdani42/nvim-web-devicons' }) -- icons required lualine
         use({ 'onsails/lspkind-nvim' }) -- Icons
@@ -53,6 +52,7 @@ return packer.startup({
                 require('floatterm-config')
             end,
         }) -- Float terminal
+        use({ 'akinsho/bufferline.nvim' })
         use({
             'lewis6991/gitsigns.nvim', -- Git files sings
             config = function()

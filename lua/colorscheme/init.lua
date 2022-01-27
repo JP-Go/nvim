@@ -23,3 +23,12 @@ if options.callback then
 end
 
 vim.cmd('colorscheme ' .. colorscheme)
+
+--bufferline
+local bufferline_ok, bufferline = pcall(require, 'bufferline')
+if not bufferline_ok then
+    vim.notify('Failed to require bufferline', vim.log.levels.WARN)
+    return
+end
+
+bufferline.setup()
