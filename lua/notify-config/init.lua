@@ -6,4 +6,8 @@ end
 
 notify.setup({
     stages = 'fade',
+    timeout = 1000,
+    minimum_width = 24,
 })
+
+vim.notify = notify
