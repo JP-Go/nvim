@@ -4,11 +4,11 @@ vim.opt.spelllang = vim.opt.spelllang + "en"
 
 local cmp = require("cmp")
 cmp.setup.buffer({
-  sources = {
-    { name = "calc" },
-    { name = "nvim_lsp", keyword_length = 2 },
-    { name = "vsnip" },
-    { name = "path" },
-    { name = "buffer", keyword_length = 5 },
-  },
+	sources = {
+		{ name = "calc" },
+		{ name = "nvim_lsp", keyword_length = 2 },
+		{ name = "vsnip" },
+		{ name = "path" },
+		{ name = "buffer", keyword_length = 5 },
+	},
 })

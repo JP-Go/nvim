@@ -48,34 +48,34 @@ keymap("n", "<leader>q", "<cmd>bdelete<CR>", opts)
 
 -- Telescope
 keymap(
-  "n",
-  "<leader>f",
-  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown())<CR>",
-  { noremap = true }
+	"n",
+	"<leader>f",
+	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown())<CR>",
+	{ noremap = true }
 )
 keymap(
-  "n",
-  "<leader>lg",
-  "<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown())<CR>",
-  { noremap = true }
+	"n",
+	"<leader>lg",
+	"<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown())<CR>",
+	{ noremap = true }
 )
 keymap(
-  "n",
-  "<leader>ls",
-  "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown())<CR>",
-  { noremap = true }
+	"n",
+	"<leader>ls",
+	"<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown())<CR>",
+	{ noremap = true }
 )
 keymap(
-  "n",
-  "<leader>gr",
-  "<cmd>lua require('telescope.builtin').registers(require('telescope.themes').get_dropdown())<CR>",
-  { noremap = true }
+	"n",
+	"<leader>gr",
+	"<cmd>lua require('telescope.builtin').registers(require('telescope.themes').get_dropdown())<CR>",
+	{ noremap = true }
 )
 keymap(
-  "n",
-  "gb",
-  "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown())<CR>",
-  { noremap = true }
+	"n",
+	"gb",
+	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown())<CR>",
+	{ noremap = true }
 )
 
 -- Neogit
