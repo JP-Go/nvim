@@ -35,7 +35,6 @@ return packer.startup({
     use({ "ThePrimeagen/vim-be-good" }) -- Just a training tool made by the man that vims
     use({ "TimUntersberger/neogit" }) -- Git interaction
     use({ "lewis6991/impatient.nvim" }) -- Load time reducer?
-    use({ "mhartington/formatter.nvim" }) -- Code formatter
     use({ "sainnhe/gruvbox-material" }) -- Gruvbox theme
     use({ "folke/tokyonight.nvim" }) -- Tokyonight theme
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- General purpose lsp for formatting, diagnostic linters
