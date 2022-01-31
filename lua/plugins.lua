@@ -36,14 +36,8 @@ return packer.startup({
     use({ "TimUntersberger/neogit" }) -- Git interaction
     use({ "lewis6991/impatient.nvim" }) -- Load time reducer?
     use({ "mhartington/formatter.nvim" }) -- Code formatter
-    -- Themes
-    use({ "sainnhe/everforest" })
-    use({ "sainnhe/gruvbox-material" })
-    use({ "shaunsingh/nord.nvim" })
-    use({ "LunarVim/Colorschemes" })
-    use({ "rafamadriz/themes.nvim" })
-    use({ "EdenEast/nightfox.nvim" })
-    use({ "marko-cerovac/material.nvim" })
+    use({ "sainnhe/gruvbox-material" }) -- Gruvbox theme
+    use({ "folke/tokyonight.nvim" }) -- Tokyonight theme
 
     -- Configured plugins
     use({
