@@ -22,6 +22,5 @@ null_ls.setup({
     formatting.stylua.with({ extra_args = { "--config-path", vim.fn.expand("~/.dotfiles/stylua.toml") } }),
     formatting.prettier,
     formatting.black,
-    formatting.rustfmt,
   },
 })

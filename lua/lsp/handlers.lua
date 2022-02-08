@@ -12,7 +12,7 @@ M.setup = function()
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
   end
 
-  local diagnosics_win_config = {
+  local diagnosics_popup_config = {
     -- disable virtual text
     virtual_text = false,
     -- show signs
@@ -32,7 +32,7 @@ M.setup = function()
     },
   }
 
-  vim.diagnostic.config(diagnosics_win_config)
+  vim.diagnostic.config(diagnosics_popup_config)
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
@@ -107,7 +107,7 @@ M.servers = {
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.formatting = false
+capabilities.textDocument.formatting = nil
 
 local cmp_lsp_ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_lsp_ok then
