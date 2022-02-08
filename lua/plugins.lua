@@ -105,6 +105,7 @@ return packer.startup({
     })
     use({ "L3MON4D3/LuaSnip" }) -- Snippet engine
     use({ "rafamadriz/friendly-snippets" }) -- Misc snippets
+
     -- Lazy loaded plugins
     use({
       "nvim-treesitter/nvim-treesitter", -- File parsing
