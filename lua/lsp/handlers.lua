@@ -43,7 +43,7 @@ M.setup = function()
   })
 end
 
-local highlight_document = function(client)
+local enable_document_highlight = function(client)
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
@@ -87,7 +87,7 @@ end
 
 M.common_on_attach = function(client, bufnr)
   apply_lsp_mappings(bufnr)
-  highlight_document(client)
+  enable_document_highlight(client)
 end
 
 M.servers = {
@@ -98,16 +98,14 @@ M.servers = {
   "clangd",
   "tsserver",
   "pyright",
-  "rust_analyzer",
   "solargraph",
   "r_language_server",
   "jdtls",
   "sumneko_lua",
+  "rust_analyzer",
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.formatting = nil
 
 local cmp_lsp_ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_lsp_ok then

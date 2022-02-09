@@ -8,12 +8,14 @@ if not lspconfig_status_ok then
 end
 
 handlers.setup()
+
 for _, server in ipairs(servers) do
   local options = {
     on_attach = handlers.common_on_attach,
     capabilities = handlers.common_capabilities,
   }
   local has_specifc_configs, specific_server_configs = pcall(require, string.format("lsp.settings.%s", server))
+
   if has_specifc_configs then
     options = vim.tbl_deep_extend("force", options, specific_server_configs)
   end
