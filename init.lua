@@ -1,6 +1,6 @@
+require("plugins")
 require("settings")
 require("impatient")
-require("plugins")
 require("packer_compiled")
 require("keymaps")
 require("lsp")
