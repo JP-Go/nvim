@@ -79,12 +79,6 @@ return packer.startup({
       end,
     })
     use({
-      "blackCauldron7/surround.nvim", -- Surround objects
-      config = function()
-        require("surround-config")
-      end,
-    })
-    use({
       "hrsh7th/nvim-cmp", -- Completion engine
       config = function()
         require("cmp-config")
