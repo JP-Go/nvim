@@ -1,0 +1,20 @@
+return {
+  filetypes = {
+    "django-html",
+    "eelixir",
+    "html",
+    "css",
+    "less",
+    "scss",
+    "sass",
+    "postcss",
+    "javascript",
+    "javascriptreact",
+    "reason",
+    "rescript",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "svelte",
+  },
+}
