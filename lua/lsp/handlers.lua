@@ -97,7 +97,7 @@ M.servers = {
   "tailwindcss",
   "clangd",
   "tsserver",
-  "pylsp",
+  "pyright",
   "solargraph",
   "r_language_server",
   "jdtls",
