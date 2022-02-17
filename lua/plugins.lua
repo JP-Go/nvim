@@ -117,14 +117,6 @@ return packer.startup({
     })
 
     use({
-      "JP-Go/simple-latex", -- My LaTeX plugin
-      ft = { "tex" },
-      config = function()
-        require("simple-latex").setup({ viewer = "okular" })
-      end,
-    })
-
-    use({
       "norcalli/nvim-colorizer.lua", -- Color highlighter
       config = function()
         require("colorizer-config")
