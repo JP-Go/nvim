@@ -47,6 +47,20 @@ cmp.setup({
     end,
   },
   mapping = {
+    ["<C-j>"] = cmp.mapping(function(fallback)
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    ["<C-k>"] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
     ["<tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -75,8 +89,9 @@ cmp.setup({
   sources = {
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
+    { name = "luasnip" },
     { name = "path" },
-    { name = "buffer", keyword_length = 5 },
+    { name = "buffer", keyword_length = 4 },
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -84,6 +99,7 @@ cmp.setup({
       -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
+        luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
         nvim_lsp = "[LSP]",

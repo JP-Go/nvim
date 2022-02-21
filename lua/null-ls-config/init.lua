@@ -28,34 +28,5 @@ null_ls.setup({
     diagnostics.chktex,
     diagnostics.checkmake,
     completions.spell.with({ filetypes = { "tex", "plaintex", "markdown", "txt" } }),
-    completions.luasnip,
   },
 })
-
-local luasnip_ok, luasnip = pcall(require, "luasnip")
-
-if not luasnip_ok then
-  vim.notify("Failed to require luasnip", vim.log.levels.WARN)
-  return
-end
-
-require("luasnip/loaders/from_vscode").lazy_load()
-
-_G.luasnip_jump_forward = function()
-  if luasnip.expandable() then
-    luasnip.expand()
-  elseif luasnip.expand_or_jumpable() then
-    luasnip.expand_or_jump()
-  end
-end
-
-_G.luasnip_jump_backward = function()
-  if luasnip.jumpable(-1) then
-    luasnip.jump(-1)
-  end
-end
-
-vim.api.nvim_set_keymap("i", "<C-j>", "<cmd>lua _G.luasnip_jump_forward()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-k>", "<cmd>lua _G.luasnip_jump_backward()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("s", "<C-j>", "<cmd>lua _G.luasnip_jump_forward()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("s", "<C-k>", "<cmd>lua _G.luasnip_jump_backward()<CR>", { noremap = true, silent = true })
