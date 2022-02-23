@@ -8,19 +8,6 @@ local formatting = null_ls.builtins.formatting
 local completions = null_ls.builtins.completion
 local diagnostics = null_ls.builtins.diagnostics
 
-local prettier_filetypes = {
-  "javascriptreact",
-  "javascript",
-  "typescript",
-  "typescriptreact",
-  "markdown",
-  "scss",
-  "less",
-  "vue",
-  "json",
-  "jsonc",
-  "graphql",
-}
 null_ls.setup({
   -- you can reuse a shared lspconfig on_attach callback here
   on_attach = function(client)
@@ -35,7 +22,7 @@ null_ls.setup({
   end,
   sources = {
     formatting.stylua.with({ extra_args = { "--config-path", vim.fn.expand("~/.config/stylua.toml") } }),
-    formatting.prettier.with({ filetypes = prettier_filetypes }),
+    formatting.prettierd,
     formatting.yapf,
     formatting.latexindent,
     diagnostics.chktex,
