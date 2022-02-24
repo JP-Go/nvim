@@ -92,13 +92,13 @@ end
 
 M.servers = {
   "html",
+  "fortls",
   "texlab",
   "cssls",
   "tailwindcss",
   "clangd",
   "tsserver",
   "pyright",
-  "solargraph",
   "r_language_server",
   "jdtls",
   "sumneko_lua",
