@@ -47,6 +47,8 @@ cmp.setup({
     end,
   },
   mapping = {
+    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     ["<C-j>"] = cmp.mapping(function(fallback)
       if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
@@ -61,28 +63,9 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
-    ["<tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
-    ["<s-tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
+    ["<tab>"] = cmp.mapping(cmp.mapping.select_next_item()),
+    ["<s-tab>"] = cmp.mapping(cmp.mapping.select_prev_item()),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(),
   },
@@ -91,7 +74,7 @@ cmp.setup({
     { name = "nvim_lua" },
     { name = "luasnip" },
     { name = "path" },
-    { name = "buffer", keyword_length = 4 },
+    { name = "buffer", keyword_length = 5 },
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -118,5 +101,12 @@ cmp.setup({
   experimental = {
     ghost_text = false,
     native_menu = false,
+  },
+})
+
+-- Use the buffer source when the search command is used
+cmp.setup.cmdline("/", {
+  sources = {
+    { name = "buffer" },
   },
 })
