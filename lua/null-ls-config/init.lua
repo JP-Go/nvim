@@ -23,10 +23,9 @@ null_ls.setup({
   sources = {
     formatting.stylua.with({ extra_args = { "--config-path", vim.fn.expand("~/.config/stylua.toml") } }),
     formatting.prettierd,
-    formatting.yapf,
+    formatting.black,
     formatting.latexindent,
     diagnostics.chktex,
-    diagnostics.checkmake,
     completions.spell.with({ filetypes = { "tex", "plaintex", "markdown", "txt" } }),
   },
 })
