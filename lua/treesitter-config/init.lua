@@ -23,6 +23,7 @@ treesitter_config.setup({
   },
   highlight = {
     enable = true,
+    -- disable = { "latex" },
   },
 })
 
