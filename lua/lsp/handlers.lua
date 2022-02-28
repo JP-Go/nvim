@@ -91,6 +91,7 @@ M.common_on_attach = function(client, bufnr)
 end
 
 M.servers = {
+  "racket-langserver",
   "html",
   "fortls",
   "texlab",
