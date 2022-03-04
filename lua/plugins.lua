@@ -36,6 +36,7 @@ return packer.startup({
     use({ "TimUntersberger/neogit" }) -- Git interaction
     use({ "lewis6991/impatient.nvim" }) -- Load time reducer?
     use({ "sainnhe/gruvbox-material" }) -- Gruvbox theme
+    use({ "sainnhe/edge" }) -- Onedark+material theme
     use({ "folke/tokyonight.nvim" }) -- Tokyonight theme
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- General purpose lsp for formatting, diagnostic linters
 
