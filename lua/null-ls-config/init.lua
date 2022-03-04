@@ -25,7 +25,7 @@ null_ls.setup({
     formatting.prettierd,
     formatting.black,
     formatting.latexindent,
-    diagnostics.chktex,
+    formatting.raco_fmt,
     completions.spell.with({ filetypes = { "tex", "plaintex", "markdown", "txt" } }),
   },
 })
