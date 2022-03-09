@@ -1,3 +1,3 @@
-local set_keymap = require("keymaps").set_keymap
+local keymaps = require("keymaps")
 
-set_keymap("n", "<C-p>", "<cmd>lua _PYTHON_TOGGLE()<CR>", { noremap = true })
+keymaps.set_keymap("n", "<C-p>", "<cmd>lua _PYTHON_TOGGLE()<CR>", keymaps.opts)
