@@ -18,7 +18,6 @@ opt.cmdheight = 2
 opt.hidden = true
 opt.inccommand = "split"
 opt.cursorline = true
-opt.textwidth = 80
 opt.tabstop = 2
 opt.shiftwidth = 0
 opt.softtabstop = 0
