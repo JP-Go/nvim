@@ -80,8 +80,8 @@ M.set_keymap(
   { noremap = true }
 )
 
--- Neogit
-M.set_keymap("n", "<leader>ng", "<cmd>lua require('neogit').open()<CR>", { noremap = true })
+-- Lazygit
+M.set_keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true })
 
 -- Nvim Tree
 M.set_keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", M.opts)

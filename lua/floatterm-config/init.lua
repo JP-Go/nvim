@@ -45,6 +45,12 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 -- Terminal class to create toggleable terminals
 local Terminal = require("toggleterm.terminal").Terminal
 
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = false, direction = "float" })
+
+function _LAZYGIT_TOGGLE()
+  lazygit:toggle()
+end
+
 local node = Terminal:new({ cmd = "node", hidden = true })
 
 function _NODE_TOGGLE()
@@ -61,4 +67,10 @@ local python = Terminal:new({ cmd = "python", hidden = true })
 
 function _PYTHON_TOGGLE()
   python:toggle()
+end
+
+local racket = Terminal:new({ cmd = "racket", hidden = true })
+
+function _RACKET_TOGGLE()
+  racket:toggle()
 end

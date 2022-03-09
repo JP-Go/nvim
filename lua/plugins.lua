@@ -33,7 +33,6 @@ return packer.startup({
     use({ "kyazdani42/nvim-web-devicons" }) -- icons required lualine
     use({ "onsails/lspkind-nvim" }) -- Icons
     use({ "ThePrimeagen/vim-be-good" }) -- Just a training tool made by the man that vims
-    use({ "TimUntersberger/neogit" }) -- Git interaction
     use({ "lewis6991/impatient.nvim" }) -- Load time reducer?
     use({ "sainnhe/gruvbox-material" }) -- Gruvbox theme
     use({ "sainnhe/edge" }) -- Onedark+material theme
