@@ -86,4 +86,6 @@ M.set_keymap("n", "<leader>ng", "<cmd>lua require('neogit').open()<CR>", { norem
 -- Nvim Tree
 M.set_keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", M.opts)
 
+M.set_keymap("n", "<leader>h", "<cmd>lua _HTOP_TOGGLE()<CR>", M.opts)
+
 return M
