@@ -29,13 +29,6 @@ M.set_keymap("n", "<C-j>", "<C-w>j", M.opts)
 M.set_keymap("n", "<C-k>", "<C-w>k", M.opts)
 M.set_keymap("n", "<C-l>", "<C-w>l", M.opts)
 
--- Move lines with alt+jk
-M.set_keymap("v", "<A-j>", "<cmd>m '>+1<CR>gv=gv", M.opts)
-M.set_keymap("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv", M.opts)
-
--- Alternative to exit insert mode
-M.set_keymap("i", "jj", "<Escape>", M.opts)
-
 -- Delete word to the left of the cursor in ins-mode
 -- OBS:  = Ctrl+Backspace
 M.set_keymap("i", "", "<C-w>", M.opts)
@@ -77,6 +70,13 @@ M.set_keymap(
   "n",
   "gb",
   "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown())<CR>",
+  { noremap = true }
+)
+
+M.set_keymap(
+  "n",
+  "<A-h>",
+  "<cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown())<CR>",
   { noremap = true }
 )
 
