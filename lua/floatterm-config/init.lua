@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 toggleterm.setup({
+  direction = "horizontal",
   size = function(term)
     if term.direction == "horizontal" then
       return 8
@@ -18,7 +19,6 @@ toggleterm.setup({
   start_in_insert = true,
   insert_mappings = true,
   persist_size = true,
-  direction = "horizontal",
   close_on_exit = true,
   shell = vim.o.shell,
   float_opts = {
@@ -45,7 +45,7 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 -- Terminal class to create toggleable terminals
 local Terminal = require("toggleterm.terminal").Terminal
 
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = false, direction = "float" })
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
 
 function _LAZYGIT_TOGGLE()
   lazygit:toggle()
