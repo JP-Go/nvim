@@ -1,9 +1,10 @@
 local runtime_path = vim.split(package.path, ";")
+local home = vim.env.HOME
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 return {
-  cmd = { "lua-language-server" },
+  cmd = { home .. "/.local/bin/lua-language-server/bin/lua-language-server" },
   settings = {
     Lua = {
       runtime = {
