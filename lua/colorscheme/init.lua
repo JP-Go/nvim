@@ -15,6 +15,9 @@ end
 if options.theme then
 	lualine_theme = options.theme
 end
+if options.init then
+	options.init()
+end
 if options.vars then
 	handlers.set_colorscheme_vars(options)
 end

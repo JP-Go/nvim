@@ -5,7 +5,7 @@ return {
 	vars = {
 		style = "deep ocean",
 	},
-	callback = function()
+	init = function()
 		require("material").setup({
 			contrast = {
 				sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
@@ -19,7 +19,7 @@ return {
 
 			italics = {
 				comments = true, -- Enable italic comments
-				keywords = true, -- Enable italic keywords
+				keywords = false, -- Enable italic keywords
 				functions = false, -- Enable italic functions
 				strings = false, -- Enable italic strings
 				variables = true, -- Enable italic variables
