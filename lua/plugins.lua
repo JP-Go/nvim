@@ -36,7 +36,6 @@ return packer.startup({
 		use({ "lewis6991/impatient.nvim" }) -- Load time reducer?
 		use({ "sainnhe/gruvbox-material" }) -- Gruvbox theme
 		use({ "folke/tokyonight.nvim" }) -- Tokyonight theme
-		use({ "marko-cerovac/material.nvim" }) -- Material theme
 		use({ "jose-elias-alvarez/null-ls.nvim" }) -- General purpose lsp for formatting, diagnostic linters
 		use({ "akinsho/bufferline.nvim" }) -- Top bufferline
 
