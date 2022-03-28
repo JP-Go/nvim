@@ -43,49 +43,44 @@ M.set_keymap("n", "<leader>q", "<cmd>bdelete<CR>", M.opts)
 
 -- Telescope
 M.set_keymap(
-  "n",
-  "<leader>ff",
-  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown())<CR>",
-  { noremap = true }
+	"n",
+	"<leader>ff",
+	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown())<CR>",
+	{ noremap = true }
 )
 M.set_keymap(
-  "n",
-  "<leader>lg",
-  "<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown())<CR>",
-  { noremap = true }
+	"n",
+	"<leader>lg",
+	"<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown())<CR>",
+	{ noremap = true }
 )
 M.set_keymap(
-  "n",
-  "<leader>ls",
-  "<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown())<CR>",
-  { noremap = true }
+	"n",
+	"<leader>ls",
+	"<cmd>lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown())<CR>",
+	{ noremap = true }
 )
 M.set_keymap(
-  "n",
-  "<leader>gr",
-  "<cmd>lua require('telescope.builtin').registers(require('telescope.themes').get_dropdown())<CR>",
-  { noremap = true }
+	"n",
+	"<leader>gr",
+	"<cmd>lua require('telescope.builtin').registers(require('telescope.themes').get_dropdown())<CR>",
+	{ noremap = true }
 )
 M.set_keymap(
-  "n",
-  "gb",
-  "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown())<CR>",
-  { noremap = true }
+	"n",
+	"gb",
+	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown())<CR>",
+	{ noremap = true }
 )
 
 M.set_keymap(
-  "n",
-  "<A-h>",
-  "<cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown())<CR>",
-  { noremap = true }
+	"n",
+	"<A-h>",
+	"<cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown())<CR>",
+	{ noremap = true }
 )
-
--- Lazygit
-M.set_keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true })
 
 -- Nvim Tree
 M.set_keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", M.opts)
-
-M.set_keymap("n", "<leader>h", "<cmd>lua _HTOP_TOGGLE()<CR>", M.opts)
 
 return M
