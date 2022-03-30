@@ -38,7 +38,6 @@ return packer.startup({
 		use({ "akinsho/bufferline.nvim" }) -- Top bufferline
 		use({ "sainnhe/gruvbox-material" }) -- Gruvbox theme
 		use({ "folke/tokyonight.nvim" }) -- Tokyonight theme
-		use({ "tiagovla/tokyodark.nvim" })
 
 		-- Configured plugins
 		use({
