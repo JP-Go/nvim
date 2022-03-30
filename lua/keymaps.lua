@@ -12,10 +12,6 @@ M.set_keymap("n", "<leader><leader>x", "<cmd> source %<CR>", { noremap = true })
 -- Source vim file in the current dir for some projects
 M.set_keymap("n", "<leader>src", "<cmd> source .vimrc<CR>", { noremap = true })
 
--- Execute commands faster in normal mode
-M.set_keymap("n", ";", ":", { noremap = true })
-M.set_keymap("n", ":", ";", { noremap = true })
-
 -- Shift lines in visual mode
 M.set_keymap("v", ">", ">gv", M.opts)
 M.set_keymap("v", "<", "<gv", M.opts)
