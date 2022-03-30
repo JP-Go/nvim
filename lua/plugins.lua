@@ -34,10 +34,11 @@ return packer.startup({
 		use({ "onsails/lspkind-nvim" }) -- Icons
 		use({ "ThePrimeagen/vim-be-good" }) -- Just a training tool made by the man that vims
 		use({ "lewis6991/impatient.nvim" }) -- Load time reducer?
-		use({ "sainnhe/gruvbox-material" }) -- Gruvbox theme
-		use({ "folke/tokyonight.nvim" }) -- Tokyonight theme
 		use({ "jose-elias-alvarez/null-ls.nvim" }) -- General purpose lsp for formatting, diagnostic linters
 		use({ "akinsho/bufferline.nvim" }) -- Top bufferline
+		use({ "sainnhe/gruvbox-material" }) -- Gruvbox theme
+		use({ "folke/tokyonight.nvim" }) -- Tokyonight theme
+		use({ "tiagovla/tokyodark.nvim" })
 
 		-- Configured plugins
 		use({
