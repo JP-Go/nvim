@@ -1,6 +1,6 @@
 -- TODO: Find a way to set these options when the colorscheme changes
 local handlers = require("colorscheme.handlers")
-local colorscheme = "tokyonight"
+local colorscheme = "gruvbox-material"
 
 local options = handlers.get_colorscheme_options(colorscheme)
 
