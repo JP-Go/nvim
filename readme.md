@@ -16,5 +16,5 @@
 1. Clone this repository to `.config/nvim` (Linux) `git clone https://www.github.com/JP-Go/jpnvimrc ~/.config/nvim`
 1. Follow the [packer.nvim](https://github.com/wbthomason/packer.nvim) guide to install packer
 1. Open neovim and run `:PackerInstall` to install all the plugins.
-1. (Optional) Install LSP Servers `npm install tsserver`, `cargo install rustfmt stylua`, `gem install solargraph`, (check for `ccls` in the distro repositories)
+1. (Optional) Install LSP Servers `npm install tsserver`, `cargo install rust-analyzer`, `gem install solargraph`, (check for `ccls` in the distro repositories)
 1. (Optional) Install formatters: `npm install -g prettier`, `rustup install stylua`
