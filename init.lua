@@ -1,7 +1,0 @@
-require("plugins")
-require("settings")
-require("packer_compiled")
-require("impatient")
-require("keymaps")
-require("lsp")
-require("colorscheme")
