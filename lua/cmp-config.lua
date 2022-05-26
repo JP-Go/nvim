@@ -23,10 +23,6 @@ cmp.setup({
       	require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
      end
    },
-   window = {
-     completion = cmp.config.window.bordered(),
-     documentation = cmp.config.window.bordered(),
-   },
    mapping = cmp.mapping.preset.insert({
 	    ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -59,7 +55,7 @@ cmp.setup({
    sources = cmp.config.sources({ { name = 'nvim_lsp' },
      { name = 'luasnip' }
    }, {
-     { name = 'buffer' },
+     { name = 'buffer' , keyword_length = 5},
    })
  })
  cmp.setup.filetype('gitcommit', {
