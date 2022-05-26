@@ -4,6 +4,7 @@ local DEFAULT_COLORSCHEME = "onedark"
 M.set_colorscheme = function (colorscheme)
 	if type(colorscheme) == "table" then
 		colorscheme.set()
+		print(string.format("Colorscheme is now %s",colorscheme.name))
 		return
 	end
   local message = string.format("Expected colorscheme as table, but got %s",type(colorscheme))
@@ -15,7 +16,7 @@ M.colorschemes = {
 		set = function ()
 			local onedark_ok,onedark = pcall(require,"onedark")
 			if not onedark_ok then
-				error("Colorscheme 'onedark' not available")
+				print("Colorscheme 'onedark' not available")
 			end
 			onedark.setup({style = "darker"})
 			onedark.load()
@@ -24,12 +25,11 @@ M.colorschemes = {
 	},
   sonokai = {
 		set = function()
-			local sonokai_ok,_ = pcall(require,"sonokai")
-			if not sonokai_ok then
-				error("Colorscheme 'sonokai' not available")
-			end
 			vim.g.sonokai_style = "default"
-			vim.cmd("colorscheme sonokai")
+			local sonokai_ok,_ = pcall(vim.cmd,"colorscheme sonokai")
+			if not sonokai_ok then
+				print("Colorscheme 'sonokai' not available")
+			end
 		end,
 		name = "sonokai"
 	},
@@ -42,7 +42,6 @@ M.set_default = function (colorscheme)
 		colorscheme = M.default
 	end
 	M.set_colorscheme(colorscheme)
-	print(string.format("Colorscheme is now %s",colorscheme.name))
 end
 
 
