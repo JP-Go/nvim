@@ -22,5 +22,6 @@ return require('packer').startup(function()
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
   use {'hrsh7th/nvim-cmp', config = function() require("cmp-config") end}
-  use {'sainnhe/sonokai'}
+  use 'sainnhe/sonokai'
+	use 'TimUntersberger/neogit'
   end)
