@@ -9,8 +9,10 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
+  use 'navarasu/onedark.nvim'
+
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
   use {'hrsh7th/nvim-cmp', config = function() require("cmp-config") end}
-  use {'sainnhe/sonokai', config = function() vim.cmd('colorscheme sonokai')  end}
+  use {'sainnhe/sonokai'}
   end)
