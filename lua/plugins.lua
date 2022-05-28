@@ -17,6 +17,15 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-cmdline'
 	use 'jose-elias-alvarez/null-ls.nvim'
 	use 'navarasu/onedark.nvim'
+	use { 'lewis6991/gitsigns.nvim', tag = 'release', config = function()
+		require('gitsigns').setup({ current_line_blame = true,
+			current_line_blame_opts = {
+				virt_text = true,
+				virt_text_pos = 'right_align',
+				delay = 1000,
+				ignore_whitespace = false,
+			} })
+	end }
 	use {
 		'kyazdani42/nvim-tree.lua',
 		requires = {
