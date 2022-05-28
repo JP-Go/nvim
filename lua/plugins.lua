@@ -16,6 +16,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
+	use 'jose-elias-alvarez/null-ls.nvim'
   use 'navarasu/onedark.nvim'
 	use {
 			'kyazdani42/nvim-tree.lua',
@@ -31,4 +32,8 @@ return require('packer').startup(function()
   use {'hrsh7th/nvim-cmp', config = function() require("cmp-config") end}
   use 'sainnhe/sonokai'
 	use 'TimUntersberger/neogit'
+
+		if packer_bootstrap then
+			require('packer').sync()
+		end
   end)
