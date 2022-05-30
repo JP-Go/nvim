@@ -8,3 +8,7 @@ vim.opt.softtabstop = 2
 vim.opt.scrolloff = 10
 vim.opt.hlsearch = false
 vim.opt.laststatus = 3
+vim.opt.swapfile = false
+vim.opt.cursorline = true
+vim.opt.colorcolumn = "80"
+vim.opt.undofile = true
