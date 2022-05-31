@@ -37,10 +37,6 @@ return require('packer').startup(function()
 		requires = { { 'nvim-lua/plenary.nvim' } },
 	})
 	use('neovim/nvim-lspconfig')
-	use('hrsh7th/cmp-nvim-lsp')
-	use('hrsh7th/cmp-buffer')
-	use('hrsh7th/cmp-path')
-	use('hrsh7th/cmp-cmdline')
 	use('navarasu/onedark.nvim')
 	use({
 		'lewis6991/gitsigns.nvim',
@@ -74,6 +70,7 @@ return require('packer').startup(function()
 		end,
 	})
 	use('L3MON4D3/LuaSnip')
+	use 'saadparwaiz1/cmp_luasnip'
 	use('rafamadriz/friendly-snippets')
 	use({
 		'hrsh7th/nvim-cmp',
@@ -81,6 +78,10 @@ return require('packer').startup(function()
 			require('cmp-config')
 		end,
 	})
+	use('hrsh7th/cmp-nvim-lsp')
+	use('hrsh7th/cmp-buffer')
+	use('hrsh7th/cmp-path')
+	use('hrsh7th/cmp-cmdline')
 	use('sainnhe/sonokai')
 	use('TimUntersberger/neogit')
 
