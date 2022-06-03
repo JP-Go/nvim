@@ -5,6 +5,8 @@ M.servers = {
 	{ name = 'pyright' },
 	{ name = 'tsserver' },
 	{ name = 'sumneko_lua', config_module = 'lsp.sumneko_lua' },
+	{ name = 'cssls' },
+	{ name = 'cssmodules_ls' },
 }
 ---@diagnostic disable-next-line: unused-local
 M.common_on_attach = function(client, bufnr)
