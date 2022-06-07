@@ -1,11 +1,15 @@
 local default_opts = { noremap = true, silent = true }
 
-local set_keymap = function(mode, lhs, rhs, opts) vim.keymap.set(mode, lhs, rhs, opts) end
+local set_keymap = function(mode, lhs, rhs, opts)
+	vim.keymap.set(mode, lhs, rhs, opts)
+end
 
 set_keymap("n", "<space>sf", function()
 	vim.cmd(":source %")
 	print(string.format("Sourced file %s", vim.fn.expand("%")))
 end, default_opts)
+
+set_keymap("n", "<space>d", ":bdelete<CR>", default_opts)
 
 -- Telescope
 local telescope_builtins = require("telescope.builtin")

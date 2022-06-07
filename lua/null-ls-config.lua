@@ -1,16 +1,16 @@
-local nls_ok, nls = pcall(require, 'null-ls')
-local util = require('vim.lsp.util')
+local nls_ok, nls = pcall(require, "null-ls")
+local util = require("vim.lsp.util")
 
 if not nls_ok then
-	print('Null-ls not installed')
+	print("Null-ls not installed")
 	return
 end
 
 local formatters = nls.builtins.formatting
 local formatting_callback = function(client, bufnr)
-	vim.keymap.set('n', '<space>cf', function()
+	vim.keymap.set("n", "<space>cf", function()
 		local params = util.make_formatting_params({})
-		client.request('textDocument/formatting', params, nil, bufnr)
+		client.request("textDocument/formatting", params, nil, bufnr)
 	end, { buffer = bufnr })
 end
 
@@ -20,7 +20,7 @@ nls.setup({
 	end,
 	sources = {
 		formatters.stylua.with({
-			extra_args = { '--config-path=/home/jp/.config/stylua.toml' },
+			extra_args = { "--config-path=/home/jp/.config/stylua.toml" },
 		}),
 		formatters.prettier,
 	},
