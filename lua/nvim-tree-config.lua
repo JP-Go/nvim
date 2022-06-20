@@ -64,7 +64,7 @@ tree.setup({ -- BEGIN_DEFAULT_OPTS
 	update_cwd = false,
 	reload_on_bufenter = false,
 	view = {
-		width = 30,
+		width = 28,
 		height = 30,
 		hide_root_folder = false,
 		side = "left",
