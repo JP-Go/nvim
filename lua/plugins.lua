@@ -37,6 +37,14 @@ return require('packer').startup(function()
 		'nvim-telescope/telescope.nvim',
 		requires = { { 'nvim-lua/plenary.nvim' } },
 	})
+	use({
+		'akinsho/bufferline.nvim',
+		tag = 'v2.*',
+		requires = 'kyazdani42/nvim-web-devicons',
+		config = function ()
+			require("bufferline").setup({options = {separator_style = "slant"}})
+		end
+	})
 	use('neovim/nvim-lspconfig')
 	use('navarasu/onedark.nvim')
 	use({ 'rose-pine/neovim', as = 'rose-pine', tag = 'v1.*' })
