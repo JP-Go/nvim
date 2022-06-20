@@ -9,12 +9,12 @@ set_keymap("n", "<space>sf", function()
 	print(string.format("Sourced file %s", vim.fn.expand("%")))
 end, default_opts)
 
-set_keymap("n", "<space>d", ":bdelete<CR>", default_opts)
+set_keymap("n", "<space>bd", ":bdelete<CR>", {noremap = true})
 
 -- Telescope
 local telescope_builtins = require("telescope.builtin")
 set_keymap("n", "<space>ff", telescope_builtins.find_files, default_opts)
-set_keymap("n", "<space>b", telescope_builtins.buffers, default_opts)
+set_keymap("n", "<space>bl", telescope_builtins.buffers, default_opts)
 set_keymap("n", "<space>ht", telescope_builtins.help_tags, default_opts)
 set_keymap("n", "<space>hk", telescope_builtins.keymaps, default_opts)
 
