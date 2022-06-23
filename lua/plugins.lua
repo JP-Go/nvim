@@ -14,6 +14,7 @@ end
 return require('packer').startup(function()
 	use('wbthomason/packer.nvim')
 	use('mfussenegger/nvim-jdtls')
+	use('LunarVim/Colorschemes')
 	use({
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
