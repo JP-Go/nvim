@@ -1,5 +1,4 @@
 local M = {}
-local util = require('vim.lsp.util')
 
 M.servers = {
 	{ name = 'pyright' },
