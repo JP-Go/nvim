@@ -22,7 +22,7 @@ nls.setup({
 		formatters.stylua.with({
 			extra_args = { "--config-path=/home/jp/.config/stylua.toml" },
 		}),
-		formatters.prettierd,
+		formatters.prettier_d_slim,
 		formatters.black
 	},
 })
