@@ -27,3 +27,7 @@ set_keymap('n', '<space>e', ':NvimTreeToggle<CR>', default_opts)
 --Neogit
 local neogit = require('neogit')
 set_keymap('n', '<space>gg', neogit.open, default_opts)
+
+-- Color-picker
+set_keymap("n", "<C-c>", "<cmd>PickColor<cr>", default_opts)
+set_keymap("i", "<C-c>", "<cmd>PickColorInsert<cr>", default_opts)

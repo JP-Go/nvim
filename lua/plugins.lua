@@ -12,10 +12,20 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function()
+	use({'norcalli/nvim-colorizer.lua', config = function ()
+		require('colorizer').setup()
+	end})
 	use({
 		'windwp/nvim-autopairs',
 		config = function()
-			require('nvim-autopairs').setup({check_ts = true})
+			require('nvim-autopairs').setup({ check_ts = true })
+		end,
+	})
+	use({
+		'ziontee113/color-picker.nvim',
+		config = function()
+			require('color-picker')
+			vim.cmd([[hi FloatBorder guibg=NONE]]) -- if you don't want weird border background colors around the popup.
 		end,
 	})
 	use('wbthomason/packer.nvim')
