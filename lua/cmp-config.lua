@@ -4,7 +4,7 @@ local has_words_before = function()
 end
 local cmp_ok, cmp = pcall(require, "cmp")
 local luasnip_ok, luasnip = pcall(require, "luasnip")
-
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 require("luasnip.loaders.from_vscode").lazy_load()
 
 if not cmp_ok then
@@ -81,3 +81,8 @@ cmp.setup.cmdline(":", {
 		{ name = "cmdline" },
 	}),
 })
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)

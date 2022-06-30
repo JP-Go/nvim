@@ -12,6 +12,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function()
+	use({
+		'windwp/nvim-autopairs',
+		config = function()
+			require('nvim-autopairs').setup({check_ts = true})
+		end,
+	})
 	use('wbthomason/packer.nvim')
 	use('mfussenegger/nvim-jdtls')
 	use('LunarVim/Colorschemes')
@@ -42,13 +48,12 @@ return require('packer').startup(function()
 		'akinsho/bufferline.nvim',
 		tag = 'v2.*',
 		requires = 'kyazdani42/nvim-web-devicons',
-		config = function ()
-			require("bufferline").setup({options = {separator_style = "slant"}})
-		end
+		config = function()
+			require('bufferline').setup({ options = { separator_style = 'slant' } })
+		end,
 	})
 	use('neovim/nvim-lspconfig')
 	use('navarasu/onedark.nvim')
-	use({ 'rose-pine/neovim', as = 'rose-pine', tag = 'v1.*' })
 	use({
 		'lewis6991/gitsigns.nvim',
 		tag = 'release',
