@@ -12,9 +12,18 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function()
-	use({'norcalli/nvim-colorizer.lua', config = function ()
-		require('colorizer').setup()
-	end})
+	use({
+		'norcalli/nvim-colorizer.lua',
+		config = function()
+			require('colorizer').setup()
+		end,
+	})
+	use({
+		'numToStr/Comment.nvim',
+		config = function()
+			require('Comment').setup()
+		end,
+	})
 	use({
 		'windwp/nvim-autopairs',
 		config = function()
