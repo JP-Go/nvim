@@ -63,7 +63,7 @@ return require('packer').startup(function()
 		end,
 	})
 	use('neovim/nvim-lspconfig')
-	use('navarasu/onedark.nvim')
+	use('olimorris/onedarkpro.nvim')
 	use({
 		'lewis6991/gitsigns.nvim',
 		tag = 'release',

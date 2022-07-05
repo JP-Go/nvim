@@ -26,7 +26,7 @@ local lsp_module = {
 		end
 	end,
 	icon = '⚙ LSP:',
-	color = { bg = colors.normal.b.bg, fg = colors.normal.b.fg },
+	color = { bg = colors.normal.c.bg, fg = colors.normal.c.fg },
 }
 
 local config = {
@@ -35,7 +35,7 @@ local config = {
 		theme = 'auto',
 		component_separators = { left = '', right = '' },
 		section_separators = { left = '', right = '' },
-		disabled_filetypes = {},
+		disabled_filetypes = { 'NvimTree' },
 		always_divide_middle = true,
 		globalstatus = true,
 	},
@@ -56,7 +56,7 @@ local config = {
 		lualine_y = {},
 		lualine_z = {},
 	},
-	tabline = { },
+	tabline = {},
 	extensions = {},
 }
 

@@ -1,34 +1,46 @@
 return {
 	onedark = {
 		set = function()
-			local onedark_ok, onedark = pcall(require, 'onedark')
-			if not onedark_ok then
-				print("Colorscheme 'onedark' not available")
+			local onedarkpro_ok, onedarkpro = pcall(require, 'onedarkpro')
+			if not onedarkpro_ok then
+				print("Colorscheme 'onedarkpro' not available")
 			end
-			onedark.setup({
-				style = 'warm',
-				code_style = {
+			onedarkpro.setup({
+				dark_theme = 'onedark_dark',
+				plugins = {
+					native_lsp = true,
+					polygot = false,
+					treesitter = true,
+				},
+				styles = {
 					comments = 'italic',
-					keywords = 'none',
-					functions = 'none',
-					strings = 'none',
-					variables = 'none',
+					keywords = 'italic,bold',
+				},
+				options = {
+					bold = false, -- Use the themes opinionated bold styles?
+					italic = false, -- Use the themes opinionated italic styles?
+					underline = false, -- Use the themes opinionated underline styles?
+					undercurl = false, -- Use the themes opinionated undercurl styles?
+					cursorline = false, -- Use cursorline highlighting?
+					transparency = false, -- Use a transparent background?
+					terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+					window_unfocussed_color = true, -- When the window is out of focus, change the normal background?
 				},
 			})
-			onedark.load()
+			onedarkpro.load()
 		end,
-		name = 'onedark',
+		name = 'onedarkpro',
 	},
 	rose_pine = {
-		set =  function ()
-			local rose_ok, rose = pcall(require,"rose-pine")
+		set = function()
+			local rose_ok, rose = pcall(require, 'rose-pine')
 			if not rose_ok then
 				print("Colorscheme 'rose-pine' not available")
 			end
-			rose.setup({dark_variant = "moon"})
-			vim.cmd("colorscheme rose-pine")
+			rose.setup({ dark_variant = 'moon' })
+			vim.cmd('colorscheme rose-pine')
 		end,
-		name = "rose-pine"
+		name = 'rose-pine',
 	},
 	sonokai = {
 		set = function()
