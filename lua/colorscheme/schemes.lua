@@ -8,28 +8,27 @@ return {
 			onedarkpro.setup({
 				dark_theme = 'onedark_dark',
 				plugins = {
-					native_lsp = true,
-					polygot = false,
-					treesitter = true,
+					all = true,
 				},
 				styles = {
 					comments = 'italic',
 					keywords = 'italic,bold',
 				},
 				options = {
-					bold = false, -- Use the themes opinionated bold styles?
-					italic = false, -- Use the themes opinionated italic styles?
-					underline = false, -- Use the themes opinionated underline styles?
-					undercurl = false, -- Use the themes opinionated undercurl styles?
-					cursorline = false, -- Use cursorline highlighting?
-					transparency = false, -- Use a transparent background?
-					terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-					window_unfocussed_color = true, -- When the window is out of focus, change the normal background?
+					bold = true,
+					italic = true,
+					underline = true,
+					undercurl = true,
+					cursorline = true,
+					transparency = false,
+					terminal_colors = true,
+					window_unfocussed_color = false,
 				},
 			})
+			---@diagnostic disable-next-line: missing-parameter
 			onedarkpro.load()
 		end,
-		name = 'onedarkpro',
+		name = 'onedark_pro',
 	},
 	rose_pine = {
 		set = function()
