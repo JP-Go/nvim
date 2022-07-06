@@ -12,6 +12,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function()
+	use('lewis6991/impatient.nvim')
 	use({
 		'norcalli/nvim-colorizer.lua',
 		config = function()
