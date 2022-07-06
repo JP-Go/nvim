@@ -1,7 +1,8 @@
-require("preferences")
-require("plugins")
-require("keymaps")
-require("lsp")
+require('impatient')
+require('preferences')
+require('plugins')
+require('keymaps')
+require('lsp')
 
-Colorscheme = require("colorscheme")
+Colorscheme = require('colorscheme')
 Colorscheme.set_default()
