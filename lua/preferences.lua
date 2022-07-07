@@ -12,5 +12,6 @@ vim.opt.hlsearch = false
 vim.opt.laststatus = 3
 vim.opt.swapfile = false
 vim.opt.cursorline = true
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = '80'
 vim.opt.undofile = true
+vim.opt.clipboard:append('unnamedplus')
