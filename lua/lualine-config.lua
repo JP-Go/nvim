@@ -26,9 +26,8 @@ local lsp_module = {
 		end
 	end,
 	icon = '⚙ LSP:',
-	color = { bg = colors.normal.c.bg, fg = colors.normal.c.fg },
+	color = { bg = colors.normal.b.bg, fg = colors.normal.a.fg },
 }
-
 local config = {
 	options = {
 		icons_enabled = true,
