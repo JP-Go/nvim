@@ -8,5 +8,9 @@ return {
     },
   },
 
-  { "folke/noice.nvim", enabled = false },
+  { "folke/noice.nvim", opts = {
+    messages = {
+      enabled = false,
+    },
+  } },
 }
