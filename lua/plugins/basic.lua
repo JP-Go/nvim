@@ -1,10 +1,10 @@
 return {
-  { "tiagovla/tokyodark.nvim" },
+  { "Yazeed1s/minimal.nvim" },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyodark",
+      colorscheme = "minimal",
     },
   },
 
