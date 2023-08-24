@@ -8,6 +8,14 @@ return {
 			require("configs.which-key")
 		end,
 	},
+    {
+        "nvim-tree/nvim-tree.lua",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons"
+        },
+        cmd = {"NvimTreeToggle","NvimTreeFocus","NvimTreeFindFile","NvimTreeCollapse"},
+        opts = require("configs.nvim-tree").opts
+    },
 	{
 		"catppuccin/nvim", name = "catppuccin",
 		lazy = false,
