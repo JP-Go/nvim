@@ -1,5 +1,5 @@
 local M = {}
-local tree_on_attach = function()
+local tree_on_attach = function(bufnr)
 
     local api = require('nvim-tree.api')
 
