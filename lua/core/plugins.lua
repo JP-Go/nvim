@@ -9,6 +9,10 @@ return {
 		end,
 	},
     {
+        'stevearc/dressing.nvim',
+        opts = {},
+    },
+    {
         "nvim-tree/nvim-tree.lua",
         dependencies = {
             "nvim-tree/nvim-web-devicons"
@@ -16,15 +20,18 @@ return {
         cmd = {"NvimTreeToggle","NvimTreeFocus","NvimTreeFindFile","NvimTreeCollapse"},
         opts = require("configs.nvim-tree").opts
     },
+    'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+    "romgrk/barbar.nvim",
+    {
+        "navarasu/onedark.nvim",
+        priority = 1000,
+        config = function ()
+            require("onedark").setup({
+                style = 'darker'
+            })
+        end
+    },
 	{
-		"catppuccin/nvim", name = "catppuccin",
-		lazy = false,
-		config = function()
-			vim.cmd("colorscheme catppuccin-mocha")
-		end
-
-	},
-	{ 
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.2",
 		dependencies = {"nvim-lua/plenary.nvim"},
@@ -33,7 +40,7 @@ return {
 	{	"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("configs.treesitter")
-		end
+		end,
 	},
 	{
 		'williamboman/mason.nvim',
@@ -67,7 +74,11 @@ return {
              require('cmp').setup(
                 require("configs.cmp").opts
              )
-
-         end 
+         end,
+         event = "InsertEnter"
+     },
+     {
+         "rebelot/heirline.nvim",
+         opts = {}
      }
 }
