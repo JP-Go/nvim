@@ -15,7 +15,7 @@ local add_lsp_keymaps = function(bufnr)
             D = {function() vim.lsp.buf.declaration() end, "Go to declaration",noremap = false, buffer = bufnr},
             r = {function() vim.lsp.buf.references() end, "Go to references",noremap = false, buffer = bufnr},
         }
-    })
+    }, {prefix = "<leader>"})
 end
 
 
