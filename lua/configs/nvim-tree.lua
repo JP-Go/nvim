@@ -66,6 +66,5 @@ end
 
 M.opts = {
     on_attach = tree_on_attach
-
 }
 return M
