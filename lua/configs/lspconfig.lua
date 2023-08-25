@@ -4,19 +4,20 @@ local add_lsp_keymaps = function(bufnr)
     local wk = require("which-key")
     wk.register({
         ["<leader>"] = {
-        ["ca"] = {function() vim.lsp.buf.code_action() end, "Code actions", },
+        ["ca"] = {function() vim.lsp.buf.code_action() end, "Code actions"},
         f = {
-            s = {"<cmd>Telescope lsp_workspace_symbols<cr>", "Find Symbols", },
-            r = {function() vim.lsp.buf.references() end, "Find references",},
-            d = {"Telescope diagnostics", "Find diagnostics", },
+            s = {"<cmd>Telescope lsp_workspace_symbols<cr>", "Find Symbols"},
+            r = {function() vim.lsp.buf.references() end, "Find references"},
+            d = {"<cmd>Telescope diagnostics<cr>", "Find diagnostics"},
         },
-        r = {function() vim.lsp.buf.rename() end, "Rename symbol",}
+        r = {function() vim.lsp.buf.rename() end, "Rename symbol"}
     },
         g = {
-            d = {function() vim.lsp.buf.definition() end, "Go to definition",},
-            D = {function() vim.lsp.buf.declaration() end, "Go to declaration",},
-            r = {function() vim.lsp.buf.references() end, "Go to references",},
-        }
+            d = {function() vim.lsp.buf.definition() end, "Go to definition"},
+            D = {function() vim.lsp.buf.declaration() end, "Go to declaration"},
+            r = {function() vim.lsp.buf.references() end, "Go to references"},
+        },
+        ["K"] = {function () vim.lsp.buf.hover() end, "Hover docs"}
     }, { noremap = false, buffer = bufnr})
 end
 
