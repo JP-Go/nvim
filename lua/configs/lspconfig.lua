@@ -3,19 +3,21 @@ local lspconfig = require("lspconfig")
 local add_lsp_keymaps = function(bufnr)
     local wk = require("which-key")
     wk.register({
-        ["ca"] = {function() vim.lsp.buf.code_action() end, "Code actions", noremap = false, buffer = bufnr},
+        ["<leader>"] = {
+        ["ca"] = {function() vim.lsp.buf.code_action() end, "Code actions", },
         f = {
-            s = {"<cmd>Telescope lsp_workspace_symbols<cr>", "Find Symbols", noremap = false, buffer = bufnr},
-            r = {function() vim.lsp.buf.references() end, "Find references",noremap = false, buffer = bufnr},
-            d = {"Telescope diagnostics", "Find diagnostics", noremap = false, buffer = bufnr},
+            s = {"<cmd>Telescope lsp_workspace_symbols<cr>", "Find Symbols", },
+            r = {function() vim.lsp.buf.references() end, "Find references",},
+            d = {"Telescope diagnostics", "Find diagnostics", },
         },
-        r = {function() vim.lsp.buf.rename() end, "Rename symbol",noremap = false, buffer = bufnr},
+        r = {function() vim.lsp.buf.rename() end, "Rename symbol",}
+    },
         g = {
-            d = {function() vim.lsp.buf.definition() end, "Go to definition",noremap = false, buffer = bufnr},
-            D = {function() vim.lsp.buf.declaration() end, "Go to declaration",noremap = false, buffer = bufnr},
-            r = {function() vim.lsp.buf.references() end, "Go to references",noremap = false, buffer = bufnr},
+            d = {function() vim.lsp.buf.definition() end, "Go to definition",},
+            D = {function() vim.lsp.buf.declaration() end, "Go to declaration",},
+            r = {function() vim.lsp.buf.references() end, "Go to references",},
         }
-    }, {prefix = "<leader>"})
+    }, { noremap = false, buffer = bufnr})
 end
 
 
