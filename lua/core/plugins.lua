@@ -38,6 +38,7 @@ return {
 	{
 		'williamboman/mason.nvim',
 		config = function()
+            require("configs.lspconfig")
 			require("mason").setup()
 			require("mason-lspconfig").setup({
 				ensure_installed = { "lua_ls","clangd","tsserver","cssls","tailwindcss","prismals", "dockerls","docker_compose_language_service" }
@@ -46,9 +47,27 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-		    	"neovim/nvim-lspconfig",
+            "neovim/nvim-lspconfig",
 
 		}
 
-	}
+	},
+    {
+         'hrsh7th/nvim-cmp',
+         dependencies = {
+             'hrsh7th/cmp-nvim-lsp',
+             'hrsh7th/cmp-buffer',
+             'hrsh7th/cmp-path',
+             'hrsh7th/cmp-cmdline',
+             'L3MON4D3/LuaSnip',
+             'saadparwaiz1/cmp_luasnip',
+             'windwp/nvim-autopairs'
+         },
+         config = function()
+             require('cmp').setup(
+                require("configs.cmp").opts
+             )
+
+         end 
+     }
 }
