@@ -25,7 +25,7 @@ M.opts.mapping = cmp.mapping.preset.insert({
 M.opts.sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.
-}, 
+},
 {
     { name = 'buffer' },
 })
