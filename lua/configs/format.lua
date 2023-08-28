@@ -7,6 +7,7 @@ M.opts = {
     typescript = { require('formatter.filetypes.typescript').denofmt },
     javascriptreact = { require('formatter.filetypes.javascriptreact').denofmt },
     typescriptreact = { require('formatter.filetypes.typescriptreact').denofmt },
+    vue = { require('formatter.filetypes.vue').prettier },
   },
 }
 
