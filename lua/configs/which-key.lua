@@ -10,7 +10,7 @@ wk.register({
 	},
     b = {
         n = {"<cmd>bNext<cr>","Next buffer"},
-        p = {"<cmd>bprev<cr>","Previous buffer"},
+        b = {"<cmd>bprev<cr>","Previous buffer"},
         c = {"<cmd>bdelete<cr>","Delete buffer"},
         C = {"<cmd>bdelete!<cr>","Delete buffer (force)"},
     },
