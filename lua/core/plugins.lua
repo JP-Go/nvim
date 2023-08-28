@@ -80,5 +80,10 @@ return {
      {
          "rebelot/heirline.nvim",
          opts = {}
+     },
+     {
+         "TimUntersberger/neogit",
+         opts = {}
      }
+
 }
