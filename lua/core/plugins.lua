@@ -20,8 +20,16 @@ return {
         cmd = {"NvimTreeToggle","NvimTreeFocus","NvimTreeFindFile","NvimTreeCollapse"},
         opts = require("configs.nvim-tree").opts
     },
-    'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-    "romgrk/barbar.nvim",
+    {
+        'lewis6991/gitsigns.nvim',
+        opts = {}
+    },
+    {
+        "romgrk/barbar.nvim",
+        config = function ()
+            require('configs.barbar')
+        end
+    },
     {
         "navarasu/onedark.nvim",
         priority = 1000,
