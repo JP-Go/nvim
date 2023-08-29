@@ -1,54 +1,94 @@
-local lspconfig = require("lspconfig")
+local lspconfig = require('lspconfig')
 
 local add_lsp_keymaps = function(bufnr)
-    local wk = require("which-key")
-    wk.register({
-        ["<leader>"] = {
-        ["ca"] = {function() vim.lsp.buf.code_action() end, "Code actions"},
-        f = {
-            s = {"<cmd>Telescope lsp_workspace_symbols<cr>", "Find Symbols"},
-            r = {function() vim.lsp.buf.references() end, "Find references"},
-            d = {"<cmd>Telescope diagnostics<cr>", "Find diagnostics"},
+  local wk = require('which-key')
+  wk.register({
+    ['<leader>'] = {
+      ['ca'] = {
+        function()
+          vim.lsp.buf.code_action()
+        end,
+        'Code actions',
+      },
+      f = {
+        s = { '<cmd>Telescope lsp_workspace_symbols<cr>', 'Find Symbols' },
+        r = {
+          function()
+            vim.lsp.buf.references()
+          end,
+          'Find references',
         },
-        r = {function() vim.lsp.buf.rename() end, "Rename symbol"}
+        d = { '<cmd>Telescope diagnostics<cr>', 'Find diagnostics' },
+      },
+      r = {
+        function()
+          vim.lsp.buf.rename()
+        end,
+        'Rename symbol',
+      },
+      d = {
+        function()
+          vim.diagnostic.open_float()
+        end,
+        'Show diagnostic',
+      },
     },
-        g = {
-            d = {function() vim.lsp.buf.definition() end, "Go to definition"},
-            D = {function() vim.lsp.buf.declaration() end, "Go to declaration"},
-            r = {function() vim.lsp.buf.references() end, "Go to references"},
-        },
-        ["K"] = {function () vim.lsp.buf.hover() end, "Hover docs"}
-    }, { noremap = false, buffer = bufnr})
+    g = {
+      d = {
+        function()
+          vim.lsp.buf.definition()
+        end,
+        'Go to definition',
+      },
+      D = {
+        function()
+          vim.lsp.buf.declaration()
+        end,
+        'Go to declaration',
+      },
+      r = {
+        function()
+          vim.lsp.buf.references()
+        end,
+        'Go to references',
+      },
+    },
+    ['K'] = {
+      function()
+        vim.lsp.buf.hover()
+      end,
+      'Hover docs',
+    },
+  }, { noremap = false, buffer = bufnr })
 end
 
+local on_attach = function(client, bufnr)
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
 
-local on_attach = function (client,bufnr)
-	client.server_capabilities.documentFormattingProvider = false
-	client.server_capabilities.documentRangeFormattingProvider = false
-
-    add_lsp_keymaps(bufnr)
+  add_lsp_keymaps(bufnr)
 end
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local servers = {
-    "clangd",
-    "cssls",
-    "docker_compose_language_service",
-    "dockerls",
-    "jsonls",
-    "lua_ls",
-    "prismals",
-    "pyright",
-    "tailwindcss",
-    "tsserver",
-    "unocss",
-    "volar",
+  'clangd',
+  'cssls',
+  'docker_compose_language_service',
+  'dockerls',
+  'jsonls',
+  'lua_ls',
+  'prismals',
+  'pyright',
+  'tailwindcss',
+  'tsserver',
+  'unocss',
+  'volar',
 }
 
-for _,server in ipairs(servers) do
-    lspconfig[server].setup({
-        on_attach = on_attach,
-        capabilities = capabilities
-    })
+for _, server in ipairs(servers) do
+  lspconfig[server].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
 end
