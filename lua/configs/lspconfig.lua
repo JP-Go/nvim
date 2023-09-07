@@ -84,6 +84,7 @@ local servers = {
   'tsserver',
   'unocss',
   'volar',
+  'jdtls',
 }
 
 for _, server in ipairs(servers) do
