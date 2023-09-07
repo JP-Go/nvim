@@ -135,4 +135,11 @@ return {
       require('formatter').setup(require('configs.format').opts)
     end,
   },
+  {
+    'mfussenegger/nvim-lint',
+    config = function()
+      require('configs.lint')
+    end,
+    dependencies = { 'mhartington/formatter.nvim' },
+  },
 }
