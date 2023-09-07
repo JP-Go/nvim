@@ -11,8 +11,7 @@ local add_lsp_keymaps = function(bufnr)
         'Code actions',
       },
       f = {
-        ['ws'] = { '<cmd>Telescope lsp_workspace_symbols<cr>', 'Find Symbols' },
-        s = { '<cmd>Telescope git_status<cr>', 'Find git changes' },
+        s = { '<cmd>Telescope lsp_workspace_symbols<cr>', 'Find Symbols' },
         r = {
           function()
             vim.lsp.buf.references()
