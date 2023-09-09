@@ -139,10 +139,22 @@ return {
 		"tpope/vim-dadbod",
 		cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
 		dependencies = {
-            "nvim-lua/plenary.nvim",
+			"nvim-lua/plenary.nvim",
 			"kristijanhusak/vim-dadbod-ui",
 			"kristijanhusak/vim-dadbod-completion",
 		},
 		config = require("configs.dadbod").setup(),
+	},
+	-- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
+	{
+		"numToStr/Comment.nvim",
+		lazy = false,
+		opts = {},
+	},
+	{
+		"Vonr/align.nvim",
+		config = function()
+			require("configs.align")
+		end,
 	},
 }
