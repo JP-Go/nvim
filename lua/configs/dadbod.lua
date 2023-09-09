@@ -5,7 +5,7 @@ local function db_completion()
 end
 
 function M.setup()
-	vim.g.db_ui_save_location = vim.fn.stdpath("config") ..  "/db_ui"
+	vim.g.db_ui_save_location = vim.fn.stdpath("data") .. "/db_ui"
 
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = {
