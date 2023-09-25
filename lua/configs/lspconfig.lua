@@ -87,6 +87,7 @@ local servers = {
   'jdtls',
   'gopls',
   'kotlin_language_server',
+  'csharp_ls',
 }
 
 for _, server in ipairs(servers) do
