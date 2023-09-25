@@ -71,6 +71,7 @@ return {
           'prismals',
           'dockerls',
           'docker_compose_language_service',
+          'gopls',
         },
       })
     end,
@@ -153,7 +154,6 @@ return {
     },
     config = require('configs.dadbod').setup(),
   },
-  -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
   {
     'numToStr/Comment.nvim',
     lazy = false,
