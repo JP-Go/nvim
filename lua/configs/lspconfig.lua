@@ -86,6 +86,7 @@ local servers = {
   'volar',
   'jdtls',
   'gopls',
+  'kotlin_language_server',
 }
 
 for _, server in ipairs(servers) do
