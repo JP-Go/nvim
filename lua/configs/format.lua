@@ -14,7 +14,15 @@ M.opts = {
     vue = { require('formatter.filetypes.vue').prettier },
     sql = { require('formatter.filetypes.sql').pg_format },
     go = { require('formatter.filetypes.go').gofmt },
-    cs = { require('formatter.filetypes.cs').clangformat },
+    cs = {
+      function()
+        return {
+          exe = 'dotnet-csharpier',
+          stdin = true,
+          no_append = true,
+        }
+      end,
+    },
     c = { require('formatter.filetypes.c').clangformat },
     java = { require('formatter.filetypes.java').clangformat },
   },
