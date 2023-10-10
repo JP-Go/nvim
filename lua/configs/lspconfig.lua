@@ -84,7 +84,7 @@ local servers = {
   'tsserver',
   'unocss',
   'volar',
-  'jdtls',
+  -- 'jdtls',
   'gopls',
   'kotlin_language_server',
 }

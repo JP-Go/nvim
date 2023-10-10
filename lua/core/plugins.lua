@@ -180,4 +180,8 @@ return {
       require('configs.align')
     end,
   },
+  {
+    'mfussenegger/nvim-jdtls',
+    ft = { 'java' },
+  },
 }
