@@ -87,7 +87,6 @@ local servers = {
   'jdtls',
   'gopls',
   'kotlin_language_server',
-  'csharp_ls',
 }
 
 for _, server in ipairs(servers) do
@@ -96,3 +95,9 @@ for _, server in ipairs(servers) do
     capabilities = capabilities,
   })
 end
+
+lspconfig.omnisharp.setup({
+  cmd = { '/home/jp/.local/share/nvim/mason/bin/omnisharp' },
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
