@@ -16,6 +16,9 @@ local get_java_agent = function(ls_loc)
   end
   return agent
 end
+
+local base_lspconfig = require('configs.lspconfig')
+
 local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -71,5 +74,7 @@ local config = {
       jdtls_install_location .. '/lombok.jar',
     },
   },
+  on_attach = base_lspconfig.on_attach,
+  capabilities = base_lspconfig.capabilities,
 }
 require('jdtls').start_or_attach(config)
