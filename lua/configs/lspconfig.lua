@@ -1,3 +1,4 @@
+local M = {}
 local lspconfig = require('lspconfig')
 
 local add_lsp_keymaps = function(bufnr)
@@ -101,3 +102,8 @@ lspconfig.omnisharp.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
+
+M.add_lsp_keymaps = add_lsp_keymaps
+M.on_attach = on_attach
+M.capabilities = capabilities
+return M
