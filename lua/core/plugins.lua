@@ -17,12 +17,7 @@ return {
       require('configs.which-key')
     end,
   },
-  {
-    'loctvl842/monokai-pro.nvim',
-    config = function()
-      require('monokai-pro').setup()
-    end,
-  },
+  { 'ellisonleao/gruvbox.nvim', config = true, opts = ... },
   {
     'stevearc/dressing.nvim',
     opts = {},
