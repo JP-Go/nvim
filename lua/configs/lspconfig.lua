@@ -75,6 +75,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local servers = {
   'clangd',
   'cssls',
+  'csharp_ls',
   'docker_compose_language_service',
   'dockerls',
   'jsonls',
@@ -82,13 +83,37 @@ local servers = {
   'prismals',
   'pyright',
   'tailwindcss',
-  'tsserver',
   'unocss',
-  'volar',
   -- 'jdtls',
   'gopls',
   'kotlin_language_server',
 }
+
+-- Find out if on a vue project or not and select js server acordingly
+local found_vue_files = vim.fs.find(function(name, _)
+  return name:match('.*%.vue')
+end, { limit = 1, type = 'file' })
+local is_vue_project = #found_vue_files > 0
+
+-- Vue volar in take over mode
+if is_vue_project then
+  lspconfig.volar.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = {
+      'javascript',
+      'typescript',
+      'javascriptreact',
+      'typescriptreact',
+      'vue',
+    },
+  })
+else
+  lspconfig.tsserver.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
+end
 
 for _, server in ipairs(servers) do
   lspconfig[server].setup({
@@ -96,12 +121,6 @@ for _, server in ipairs(servers) do
     capabilities = capabilities,
   })
 end
-
-lspconfig.omnisharp.setup({
-  cmd = { '/home/jp/.local/share/nvim/mason/bin/omnisharp' },
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
 
 M.add_lsp_keymaps = add_lsp_keymaps
 M.on_attach = on_attach
