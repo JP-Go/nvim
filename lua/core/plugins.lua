@@ -148,23 +148,6 @@ return {
     end,
   },
   {
-    'tpope/vim-dadbod',
-    cmd = {
-      'DBUIToggle',
-      'DBUI',
-      'DBUIAddConnection',
-      'DBUIFindBuffer',
-      'DBUIRenameBuffer',
-      'DBUILastQueryInfo',
-    },
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'kristijanhusak/vim-dadbod-ui',
-      'kristijanhusak/vim-dadbod-completion',
-    },
-    config = require('configs.dadbod').setup(),
-  },
-  {
     'numToStr/Comment.nvim',
     lazy = false,
     opts = {},
