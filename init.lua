@@ -1,2 +1,2 @@
 require('core')
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme everforest')

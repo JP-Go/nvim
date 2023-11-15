@@ -17,7 +17,7 @@ return {
       require('configs.which-key')
     end,
   },
-  { 'ellisonleao/gruvbox.nvim', config = true, opts = ... },
+  { 'sainnhe/everforest' },
   {
     'stevearc/dressing.nvim',
     opts = {},
