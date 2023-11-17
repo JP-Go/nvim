@@ -60,6 +60,16 @@ local add_lsp_keymaps = function(bufnr)
       end,
       'Hover docs',
     },
+    [']d'] = {
+      function()
+        vim.diagnostic.goto_next()
+      end,
+    },
+    ['[d'] = {
+      function()
+        vim.diagnostic.goto_prev()
+      end,
+    },
   }, { noremap = false, buffer = bufnr })
 end
 
