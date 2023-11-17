@@ -122,6 +122,12 @@ for _, server in ipairs(servers) do
   })
 end
 
+lspconfig.elixirls.setup({
+  cmd = { 'elixir-ls' },
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
 M.add_lsp_keymaps = add_lsp_keymaps
 M.on_attach = on_attach
 M.capabilities = capabilities
