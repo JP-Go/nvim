@@ -64,11 +64,13 @@ local add_lsp_keymaps = function(bufnr)
       function()
         vim.diagnostic.goto_next()
       end,
+      'Next diagnostic',
     },
     ['[d'] = {
       function()
         vim.diagnostic.goto_prev()
       end,
+      'Prev diagnostic',
     },
   }, { noremap = false, buffer = bufnr })
 end
