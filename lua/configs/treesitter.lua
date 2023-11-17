@@ -1,6 +1,48 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup({
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript","typescript","css","html","tsx", "vue","prisma" },
+  ensure_installed = {
+    'c',
+    'lua',
+    'vim',
+    'vimdoc',
+    'query',
+    'javascript',
+    'typescript',
+    'css',
+    'html',
+    'tsx',
+    'vue',
+    'prisma',
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ['af'] = { query = '@function.outer', desc = 'Inside function' },
+        ['if'] = { query = '@function.inner', desc = 'Arround function' },
+        ['ac'] = { query = '@class.outer', desc = 'Arround class' },
+        ['ic'] = { query = '@class.inner', desc = 'Inside class' },
+
+        ['ab'] = { query = '@block.outer', desc = 'Arround class' },
+        ['ib'] = { query = '@block.inner', desc = 'Inside class' },
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true,
+      goto_next_start = {
+        [']f'] = { query = '@function.outer', desc = 'Next function/method' },
+        [']c'] = { query = '@class.outer', desc = 'Next class' },
+        [']b'] = { query = '@block.outer', desc = 'Next block' },
+      },
+      goto_previous_start = {
+        ['[f'] = { query = '@function.outer', desc = 'Prev function/method' },
+        ['[c'] = { query = '@class.outer', desc = 'Prev class' },
+        ['[b'] = { query = '@block.outer', desc = 'Prev block' },
+      },
+    },
+  },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -8,6 +50,9 @@ require'nvim-treesitter.configs'.setup {
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
+  autotag = {
+    enable = true,
+  },
 
   highlight = {
     enable = true,
@@ -19,11 +64,11 @@ require'nvim-treesitter.configs'.setup {
     -- disable = { "c", "rust" },
     -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
     disable = function(lang, buf)
-        local max_filesize = 100 * 1024 -- 100 KB
-        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        if ok and stats and stats.size > max_filesize then
-            return true
-        end
+      local max_filesize = 100 * 1024 -- 100 KB
+      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+      if ok and stats and stats.size > max_filesize then
+        return true
+      end
     end,
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
@@ -32,4 +77,4 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
-}
+})
