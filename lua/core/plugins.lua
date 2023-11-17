@@ -46,15 +46,6 @@ return {
     end,
   },
   {
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      require('onedark').setup({
-        style = 'darker',
-      })
-    end,
-  },
-  {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.2',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -65,6 +56,10 @@ return {
     config = function()
       require('configs.treesitter')
     end,
+    dependencies = {
+      'windwp/nvim-ts-autotag',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
   },
   {
     'williamboman/mason.nvim',
@@ -78,10 +73,10 @@ return {
           'tsserver',
           'cssls',
           'tailwindcss',
-          'prismals',
           'dockerls',
           'docker_compose_language_service',
           'gopls',
+          'volar',
         },
       })
     end,
