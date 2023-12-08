@@ -18,6 +18,7 @@ return {
     end,
   },
   { 'sainnhe/everforest' },
+  { 'helbing/aura.nvim' },
   {
     'stevearc/dressing.nvim',
     opts = {},
