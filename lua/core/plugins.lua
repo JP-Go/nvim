@@ -105,14 +105,6 @@ return {
     event = 'InsertEnter',
   },
   {
-    'TimUntersberger/neogit',
-    config = function(_, opts)
-      require('neogit').setup(opts)
-      require('configs.git')
-    end,
-    opts = {},
-  },
-  {
     'mhartington/formatter.nvim',
     config = function()
       require('formatter').setup(require('configs.format').opts)
