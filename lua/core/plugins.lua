@@ -17,12 +17,12 @@ return {
       require('configs.which-key')
     end,
   },
-  { 'sainnhe/everforest' },
   { 'helbing/aura.nvim' },
   {
     'stevearc/dressing.nvim',
     opts = {},
   },
+  { 'echasnovski/mini.surround', version = '*', config = true },
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
