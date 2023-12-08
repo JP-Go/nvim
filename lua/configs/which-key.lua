@@ -20,3 +20,8 @@ wk.register({
 wk.register({
   ['<ESC>'] = { '<cmd>nohlsearch<cr>', 'Clear search highlight' },
 })
+
+local ok, _ = pcall(require, 'configs.git')
+if not ok then
+  print('Warn: Could not load configs.git')
+end
