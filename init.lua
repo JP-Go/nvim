@@ -1,2 +1,2 @@
-require('core')
-vim.cmd('colorscheme aura')
+require("core")
+vim.cmd("colorscheme vitesse")
