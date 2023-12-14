@@ -1,2 +1,2 @@
-require("core")
-vim.cmd("colorscheme vitesse")
+require('core')
+vim.cmd('colorscheme carbonfox')
