@@ -20,7 +20,7 @@ local get_java_agent = function(ls_loc)
   return agent
 end
 
-local base_lspconfig = require('configs.lspconfig')
+local base_lspconfig = require('plugins.lsp').exports
 
 local config = {
   -- The command that starts the language server
@@ -59,10 +59,6 @@ local config = {
     -- See `data directory configuration` section in the README
     '-data',
     workspace_dir,
-  },
-
-  settings = {
-    java = {},
   },
 
   -- Language server `initializationOptions`
