@@ -1,8 +1,11 @@
--- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local jdtls_install_location = vim.fn.expand('$HOME')
   .. '/.local/share/nvim/mason/packages/jdtls'
-local launcher_path = jdtls_install_location
-  .. '/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar'
+local find_launcher = function (base)
+    return vim.fs.find(function (name)
+        return name:match('.*%.launcher_.*')
+    end, {type = 'file',path = base })
+end
+local launcher_path = find_launcher(jdtls_install_location .. '/plugins/')[1]
 local config_path = jdtls_install_location .. '/config_linux'
 local workspace_dir = vim.fn.expand('$HOME')
   .. '/.java/workspaces/'
