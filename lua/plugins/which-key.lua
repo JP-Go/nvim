@@ -28,6 +28,8 @@ return {
 		}, { prefix = "<leader>" })
 		wk.register({
 			["<ESC>"] = { "<cmd>nohlsearch<cr>", "Clear search highlight" },
+			["<Tab>"] = { "<cmd>BufferNext<cr>", "Next buffer" },
+			["<S-Tab>"] = { "<cmd>BufferPrevious<cr>", "Previous buffer" },
 		})
 		wk.register({
 			a = {
