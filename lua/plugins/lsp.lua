@@ -16,7 +16,7 @@ local add_lsp_keymaps = function(bufnr)
 					end,
 					"Find references",
 				},
-				d = { "<cmd>Telescope diagnostics<cr>", "Find diagnostics" },
+				d = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Find diagnostics" },
 			},
 			r = {
 				function()
@@ -25,9 +25,7 @@ local add_lsp_keymaps = function(bufnr)
 				"Rename symbol",
 			},
 			d = {
-				function()
-					vim.diagnostic.open_float()
-				end,
+				"<cmd>TroubleToggle document_diagnostics<cr>",
 				"Show diagnostic",
 			},
 		},
