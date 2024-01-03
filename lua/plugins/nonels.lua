@@ -24,6 +24,14 @@ return {
 					condition = function(utils)
 						return not utils.root_has_file({
 							"biome.json",
+						}) and utils.root_has_file({
+							"eslint.config.js",
+							".eslintrc",
+							".eslintrc.js",
+							".eslintrc.cjs",
+							".eslintrc.yaml",
+							".eslintrc.yml",
+							".eslintrc.json",
 						})
 					end,
 				}),
