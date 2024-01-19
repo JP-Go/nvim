@@ -1,5 +1,5 @@
 return {
-	{ "EdenEast/nightfox.nvim" },
+	{ "AlexvZyl/nordic.nvim" },
 	{
 		"stevearc/dressing.nvim",
 		config = true,
@@ -7,7 +7,7 @@ return {
 	{
 		"folke/trouble.nvim",
 		opts = {},
-        cmd = {"Trouble", "TroubleToggle"}
+		cmd = { "Trouble", "TroubleToggle" },
 	},
 	{
 		"romgrk/barbar.nvim",
