@@ -1,5 +1,6 @@
 return {
 	{ "AlexvZyl/nordic.nvim" },
+	{ "loctvl842/monokai-pro.nvim" },
 	{
 		"stevearc/dressing.nvim",
 		config = true,
