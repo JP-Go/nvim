@@ -26,11 +26,13 @@ return {
           wk.register({
             ['<leader>'] = {
               ['cf'] = {
-                vim.lsp.buf.format({ async = false }),
+                function()
+                  vim.lsp.buf.format({ async = false })
+                end,
                 'Format the current range (if supported)',
               },
             },
-          }, { mode = 'x' })
+          }, { mode = 'v' })
           vim.api.nvim_create_autocmd('BufWritePre', {
             group = augroup,
             buffer = bufnr,
