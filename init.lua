@@ -1,2 +1,2 @@
-require("core")
-vim.cmd("colorscheme monokai-pro-default")
+require('core')
+vim.cmd('colorscheme monokai-pro')
