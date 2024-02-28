@@ -1,5 +1,6 @@
 return {
 	{ "loctvl842/monokai-pro.nvim" },
+	{ "mcchrish/zenbones.nvim", dependencies = { "rktjmp/lush.nvim", } },
     {
 		"stevearc/dressing.nvim",
 		config = true,
