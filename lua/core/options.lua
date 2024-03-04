@@ -7,6 +7,7 @@ local opts = {
   softtabstop = 4,
   tabstop = 4,
   shiftwidth = 4,
+  laststatus = 3,
   shiftround = true,
   expandtab = true,
   cmdheight = 2,
