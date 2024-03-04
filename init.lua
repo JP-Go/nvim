@@ -1,2 +1,2 @@
-require("core")
-vim.cmd.colorscheme("rosebones")
+require('core')
+vim.cmd.colorscheme('bamboo')
