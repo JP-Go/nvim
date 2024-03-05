@@ -1,4 +1,5 @@
 return {
+  { 'j-hui/fidget.nvim', opts = {} },
   {
     'nvim-lualine/lualine.nvim',
     opts = {
@@ -45,6 +46,13 @@ return {
   {
     'romgrk/barbar.nvim',
   },
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
+
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
