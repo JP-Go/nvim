@@ -33,7 +33,16 @@ return {
       extensions = {},
     },
   },
-  { 'ribru17/bamboo.nvim' },
+  {
+    'ribru17/bamboo.nvim',
+    opts = {
+      transparent = true,
+      dim_inactive = false,
+      lualine = {
+        transparent = true,
+      },
+    },
+  },
   {
     'stevearc/dressing.nvim',
     config = true,
