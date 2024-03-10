@@ -36,7 +36,7 @@ return {
   {
     'ribru17/bamboo.nvim',
     opts = {
-      transparent = true,
+      transparent = false,
       dim_inactive = false,
       lualine = {
         transparent = true,
