@@ -24,7 +24,7 @@ return {
         n = { '<cmd>BufferNext<cr>', 'Next buffer' },
         b = { '<cmd>BufferPrevious<cr>', 'Previous buffer' },
       },
-      e = { '<cmd>Neotree toggle left<cr>', 'Toggle file tree' },
+      e = { '<cmd>Neotree toggle right<cr>', 'Toggle file tree' },
     }, { prefix = '<leader>' })
     wk.register({
       ['<ESC>'] = { '<cmd>nohlsearch<cr>', 'Clear search highlight' },
