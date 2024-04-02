@@ -35,16 +35,6 @@ return {
     },
   },
   {
-    'ribru17/bamboo.nvim',
-    opts = {
-      transparent = false,
-      dim_inactive = false,
-      lualine = {
-        transparent = true,
-      },
-    },
-  },
-  {
     'stevearc/dressing.nvim',
     config = true,
   },
