@@ -1,2 +1,2 @@
 require('core')
-vim.cmd.colorscheme('bamboo')
+vim.cmd.colorscheme('oxocarbon')
