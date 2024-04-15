@@ -1,2 +1,2 @@
-require('core')
-vim.cmd.colorscheme('oxocarbon')
+require("core")
+vim.cmd.colorscheme("oxocarbon")

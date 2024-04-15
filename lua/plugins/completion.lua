@@ -17,7 +17,7 @@ return {
         return 'make install_jsregexp'
       end)(),
     },
-
+    'rafamadriz/friendly-snippets',
     'saadparwaiz1/cmp_luasnip',
     'windwp/nvim-autopairs',
   },
@@ -26,6 +26,7 @@ return {
     local luasnip = require('luasnip')
     require('nvim-autopairs').setup({})
     luasnip.config.setup()
+    require("luasnip.loaders.from_vscode").lazy_load()
     cmp.setup({
       snippet = {
         expand = function(args)
