@@ -132,19 +132,6 @@ return {
     },
   },
   {
-    'rest-nvim/rest.nvim',
-    config = function()
-      require('rest-nvim').setup()
-      vim.keymap.set(
-        'n',
-        '<leader>rt',
-        '<Plug>RestNvim',
-        { desc = 'Run request' }
-      )
-    end,
-    keymaps = {},
-  },
-  {
     'neovim/nvim-lspconfig',
     config = function()
       local lspconfig = require('lspconfig')
