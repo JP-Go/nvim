@@ -1,2 +1,2 @@
 require('core')
-vim.cmd.colorscheme('oxocarbon')
+vim.cmd.colorscheme('kanagawa')
