@@ -1,2 +1,2 @@
 require('core')
-vim.cmd.colorscheme('kanagawa')
+vim.cmd.colorscheme('github_dark_high_contrast')
