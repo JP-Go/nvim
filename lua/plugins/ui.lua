@@ -1,6 +1,7 @@
 return {
   { 'j-hui/fidget.nvim', opts = {} },
   { 'nyoom-engineering/oxocarbon.nvim' },
+  { 'projekt0n/github-nvim-theme' },
   {
     'nvim-lualine/lualine.nvim',
     opts = {
