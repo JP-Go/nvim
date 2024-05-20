@@ -21,6 +21,7 @@ return {
       formatters_by_ft = {
         go = { 'gofmt' },
         sh = { 'shfmt' },
+        python = { 'black' },
         rust = { 'rustfmt' },
         lua = { 'stylua' },
         javascript = { { 'prettierd', 'prettier' } },
