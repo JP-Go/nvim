@@ -38,6 +38,7 @@ return {
 				sh = { "shfmt" },
 				rust = { "rustfmt" },
 				lua = { "stylua" },
+                python = { 'black' },
 				javascript = { { "prettierd", "prettier" } },
 				typescript = { { "prettierd", "prettier" } },
 				javascriptreact = { { "prettierd", "prettier" } },
