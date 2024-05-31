@@ -1,2 +1,2 @@
-require("core")
-vim.cmd.colorscheme("nordic")
+require('core')
+vim.cmd.colorscheme('gruber-darker')
