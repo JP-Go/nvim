@@ -2,6 +2,14 @@ return {
   { 'j-hui/fidget.nvim', opts = {} },
   { 'blazkowolf/gruber-darker.nvim' },
   {
+    'navarasu/onedark.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {
+      style = 'warmer',
+    },
+  },
+  {
     'nvim-lualine/lualine.nvim',
     opts = {
       options = {
@@ -14,7 +22,7 @@ return {
         },
         lualine_b = { 'filename', 'branch' },
         lualine_c = {
-          '%=', --[[ add your center compoentnts here in place of this comment ]]
+          '%=', --[[ add your center components here in place of this comment ]]
         },
         lualine_x = {},
         lualine_y = { 'filetype', 'progress' },
