@@ -1,82 +1,84 @@
 local add_lsp_keymaps = function(bufnr)
   local wk = require('which-key')
-  wk.register({
-    ['<leader>'] = {
-      ['ca'] = {
-        function()
-          vim.lsp.buf.code_action()
-        end,
-        'Code actions',
-      },
-      f = {
-        s = { '<cmd>Telescope lsp_workspace_symbols<cr>', 'Find Symbols' },
-        r = {
-          function()
-            vim.lsp.buf.references()
-          end,
-          'Find references',
-        },
-        d = {
-          '<cmd>Trouble workspace_diagnostics<cr>',
-          'Find diagnostics',
-        },
-      },
-      r = {
-        function()
-          vim.lsp.buf.rename()
-        end,
-        'Rename symbol',
-      },
+  wk.add({
+    {
+      '<leader>ca',
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      desc = 'Code actions',
+      buffer = bufnr,
+      remap = true,
     },
-    g = {
-      d = {
-        function()
-          vim.lsp.buf.definition()
-        end,
-        'Go to definition',
-      },
-      D = {
-        function()
-          vim.lsp.buf.declaration()
-        end,
-        'Go to declaration',
-      },
-      r = {
-        function()
-          vim.lsp.buf.references()
-        end,
-        'Go to references',
-      },
+    {
+      '<leader>fs',
+      '<cmd>Telescope lsp_workspace_symbols<cr>',
+      desc = 'Find Symbols',
+      buffer = bufnr,
+      remap = true,
     },
-    ['K'] = {
+    {
+      '<leader>fr',
+      function()
+        vim.lsp.buf.references()
+      end,
+      desc = 'Find References',
+      buffer = bufnr,
+      remap = true,
+    },
+    {
+      '<leader>fd',
+      '<cmd>Trouble workspace_diagnostics<cr>',
+      desc = 'Find Diagnostics',
+      buffer = bufnr,
+      remap = true,
+    },
+    {
+      '<leader>r',
+      function()
+        vim.lsp.buf.rename()
+      end,
+      desc = 'Rename symbol',
+      buffer = bufnr,
+      remap = true,
+    },
+    {
+      'gd',
+      function()
+        vim.lsp.buf.definition()
+      end,
+      desc = 'Go to definition',
+      buffer = bufnr,
+      remap = true,
+    },
+    {
+      'gD',
+      function()
+        vim.lsp.buf.declaration()
+      end,
+      desc = 'Go to declaration',
+      buffer = bufnr,
+      remap = true,
+    },
+    {
+      'gr',
+      function()
+        vim.lsp.buf.references()
+      end,
+      desc = 'Go to references',
+      buffer = bufnr,
+      remap = true,
+    },
+    {
+      'K',
       function()
         vim.lsp.buf.hover()
       end,
-      'Hover docs',
+      desc = 'Hover docs',
+      buffer = bufnr,
+      remap = true,
     },
-    [']d'] = {
-      function()
-        vim.diagnostic.goto_next()
-      end,
-      'Next diagnostic',
-    },
-    ['[d'] = {
-      function()
-        vim.diagnostic.goto_prev()
-      end,
-      'Prev diagnostic',
-    },
-  }, { noremap = false, buffer = bufnr })
-  wk.register({
-    ['<leader>'] = {
-      ['ca'] = {
-        function()
-          vim.lsp.buf.code_action()
-        end,
-        'Apply code actions on selected range',
-      },
-    },
-  }, { mode = 'v', noremap = false })
+  })
 end
 
 local on_attach = function(client, bufnr)
