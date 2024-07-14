@@ -17,7 +17,7 @@ local add_lsp_keymaps = function(bufnr)
           'Find references',
         },
         d = {
-          '<cmd>TroubleToggle workspace_diagnostics<cr>',
+          '<cmd>Trouble workspace_diagnostics<cr>',
           'Find diagnostics',
         },
       },
