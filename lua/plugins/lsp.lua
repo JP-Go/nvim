@@ -27,10 +27,6 @@ local add_lsp_keymaps = function(bufnr)
         end,
         'Rename symbol',
       },
-      d = {
-        '<cmd>TroubleToggle document_diagnostics<cr>',
-        'Show diagnostic',
-      },
     },
     g = {
       d = {
