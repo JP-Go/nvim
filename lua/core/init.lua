@@ -1,3 +1,3 @@
 require('core.lazy')
 require('core.options')
-vim.cmd.colorscheme('flow')
+vim.cmd.colorscheme('gruber-darker')

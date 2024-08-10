@@ -1,22 +1,6 @@
 return {
   { 'j-hui/fidget.nvim', opts = {} },
-  {
-    '0xstepit/flow.nvim',
-    opts = {
-      transparent = false,
-      fluo_color = 'pink',
-      mode = 'normal',
-    },
-  },
   { 'blazkowolf/gruber-darker.nvim' },
-  {
-    'navarasu/onedark.nvim',
-    lazy = false,
-    priority = 1000,
-    opts = {
-      style = 'warmer',
-    },
-  },
   {
     'nvim-lualine/lualine.nvim',
     opts = {
