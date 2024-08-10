@@ -28,7 +28,7 @@ local add_lsp_keymaps = function(bufnr)
     },
     {
       '<leader>fd',
-      '<cmd>Trouble workspace_diagnostics<cr>',
+      '<cmd>Trouble diagnostics<cr>',
       desc = 'Find Diagnostics',
       buffer = bufnr,
       remap = true,
