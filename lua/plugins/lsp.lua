@@ -137,6 +137,7 @@ return {
       local servers = {
         'clangd',
         'cssls',
+        'csharp_ls',
         'docker_compose_language_service',
         'dockerls',
         'jsonls',

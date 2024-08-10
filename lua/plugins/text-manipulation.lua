@@ -35,6 +35,7 @@ return {
     opts = {
       -- Define your formatters
       formatters_by_ft = {
+        csharp = { 'csharpier' },
         go = { 'gofmt' },
         sh = { 'shfmt' },
         rust = { 'rustfmt' },
