@@ -2,6 +2,7 @@ return {
   {
     'akinsho/toggleterm.nvim',
     version = '*',
+    event = 'VeryLazy',
     config = function()
       require('toggleterm').setup({
         open_mapping = [[<c-\>]],
@@ -11,6 +12,7 @@ return {
   {
     'NachoNievaG/atac.nvim',
     dependencies = { 'akinsho/toggleterm.nvim' },
-    config = {},
+    config = true,
+    cmd = { 'Atac' },
   },
 }

@@ -97,132 +97,89 @@ capabilities = vim.tbl_deep_extend(
 
 return {
   {
-    'williamboman/mason.nvim',
-    config = true,
-  },
-  {
     'mfussenegger/nvim-jdtls',
     ft = { 'java' },
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    config = {
-      ensure_installed = {
-        'lua_ls',
-        'rust_analyzer',
-        'clangd',
-        'tsserver',
-        'cssls',
-        'tailwindcss',
-        'dockerls',
-        'docker_compose_language_service',
-        'gopls',
-        'volar',
-        'unocss',
-        'prismals',
-        'jsonls',
-        'pyright',
-        'kotlin_language_server',
-      },
-    },
+    config = function()
+      require('mason').setup()
+      require('mason-lspconfig').setup({
+        ensure_installed = {
+          'lua_ls',
+          'tsserver',
+          'cssls',
+          'tailwindcss',
+          'dockerls',
+          'docker_compose_language_service',
+          'gopls',
+        },
+        handlers = {
+          function(server_name) -- default handler (optional)
+            require('lspconfig')[server_name].setup({
+              on_attach = on_attach,
+              capabilities = capabilities,
+            })
+          end,
+          ['lua_ls'] = function()
+            local lspconfig = require('lspconfig')
+            lspconfig.lua_ls.setup({
+              on_attach = on_attach,
+              capabilities = capabilities,
+              on_init = function(client)
+                local path = client.workspace_folders[1].name
+                if
+                  vim.loop.fs_stat(path .. '/.luarc.json')
+                  or vim.loop.fs_stat(path .. '/.luarc.jsonc')
+                then
+                  return
+                end
+
+                client.config.settings.Lua =
+                  vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                    runtime = {
+                      -- Tell the language server which version of Lua you're using
+                      -- (most likely LuaJIT in the case of Neovim)
+                      version = 'LuaJIT',
+                    },
+                    -- Make the server aware of Neovim runtime files
+                    workspace = {
+                      checkThirdParty = false,
+                      library = {
+                        vim.env.VIMRUNTIME,
+                        -- Depending on the usage, you might want to add additional paths here.
+                        -- "${3rd}/luv/library"
+                        -- "${3rd}/busted/library",
+                      },
+                      -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+                      -- library = vim.api.nvim_get_runtime_file("", true)
+                    },
+                  })
+              end,
+              settings = {
+                Lua = {
+                  diagnostics = {
+                    globals = { 'vim' },
+                  },
+                },
+              },
+            })
+          end,
+          settings = {
+            Lua = {},
+          },
+        },
+      })
+    end,
     dependencies = {
+      {
+        'williamboman/mason.nvim',
+        config = true,
+      },
       'neovim/nvim-lspconfig',
     },
   },
-  {
-    'neovim/nvim-lspconfig',
-    config = function()
-      local lspconfig = require('lspconfig')
-
-      local servers = {
-        'clangd',
-        'cssls',
-        'csharp_ls',
-        'docker_compose_language_service',
-        'dockerls',
-        'jsonls',
-        'lua_ls',
-        'prismals',
-        'pyright',
-        'pyright',
-        'tailwindcss',
-        'gopls',
-        'kotlin_language_server',
-        'rust_analyzer',
-      }
-
-      -- Find out if on a vue project or not and select js server acordingly
-      local found_vue_files = vim.fs.find(function(name, _)
-        return name:match('.*%.vue')
-      end, { limit = 1, type = 'file' })
-      local is_vue_project = #found_vue_files > 0
-
-      -- Vue volar in take over mode
-      if is_vue_project then
-        lspconfig.volar.setup({
-          on_attach = on_attach,
-          capabilities = capabilities,
-          filetypes = {
-            'javascript',
-            'typescript',
-            'javascriptreact',
-            'typescriptreact',
-            'vue',
-          },
-        })
-      else
-        lspconfig.tsserver.setup({
-          on_attach = on_attach,
-          capabilities = capabilities,
-        })
-      end
-
-      for _, server in ipairs(servers) do
-        local options = {
-          on_attach = on_attach,
-          capabilities = capabilities,
-        }
-        if server == 'lua_ls' then
-          options = {
-            on_init = function(client)
-              local path = client.workspace_folders[1].name
-              if
-                vim.loop.fs_stat(path .. '/.luarc.json')
-                or vim.loop.fs_stat(path .. '/.luarc.jsonc')
-              then
-                return
-              end
-
-              client.config.settings.Lua =
-                vim.tbl_deep_extend('force', client.config.settings.Lua, {
-                  runtime = {
-                    version = 'LuaJIT',
-                  },
-                  workspace = {
-                    checkThirdParty = false,
-                    library = {
-                      vim.env.VIMRUNTIME,
-                      '${3rd}/luv/library',
-                      '${3rd}/busted/library',
-                    },
-                  },
-                })
-            end,
-            settings = {
-              Lua = {},
-            },
-          }
-        end
-        lspconfig[server].setup(options)
-      end
-
-      lspconfig.elixirls.setup({
-        cmd = { 'elixir-ls' },
-        on_attach = on_attach,
-        capabilities = capabilities,
-      })
-    end,
-  },
+  'neovim/nvim-lspconfig',
   exports = {
     capabilities = capabilities,
     on_attach = on_attach,
