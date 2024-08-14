@@ -12,11 +12,6 @@ return {
       { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
       { '<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Find gelp' },
       { '<leader>fw', '<cmd>Telescope live_grep<cr>', desc = 'Find word' },
-      {
-        '<leader>e',
-        '<cmd>Neotree toggle right<cr>',
-        desc = 'Toggle file tree',
-      },
     })
     wk.add({
       { '<ESC>', '<cmd>nohlsearch<cr>', desc = 'Clear search highlight' },
