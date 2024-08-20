@@ -1,6 +1,9 @@
 return {
   'mikavilpas/yazi.nvim',
-  event = 'VeryLazy',
+  cmd = 'Yazi',
+  opts = {
+    open_for_directories = true
+  },
   keys = {
     {
       -- NOTE: this requires a version of yazi that includes
