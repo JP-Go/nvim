@@ -1,3 +1,4 @@
 require('core.lazy')
 require('core.options')
-vim.cmd.colorscheme('kanagawa')
+require('core.autocmds')
+vim.cmd.colorscheme('kanagawa-dragon')
