@@ -23,6 +23,7 @@ return {
       rust = { 'rustfmt' },
       lua = { 'stylua' },
       python = { 'black' },
+      php = { 'pint' },
       javascript = { 'prettierd', 'prettier' ,stop_after_first = true},
       typescript = { 'prettierd', 'prettier' ,stop_after_first = true},
       javascriptreact = { 'prettierd', 'prettier' ,stop_after_first = true},
