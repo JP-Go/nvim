@@ -1,4 +1,4 @@
 require('core.lazy')
 require('core.options')
 require('core.autocmds')
-vim.cmd.colorscheme('vague')
+vim.cmd.colorscheme('gruber-darker')
