@@ -69,9 +69,6 @@ return {
                                     diagnostics = {
                                         globals = { 'vim' },
                                     },
-                                    hint = {
-                                        enable = true,
-                                    },
                                 },
                             },
                         })
@@ -99,32 +96,6 @@ return {
                         lspconfig.ts_ls.setup({
                             on_attach = lsp_hooks.on_attach,
                             capabilities = lsp_hooks.capabilities,
-                            settings = {
-                                typescript = {
-                                    inlayHints = {
-                                        includeInlayParameterNameHints = 'all',
-                                        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                                        includeInlayFunctionParameterTypeHints = true,
-                                        includeInlayVariableTypeHints = true,
-                                        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                                        includeInlayPropertyDeclarationTypeHints = true,
-                                        includeInlayFunctionLikeReturnTypeHints = true,
-                                        includeInlayEnumMemberValueHints = true,
-                                    },
-                                },
-                                javascript = {
-                                    inlayHints = {
-                                        includeInlayParameterNameHints = 'all',
-                                        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                                        includeInlayFunctionParameterTypeHints = true,
-                                        includeInlayVariableTypeHints = true,
-                                        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                                        includeInlayPropertyDeclarationTypeHints = true,
-                                        includeInlayFunctionLikeReturnTypeHints = true,
-                                        includeInlayEnumMemberValueHints = true,
-                                    },
-                                },
-                            },
                         })
                     end,
                 },
