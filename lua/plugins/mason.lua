@@ -73,37 +73,42 @@ return {
                             },
                         })
                     end,
-                    ['gopls'] = function()
-                        lspconfig.gopls.setup({
-                            on_attach = lsp_hooks.on_attach,
-                            capabilities = lsp_hooks.capabilities,
-                            settings = {
-                                gopls = {
-                                    hints = {
-                                        rangeVariableTypes = true,
-                                        parameterNames = true,
-                                        constantValues = true,
-                                        assignVariableTypes = true,
-                                        compositeLiteralFields = true,
-                                        compositeLiteralTypes = true,
-                                        functionTypeParameters = true,
-                                    },
-                                },
-                            },
-                        })
-                    end,
-                    ['ts_ls'] = function()
-                        lspconfig.ts_ls.setup({
-                            on_attach = lsp_hooks.on_attach,
-                            capabilities = lsp_hooks.capabilities,
-                        })
-                    end,
                 },
             })
+            require('dap-vscode-js').setup({
+                adapters = { 'pwa-node' },
+            })
             require('mason-nvim-dap').setup({
-                ensure_installed = { 'delve', 'node2' },
+                ensure_installed = { 'delve', 'js' },
                 handlers = {
                     function(config)
+                        require('mason-nvim-dap').default_setup(config)
+                    end,
+
+                    js = function(config)
+                        local nodeConf = {
+                            {
+                                type = 'pwa-node',
+                                request = 'launch',
+                                name = 'Launch file',
+                                program = '${file}',
+                                port = '${port}',
+                                cwd = '${workspaceFolder}',
+                            },
+                            {
+                                type = 'pwa-node',
+                                request = 'attach',
+                                name = 'Attach',
+                                processId = require('dap.utils').pick_process,
+                                cwd = '${workspaceFolder}',
+                            },
+                        }
+                        require('dap-vscode-js').setup({
+                            debugger_path = vim.fn.expand('$HOME') .. '/.local/share/nvim/lazy/vscode-js-debug/',
+                            adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
+                        })
+                        require('dap').configurations.javascript = nodeConf
+                        require('dap').configurations.typescript = nodeConf
                         require('mason-nvim-dap').default_setup(config)
                     end,
                 },
@@ -111,12 +116,12 @@ return {
         end,
     },
     {
-        'MysticalDevil/inlay-hints.nvim',
+        'mxsdev/nvim-dap-vscode-js',
         dependencies = {
-            'neovim/nvim-lspconfig',
+            {
+                'microsoft/vscode-js-debug',
+                build = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out',
+            },
         },
-        config = function()
-            require('inlay-hints').setup()
-        end,
     },
 }
