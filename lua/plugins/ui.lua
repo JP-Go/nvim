@@ -1,6 +1,7 @@
 return {
     { 'j-hui/fidget.nvim', opts = {} },
     { 'blazkowolf/gruber-darker.nvim' },
+    { 'loctvl842/monokai-pro.nvim' },
     {
         'toppair/peek.nvim',
         event = { 'VeryLazy' },
