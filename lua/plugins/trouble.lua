@@ -1,5 +1,5 @@
 return {
-  'folke/trouble.nvim',
-  opts = {},
-  cmd = { 'Trouble', 'TroubleToggle' },
+    'folke/trouble.nvim',
+    opts = {},
+    cmd = { 'Trouble', 'TroubleToggle' },
 }

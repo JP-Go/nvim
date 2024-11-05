@@ -1,6 +1,6 @@
 return {
     {
-      "supermaven-inc/supermaven-nvim",
-      config = true
+        'supermaven-inc/supermaven-nvim',
+        config = true,
     },
 }
