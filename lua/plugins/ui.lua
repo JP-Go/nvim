@@ -2,33 +2,47 @@ return {
     { 'j-hui/fidget.nvim', opts = {} },
     { 'blazkowolf/gruber-darker.nvim' },
     { 'loctvl842/monokai-pro.nvim' },
-    {
-        'toppair/peek.nvim',
-        event = { 'VeryLazy' },
-        build = 'deno task --quiet build:fast',
-        config = function()
-            require('peek').setup({
-                app = 'firefox',
-            })
-            vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
-            vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
-        end,
-        cmd = {
-            'PeekOpen',
-            'PeekClose',
-        },
-    },
-    {
-        'christoomey/vim-tmux-navigator',
-        lazy = false,
-        keys = {
-            { '<C-h>', '<cmd> TmuxNavigateLeft<CR>', 'Window left' },
-            { '<C-l>', '<cmd> TmuxNavigateRight<CR>', 'Window right' },
-            { '<C-k>', '<cmd> TmuxNavigateUp<CR>', 'Window up' },
-            { '<C-j>', '<cmd> TmuxNavigateDown<CR>', 'Window down' },
-        },
-    },
     { 'rebelot/kanagawa.nvim' },
+    { 'echasnovski/mini.indentscope', version = '*', config = true },
+    {
+        'nvim-lualine/lualine.nvim',
+        opts = {
+            options = {
+                component_separators = '',
+                section_separators = { left = '', right = '' },
+            },
+            sections = {
+                lualine_a = {
+                    { 'mode', separator = { left = '' }, right_padding = 2 },
+                },
+                lualine_b = { 'filename', 'branch' },
+                lualine_c = {
+                    '%=', --[[ add your center components here in place of this comment ]]
+                },
+                lualine_x = {},
+                lualine_y = { 'filetype', 'progress' },
+                lualine_z = {
+                    { 'location', separator = { right = '' }, left_padding = 2 },
+                },
+            },
+            inactive_sections = {
+                lualine_a = { 'filename' },
+                lualine_b = {},
+                lualine_c = {},
+                lualine_x = {},
+                lualine_y = {},
+                lualine_z = { 'location' },
+            },
+            tabline = {},
+            extensions = {},
+        },
+    },
+    {
+        'folke/todo-comments.nvim',
+        event = 'VimEnter',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        opts = { signs = false },
+    },
     {
         'akinsho/bufferline.nvim',
         config = true,
@@ -42,18 +56,5 @@ return {
     {
         'stevearc/dressing.nvim',
         config = true,
-    },
-    {
-        'folke/flash.nvim',
-        event = 'VeryLazy',
-        opts = {},
-  -- stylua: ignore
-        keys = {
-          { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-          { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-          { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-          { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-          { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-        },
     },
 }

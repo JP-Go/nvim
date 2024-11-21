@@ -24,13 +24,11 @@ return {
                 },
             },
             'saadparwaiz1/cmp_luasnip',
-            'windwp/nvim-autopairs',
         },
         config = function()
             local cmp = require('cmp')
             local luasnip = require('luasnip')
             require('luasnip.loaders.from_vscode').lazy_load()
-            require('nvim-autopairs').setup({})
             cmp.setup({
                 snippet = {
                     expand = function(args)

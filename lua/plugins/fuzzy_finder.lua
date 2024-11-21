@@ -24,4 +24,10 @@ return {
         })
         telescope.load_extension('fzy_native')
     end,
+    keys = {
+        { '<leader>fb', '<cmd>Telescope buffers<cr>', 'Find buffers' },
+        { '<leader>ff', '<cmd>Telescope find_files<cr>', 'Find files' },
+        { '<leader>fh', '<cmd>Telescope help_tags<cr>', 'Find gelp' },
+        { '<leader>fw', '<cmd>Telescope live_grep<cr>', 'Find word' },
+    },
 }
