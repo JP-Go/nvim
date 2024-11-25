@@ -10,6 +10,7 @@ return {
             'williamboman/mason.nvim',
             'neovim/nvim-lspconfig',
             'jay-babu/mason-nvim-dap.nvim',
+            'sontungexpt/better-diagnostic-virtual-text',
         },
         config = function()
             local lspconfig = require('lspconfig')
