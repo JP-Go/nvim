@@ -2,7 +2,6 @@ return {
     { 'j-hui/fidget.nvim', opts = {} },
     { 'blazkowolf/gruber-darker.nvim' },
     { 'loctvl842/monokai-pro.nvim' },
-    { 'rebelot/kanagawa.nvim' },
     { 'echasnovski/mini.indentscope', version = '*', config = true },
     {
         'nvim-lualine/lualine.nvim',
