@@ -2,6 +2,14 @@ return {
     { 'j-hui/fidget.nvim', opts = {} },
     { 'blazkowolf/gruber-darker.nvim' },
     { 'loctvl842/monokai-pro.nvim' },
+    {
+        'sainnhe/gruvbox-material',
+        config = function()
+            vim.g.gruvbox_material_enable_italic = true
+            vim.g.gruvbox_material_better_performance = 1
+            vim.g.gruvbox_material_foreground = 'material'
+        end,
+    },
     { 'savq/melange-nvim' },
     { 'echasnovski/mini.indentscope', version = '*', config = true },
     {
