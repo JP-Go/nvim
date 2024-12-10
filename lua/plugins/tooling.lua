@@ -124,5 +124,6 @@ return {
                 build = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out',
             },
         },
+        ft = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
     },
 }
