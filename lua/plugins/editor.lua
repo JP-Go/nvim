@@ -93,30 +93,9 @@ return {
         end,
     },
     {
-        'toppair/peek.nvim',
-        event = { 'VeryLazy' },
-        build = 'deno task --quiet build:fast',
-        config = function()
-            require('peek').setup({
-                app = 'firefox',
-            })
-            vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
-            vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
-        end,
-        cmd = {
-            'PeekOpen',
-            'PeekClose',
-        },
-    },
-    {
-        'christoomey/vim-tmux-navigator',
-        lazy = false,
-        keys = {
-            { '<C-h>', '<cmd> TmuxNavigateLeft<CR>', 'Window left' },
-            { '<C-l>', '<cmd> TmuxNavigateRight<CR>', 'Window right' },
-            { '<C-k>', '<cmd> TmuxNavigateUp<CR>', 'Window up' },
-            { '<C-j>', '<cmd> TmuxNavigateDown<CR>', 'Window down' },
-        },
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
+        opts = {},
     },
     {
         'jiaoshijie/undotree',
