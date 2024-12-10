@@ -4,7 +4,6 @@ return {
     dependencies = {
         'nvim-lua/plenary.nvim',
         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-        'nvim-telescope/telescope-fzy-native.nvim',
     },
     cmd = { 'Telescope' },
     config = function()
@@ -15,14 +14,15 @@ return {
                     find_command = { 'rg', '--files', '--hidden', '--ignore', '--glob', '!**/.git/*' },
                 },
                 extensions = {
-                    fzy_native = {
+                    fzf = {
+                        fuzy = true,
                         override_generic_sorter = true, -- override the generic sorter
                         override_file_sorter = true, -- override the file sorter
                     },
                 },
             },
         })
-        telescope.load_extension('fzy_native')
+        telescope.load_extension('fzf')
     end,
     keys = {
         { '<leader>fb', '<cmd>Telescope buffers<cr>', 'Find buffers' },
