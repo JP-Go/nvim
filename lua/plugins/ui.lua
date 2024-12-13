@@ -2,6 +2,7 @@ return {
     { 'j-hui/fidget.nvim', opts = {} },
     { 'blazkowolf/gruber-darker.nvim' },
     { 'loctvl842/monokai-pro.nvim' },
+    { 'miikanissi/modus-themes.nvim', priority = 1000 },
     {
         'sainnhe/gruvbox-material',
         config = function()
