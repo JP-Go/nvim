@@ -9,8 +9,8 @@ return {
         dependencies = {
             'williamboman/mason.nvim',
             'neovim/nvim-lspconfig',
+            'saghen/blink.cmp',
             'jay-babu/mason-nvim-dap.nvim',
-            'sontungexpt/better-diagnostic-virtual-text',
         },
         config = function()
             local lspconfig = require('lspconfig')
@@ -19,11 +19,11 @@ return {
                 ensure_installed = {
                     'lua_ls',
                     'ts_ls',
-                    'cssls',
-                    'tailwindcss',
                     'dockerls',
                     'docker_compose_language_service',
                     'gopls',
+                    'harper_ls',
+                    'jsonls',
                 },
                 handlers = {
                     function(server_name) -- default handler
@@ -51,6 +51,7 @@ return {
                                         -- (most likely LuaJIT in the case of Neovim)
                                         version = 'LuaJIT',
                                     },
+
                                     -- Make the server aware of Neovim runtime files
                                     workspace = {
                                         checkThirdParty = false,
@@ -60,8 +61,6 @@ return {
                                             -- "${3rd}/luv/library"
                                             -- "${3rd}/busted/library",
                                         },
-                                        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-                                        -- library = vim.api.nvim_get_runtime_file("", true)
                                     },
                                 })
                             end,

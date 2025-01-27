@@ -82,15 +82,11 @@ local add_lsp_keymaps = function(bufnr)
 end
 
 local on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-    require('better-diagnostic-virtual-text.api').setup_buf(bufnr, {})
-
     add_lsp_keymaps(bufnr)
+    client.server_capabilities.documentFormattingProvider = true
+    client.server_capabilities.documentRangeFormattingProvider = true
 end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 return {
     on_attach = on_attach,
