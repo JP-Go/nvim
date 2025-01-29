@@ -22,7 +22,6 @@ return {
                     'dockerls',
                     'docker_compose_language_service',
                     'gopls',
-                    'harper_ls',
                     'jsonls',
                 },
                 handlers = {
