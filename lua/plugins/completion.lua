@@ -18,6 +18,7 @@ return {
             },
 
             completion = {
+                menu = { border = 'single' },
                 list = {
                     selection = {
                         preselect = function(ctx)
@@ -27,11 +28,12 @@ return {
                     },
                 },
                 documentation = {
+                    window = { border = 'single' },
                     auto_show = true,
                     auto_show_delay_ms = 500,
                 },
             },
-            signature = { enabled = true },
+            signature = { enabled = true, window = { border = 'single' } },
             appearance = {
                 -- Sets the fallback highlight groups to nvim-cmp's highlight groups
                 -- Useful for when your theme doesn't support blink.cmp
