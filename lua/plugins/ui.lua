@@ -1,7 +1,6 @@
 return {
     { 'j-hui/fidget.nvim', opts = {} },
     { 'ring0-rootkit/gruber-darker.nvim', as = 'gruber-darker2' },
-    { 'miikanissi/modus-themes.nvim', priority = 1000 },
     { 'echasnovski/mini.indentscope', version = '*', config = true },
     {
         'nvim-lualine/lualine.nvim',
