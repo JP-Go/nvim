@@ -64,11 +64,7 @@ return {
             { '<leader>u', "<cmd>lua require('undotree').toggle()<cr>", 'Reveal undotree' },
         },
     },
-    {
-        'numToStr/Comment.nvim',
-        lazy = false,
-        opts = {},
-    },
+    { 'echasnovski/mini.comment', version = '*', event = { 'BufReadPost' } },
     {
         'folke/snacks.nvim',
         priority = 1000,
