@@ -1,6 +1,6 @@
 return {
-    { 'echasnovski/mini.surround', version = '*', config = true },
-    { 'echasnovski/mini.pairs', version = '*', config = true },
+    { 'echasnovski/mini.surround', version = '*', config = true, event = { 'InsertEnter' } },
+    { 'echasnovski/mini.pairs', version = '*', config = true, event = { 'InsertEnter' } },
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
@@ -41,6 +41,7 @@ return {
     {
         'windwp/nvim-ts-autotag',
         config = true,
+        event = { 'InsertEnter' },
     },
     {
         'nvim-treesitter/nvim-treesitter-context',
@@ -52,6 +53,7 @@ return {
     {
         'MeanderingProgrammer/render-markdown.nvim',
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
+        cmd = { 'RenderMarkdown' },
         opts = {},
     },
     {
