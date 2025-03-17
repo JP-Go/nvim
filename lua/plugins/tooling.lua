@@ -20,7 +20,7 @@ return {
             require('sonarlint').setup({
                 server = {
                     cmd = {
-                        'sonarlint-language-server',
+                        vim.fn.expand('$MASON/bin/sonarlint-language-server'),
                         -- Ensure that sonarlint-language-server uses stdio channel
                         '-stdio',
                         '-analyzers',
@@ -32,8 +32,6 @@ return {
                     -- Tested and working
                     'javascript',
                     'typescript',
-                    'javascriptreact',
-                    'typescriptreact',
                 },
             })
             require('mason-lspconfig').setup({
