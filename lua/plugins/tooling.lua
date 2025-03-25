@@ -11,29 +11,11 @@ return {
             'williamboman/mason.nvim',
             'neovim/nvim-lspconfig',
             'saghen/blink.cmp',
-            'https://gitlab.com/schrieveslaach/sonarlint.nvim',
             'jay-babu/mason-nvim-dap.nvim',
         },
         config = function()
             local lspconfig = require('lspconfig')
             require('mason').setup()
-            require('sonarlint').setup({
-                server = {
-                    cmd = {
-                        vim.fn.expand('$MASON/bin/sonarlint-language-server'),
-                        -- Ensure that sonarlint-language-server uses stdio channel
-                        '-stdio',
-                        '-analyzers',
-                        -- paths to the analyzers you need, using those for python and java in this example
-                        vim.fn.expand('$MASON/share/sonarlint-analyzers/sonarjs.jar'),
-                    },
-                },
-                filetypes = {
-                    -- Tested and working
-                    'javascript',
-                    'typescript',
-                },
-            })
             require('mason-lspconfig').setup({
                 ensure_installed = {
                     'lua_ls',
@@ -141,6 +123,7 @@ return {
                 build = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out',
             },
         },
-        command = 'DapContinue',
+        cmd = 'DapContinue',
+        ft = { 'javascript', 'typescript' },
     },
 }
