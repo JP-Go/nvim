@@ -2,16 +2,10 @@ return {
     {
         'saghen/blink.cmp',
         dependencies = { 'rafamadriz/friendly-snippets' },
-        version = 'v0.11.0',
+        version = '1.*',
 
-        ---@module 'blink.cmp'
-        ---@type blink.cmp.Config
         opts = {
-            keymap = {
-                preset = 'super-tab',
-                ['<CR>'] = { 'accept', 'fallback' },
-            },
-
+            keymap = { preset = 'enter' },
             completion = {
                 menu = { border = 'single' },
                 list = {
