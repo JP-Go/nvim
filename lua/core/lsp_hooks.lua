@@ -86,7 +86,11 @@ local on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
     client.server_capabilities.documentRangeFormattingProvider = true
 end
-local capabilities = require('blink.cmp').get_lsp_capabilities()
+local capabilities = {}
+if vim.version.lt(vim.version(), { 0, 11, 0 }) then
+    print('Attaching blink cmp')
+    capabilities = require('blink.cmp').get_lsp_capabilities()
+end
 
 return {
     on_attach = on_attach,
