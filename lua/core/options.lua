@@ -19,3 +19,5 @@ local opts = {
 for k, v in pairs(opts) do
     vim.opt[k] = v
 end
+vim.cmd('set completeopt+=noselect')
+vim.o.winborder = 'rounded'
