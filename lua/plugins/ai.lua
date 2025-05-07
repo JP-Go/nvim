@@ -7,11 +7,12 @@ return {
         'yetone/avante.nvim',
         event = 'VeryLazy',
         version = false, -- Never set this value to "*"! Never!
-        opts = {
-            -- add any opts here
-            -- for example
-            provider = 'copilot',
-        },
+        config = function()
+            require('copilot').setup()
+            require('avante').setup({
+                provider = 'copilot',
+            })
+        end,
         -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
         build = 'make',
         -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
