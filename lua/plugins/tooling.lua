@@ -5,10 +5,11 @@ return {
         ft = { 'java' },
     },
     {
-        'williamboman/mason-lspconfig.nvim',
+        'mason-org/mason-lspconfig.nvim',
         event = { 'VeryLazy' },
+        version = 'v1.x',
         dependencies = {
-            'williamboman/mason.nvim',
+            { 'mason-org/mason.nvim', version = 'v1.x' },
             'neovim/nvim-lspconfig',
             'saghen/blink.cmp',
             'jay-babu/mason-nvim-dap.nvim',
@@ -17,6 +18,14 @@ return {
             local lspconfig = require('lspconfig')
             require('mason').setup()
             require('mason-lspconfig').setup({
+                automatic_enable = {
+                    'lua_ls',
+                    'ts_ls',
+                    'dockerls',
+                    'docker_compose_language_service',
+                    'gopls',
+                    'jsonls',
+                },
                 ensure_installed = {
                     'lua_ls',
                     'ts_ls',
