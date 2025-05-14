@@ -11,6 +11,9 @@ return {
             require('copilot').setup()
             require('avante').setup({
                 provider = 'copilot',
+                behavior = {
+                    enable_cursor_planning_mode = true,
+                },
                 copilot = {
                     model = 'claude-3.5-sonnet',
                     temperature = 0,
