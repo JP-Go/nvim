@@ -11,6 +11,11 @@ return {
             require('copilot').setup()
             require('avante').setup({
                 provider = 'copilot',
+                copilot = {
+                    model = 'claude-3.5-sonnet',
+                    temperature = 0,
+                    max_tokens = 8192,
+                },
                 system_prompt = function()
                     local hub = require('mcphub').get_hub_instance()
                     return hub:get_active_servers_prompt()
