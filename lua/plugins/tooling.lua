@@ -1,4 +1,3 @@
-local lsp_hooks = require('core.lsp_hooks')
 return {
     {
         'mfussenegger/nvim-jdtls',
@@ -13,12 +12,10 @@ return {
             'jay-babu/mason-nvim-dap.nvim',
         },
         config = function()
-            local lspconfig = require('lspconfig')
+            require('lspconfig')
             local defaultServers = {
                 'lua_ls',
                 'ts_ls',
-                'dockerls',
-                'docker_compose_language_service',
                 'gopls',
                 'jsonls',
             }
@@ -26,26 +23,9 @@ return {
             local masonConfig = {
                 ensure_installed = defaultServers,
             }
-            if vim.version.lt(vim.version(), { 0, 11, 0 }) then
-                local lua_config = require('lsp.lua_ls')
-                masonConfig = vim.tbl_extend('keep', masonConfig, {
-                    handlers = {
-                        function(server_name) -- default handler
-                            lspconfig[server_name].setup({
-                                on_attach = lsp_hooks.on_attach,
-                                capabilities = lsp_hooks.capabilities,
-                            })
-                        end,
-                        ['lua_ls'] = function()
-                            lspconfig.lua_ls.setup(lua_config)
-                        end,
-                    },
-                })
-                require('mason-lspconfig').setup(masonConfig)
-            else
-                require('mason-lspconfig').setup(masonConfig)
-                vim.lsp.enable(defaultServers)
-            end
+            require('mason-lspconfig').setup(masonConfig)
+            vim.lsp.enable(defaultServers)
+            vim.diagnostic.config({ virtual_text = true, float = { border = 'single' } })
             require('dap-vscode-js').setup({
                 adapters = { 'pwa-node' },
             })

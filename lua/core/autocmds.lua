@@ -23,7 +23,6 @@ end
 
 local highlight_group = create_augroup('highlight')
 local exit_group = create_augroup('exit')
-local lsp_group = create_augroup('lsp')
 
 create_autocmd(highlight_group, 'TextYankPost', '*', function()
     vim.highlight.on_yank({
@@ -46,20 +45,3 @@ create_autocmd(exit_group, 'VimLeavePre', '*', function()
         print('kill ' .. pid)
     end
 end)
-
-if vim.version.ge(vim.version(), { 0, 11, 0 }) then
-    create_autocmd(lsp_group, 'LspAttach', '*', function(ev)
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client ~= nil and client:supports_method('textDocument/completion') then
-            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-            vim.keymap.set('i', '<C-Space>', function()
-                vim.lsp.completion.get()
-            end, { desc = 'Start completion' })
-        end
-    end)
-
-    vim.keymap.set('n', 'gd', function()
-        vim.lsp.buf.definition()
-    end, { desc = 'Go to definition' })
-    vim.diagnostic.config({ virtual_text = { current_line = true } })
-end
