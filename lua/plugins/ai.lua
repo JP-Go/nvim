@@ -1,9 +1,5 @@
 return {
     {
-        'supermaven-inc/supermaven-nvim',
-        config = true,
-    },
-    {
         'yetone/avante.nvim',
         event = 'VeryLazy',
         version = false, -- Never set this value to "*"! Never!
