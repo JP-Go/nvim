@@ -10,7 +10,6 @@ return {
                     'avante',
                     'lsp',
                     'path',
-                    'luasnip',
                     'buffer',
                 },
                 providers = {
