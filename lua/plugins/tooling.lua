@@ -20,7 +20,7 @@ return {
             require('mason-lspconfig').setup({
                 automatic_enable = {
                     'lua_ls',
-                    'ts_ls',
+                    'vtsls',
                     'dockerls',
                     'docker_compose_language_service',
                     'gopls',
@@ -28,7 +28,7 @@ return {
                 },
                 ensure_installed = {
                     'lua_ls',
-                    'ts_ls',
+                    'vtsls',
                     'dockerls',
                     'docker_compose_language_service',
                     'gopls',
