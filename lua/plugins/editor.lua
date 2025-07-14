@@ -2,6 +2,15 @@ return {
     { 'echasnovski/mini.surround', version = '*', config = true, event = { 'InsertEnter' } },
     { 'echasnovski/mini.pairs', version = '*', config = true, event = { 'InsertEnter' } },
     {
+        'ThePrimeagen/refactoring.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-treesitter/nvim-treesitter',
+        },
+        lazy = false,
+        opts = {},
+    },
+    {
         'johmsalas/text-case.nvim',
         dependencies = { 'nvim-telescope/telescope.nvim' },
         config = function()
