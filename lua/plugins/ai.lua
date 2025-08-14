@@ -10,10 +10,14 @@ return {
                 behavior = {
                     enable_cursor_planning_mode = true,
                 },
-                copilot = {
-                    model = 'claude-3.5-sonnet',
-                    temperature = 0,
-                    max_tokens = 8192,
+                providers = {
+                    copilot = {
+                        model = 'claude-3.5-sonnet',
+                        extra_request_body = {
+                            temperature = 0,
+                            max_tokens = 8192,
+                        },
+                    },
                 },
                 system_prompt = function()
                     local hub = require('mcphub').get_hub_instance()
