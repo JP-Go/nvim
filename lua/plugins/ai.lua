@@ -25,7 +25,7 @@ return {
         },
         system_prompt = function()
           local hub = require('mcphub').get_hub_instance()
-          return hub:get_active_servers_prompt()
+          return hub:get_active_servers_prompt() or ""
         end,
         -- The custom_tools type supports both a list and a function that returns a list. Using a function here prevents requiring mcphub before it's loaded
         custom_tools = function()
@@ -45,14 +45,16 @@ return {
 
         'ravitemer/mcphub.nvim',
         build = 'npm install -g mcp-hub@latest',
-        opts = {
-          use_bundled_binary = false,
-          extensions = {
-            avante = {
-              make_slash_commands = true,
+        config = function()
+          require("mcphub").setup({
+            use_bundled_binary = false,
+            extensions = {
+              avante = {
+                make_slash_commands = true,
+              },
             },
-          },
-        },
+          })
+        end
       },
       'nvim-treesitter/nvim-treesitter',
       'stevearc/dressing.nvim',
@@ -65,6 +67,11 @@ return {
         'MeanderingProgrammer/render-markdown.nvim',
         opts = {
           file_types = { 'markdown', 'Avante' },
+          extensions = {
+            avante = {
+              make_slash_commands = true, -- make /slash commands from MCP server prompts
+            },
+          },
         },
         ft = { 'markdown', 'Avante' },
       },
