@@ -23,7 +23,8 @@ return {
     }
   },
   config = function()
-    require("neotest").setup({
+    local neotest = require("neotest")
+    neotest.setup({
       run = {
         augment = function(tree, args)
           args.env = { TZ = "UTC" }
@@ -43,5 +44,26 @@ return {
         require("neotest-go"),
       }
     })
-  end
+    vim.keymap.set("n", "<leader>ts", neotest.summary.toggle, {
+      desc = "Open/Close test summary"
+    })
+    vim.keymap.set("n", "<leader>tr", neotest.run.run, {
+      desc = "Run current test"
+    })
+    vim.keymap.set("n", "<leader>tf", function()
+      return neotest.run.run(vim.fn.expand("%"))
+    end, {
+      desc = "Run test file"
+    })
+    vim.keymap.set("n", "<leader>td", function()
+      local reply = vim.fn.input("Run debug in (Default is 1):\n  1. Current test.\n  2. Current file.\n Choice: ", "1")
+      if reply == "1" then
+        return neotest.run.run({ suite = false, strategy = "dap" })
+      elseif reply == "2" then
+        return neotest.run.run({ suite = true, strategy = "dap" })
+      end
+    end, {
+      desc = "Debug test"
+    })
+  end,
 }
