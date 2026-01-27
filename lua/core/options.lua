@@ -8,6 +8,7 @@ local opts = {
     tabstop = 4,
     shiftwidth = 4,
     laststatus = 3,
+    cursorline = true,
     shiftround = true,
     expandtab = true,
     cmdheight = 2,
