@@ -36,10 +36,19 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    branch = "main",
     lazy = false,
     config = function()
       require('nvim-treesitter').install({ "c", "javascript", "typescript", "sql", "prisma", "html", "jsx", "rust", "lua" })
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { "c", "javascript", "typescript", "sql", "prisma", "html", "jsx", "rust", "lua" },
+        callback = function() vim.treesitter.start() end,
+      })
+      vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      vim.wo[0][0].foldmethod = 'expr'
     end,
+
   },
   {
     'windwp/nvim-ts-autotag',
