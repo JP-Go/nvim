@@ -42,6 +42,18 @@ return {
             })
             vim.lsp.enable(server_name)
           end,
+          ["vtsls"] = function()
+            vim.lsp.config("vtsls", {
+              on_attach = lsp_hooks.on_attach,
+              capabilities = lsp_hooks.capabilities,
+              settings = {
+                vtsls = {
+                  autoUseWorkspaceTsdk = true
+                }
+              }
+            })
+            vim.lsp.enable("vtsls")
+          end,
           ['lua_ls'] = function()
             vim.lsp.config("lua_ls", {
               on_attach = lsp_hooks.on_attach,
