@@ -34,13 +34,17 @@ return {
         display = {
           diff = {
             enabled = true,
-            close_chat_at = 240,  -- Close an open chat buffer if the total columns of your display are less than...
-            layout = 'vertical',  -- vertical|horizontal split for default provider
+            close_chat_at = 240, -- Close an open chat buffer if the total columns of your display are less than...
+            layout = 'vertical', -- vertical|horizontal split for default provider
             opts = { 'internal', 'filler', 'closeoff', 'algorithm:patience', 'followwrap', 'linematch:120' },
-            provider = 'default', -- default|mini_diff
           },
         },
       })
+      vim.keymap.set({ "n", "v" }, "<leader>aic", ":CodeCompanionChat<cr>",
+        { silent = true, desc = "AI Chat", })
+      vim.keymap.set({ "n", "v" }, "<leader>aii", ":CodeCompanion<cr>", { silent = true, desc = "AI Inline", })
+      vim.keymap.set({ "n", "v" }, "<leader>aia", ":CodeCompanionActions<cr>",
+        { silent = true, desc = "AI action", })
     end,
   },
 }
