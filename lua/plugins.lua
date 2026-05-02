@@ -25,12 +25,7 @@ add_plugin({
 add_plugin({ gh('kdheepak/lazygit.nvim') })
 
 -- Treesitter
-add_plugin({
-    {
-        src = gh('nvim-treesitter/nvim-treesitter'),
-        version = 'main',
-    },
-})
+add_plugin({ { src = gh('nvim-treesitter/nvim-treesitter'), version = 'main' } })
 
 -- Snacks
 add_plugin({ gh('folke/snacks.nvim') })
@@ -59,6 +54,20 @@ require('mason-lspconfig').setup({
 
 vim.lsp.enable('lua_ls')
 
+---@param bufnr integer
+---@param ... string
+---@return string
+local function first(bufnr, ...)
+    local conform = require('conform')
+    for i = 1, select('#', ...) do
+        local formatter = select(i, ...)
+        if conform.get_formatter_info(formatter, bufnr).available then
+            return formatter
+        end
+    end
+    return select(1, ...)
+end
+
 -- Formatting
 require('conform').setup({
     formatters_by_ft = {
@@ -66,8 +75,12 @@ require('conform').setup({
         rust = { 'rustfmt', lsp_format = 'fallback' },
         javascript = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
         typescript = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
-        javascriptreact = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
-        typescriptreact = { 'biome', 'prettierd', 'prettier', stop_after_first = true },
+        javascriptreact = function(bufnr)
+            return { first(bufnr, 'biome', 'prettierd', 'prettier'), 'rustywind' }
+        end,
+        typecriptreact = function(bufnr)
+            return { first(bufnr, 'biome', 'prettierd', 'prettier'), 'rustywind' }
+        end,
         go = { 'gofmt' },
     },
     format_on_save = { timeout_ms = 500, lsp_format = 'fallback' },
@@ -98,7 +111,6 @@ require('snacks').setup({
     bigfile = { enabled = true },
     dashboard = { enabled = false },
     explorer = { enabled = true },
-    indent = { enabled = true },
     input = { enabled = true },
     picker = { enabled = true },
     git = { enabled = true },
@@ -106,7 +118,7 @@ require('snacks').setup({
     notifier = { enabled = true },
     quickfile = { enabled = true },
     terminal = { enabled = true },
-    scroll = { enabled = false },
+    scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
 })
