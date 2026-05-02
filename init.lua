@@ -1,3 +1,5 @@
+local core = require("core")
+core.add_keymap({'n','x'},"<ESC>","<cmd>set nohlsearch<cr>")
 require("opts")
 require("plugins")
 require("autocmds")
