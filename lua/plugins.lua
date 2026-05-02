@@ -76,6 +76,7 @@ require("nvim-treesitter").install({
 -- Snacks
 require('snacks').setup(
    {
+    bufdelete = { enabled = true },
     bigfile = { enabled = true },
     dashboard = { enabled = false },
     explorer = { enabled = true },
@@ -86,7 +87,7 @@ require('snacks').setup(
     github = { enabled = true },
     notifier = { enabled = true },
     quickfile = { enabled = true },
-    scope = { enabled = true },
+    terminal = { enabled = true },
     scroll = { enabled = false },
     statuscolumn = { enabled = true },
     words = { enabled = true },
@@ -97,6 +98,8 @@ require('snacks').setup(
 add_keymap('n',"<leader><space>", function() Snacks.picker.smart() end,{ desc = "Smart Find Files" })
 add_keymap('n',"<leader>n", function() Snacks.picker.notifications() end,{ desc = "Notification History" })
 add_keymap('n',"<leader>e", function() Snacks.explorer() end,{ desc = "File Explorer" })
+add_keymap('n',"<leader>bd", function() Snacks.bufdelete() end,{ desc = "Delete current buffer" })
+add_keymap('n',"<C-/>", function() Snacks.terminal() end,{ desc = "Terminal" })
 -- find
 add_keymap('n',"<leader>fb", function() Snacks.picker.buffers() end,{ desc = "Buffers" })
 add_keymap('n',"<leader>ff", function() Snacks.picker.files() end, {desc = "Find Files" })
