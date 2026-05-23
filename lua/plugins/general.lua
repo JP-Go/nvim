@@ -1,3 +1,7 @@
+vim.cmd.packadd('nohlsearch')
+vim.cmd.packadd('nvim.undotree')
+Core.add_keymap('n', '<leader>u', '<cmd>Undotree<cr>', { desc = 'Opens undotree' })
+
 -- Mini surround + auto pair delimiters + icons
 Core.add_plugin({
     { src = Core.gh('nvim-mini/mini.surround'), version = 'stable' },
