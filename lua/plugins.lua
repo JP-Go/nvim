@@ -1,7 +1,6 @@
-local core = require('core')
-local gh = core.gh
-local add_plugin = core.add_plugin
-local add_keymap = core.add_keymap
+local gh = Core.gh
+local add_plugin = Core.add_plugin
+local add_keymap = Core.add_keymap
 
 -- Utils
 add_plugin({ gh('nvim-lua/plenary.nvim') })
@@ -155,7 +154,7 @@ end, { desc = 'Notification History' })
 add_keymap('n', '<leader>e', function()
     Snacks.explorer()
 end, { desc = 'File Explorer' })
-add_keymap('n', '<leader>bd', function()
+add_keymap('n', '<leader>bc', function()
     Snacks.bufdelete()
 end, { desc = 'Delete current buffer' })
 add_keymap('n', '<C-/>', function()

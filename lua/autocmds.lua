@@ -1,7 +1,4 @@
-local core = require('core')
-local autocmd = core.add_autocmd
-
-autocmd('FileType', {
+Core.add_autocmd('FileType', {
     pattern = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'go', 'gomod', 'gosum', 'lua' },
     callback = function()
         vim.treesitter.start()
@@ -9,7 +6,7 @@ autocmd('FileType', {
     end,
 })
 
-autocmd('TextYankPost', {
+Core.add_autocmd('TextYankPost', {
     pattern = '*',
     callback = function()
         vim.highlight.on_yank()
