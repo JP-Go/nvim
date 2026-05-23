@@ -13,11 +13,18 @@ add_plugin({
 -- Mason
 add_plugin({ gh('mason-org/mason.nvim'), gh('mason-org/mason-lspconfig.nvim') })
 
--- Mini surround + autopairs + files
+-- Mini surround + auto pair delimiters + icons
 add_plugin({
     { src = gh('nvim-mini/mini.surround'), version = 'stable' },
-    { src = gh('nvim-mini/mini.pairs'), version = 'stable' },
     { src = gh('nvim-mini/mini.icons'), version = 'stable' },
+    { src = gh('nvim-mini/mini.pairs'), version = 'stable' },
+})
+
+-- Blink CMP + lib + snippets
+add_plugin({
+    { src = gh('saghen/blink.lib'), version = 'main' },
+    { src = gh('saghen/blink.cmp'), version = 'main' },
+    { src = gh('rafamadriz/friendly-snippets'), version = 'main' },
 })
 
 -- Lazygit
@@ -102,6 +109,14 @@ require('nvim-treesitter').install({
     'gosum',
     'html',
     'lua',
+})
+
+-- Autocompletion
+local cmp = require('blink.cmp')
+cmp.build():wait(60000)
+cmp.setup({
+    keymap = { preset = 'enter', ['<C-Space>'] = { 'show' } },
+    signature = { enabled = true },
 })
 
 -- Snacks
