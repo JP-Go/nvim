@@ -22,6 +22,19 @@ Core.add_plugin({
     { src = Core.gh('nvim-lua/plenary.nvim') },
     { src = Core.gh('nvim-treesitter/nvim-treesitter'), version = 'main' },
 })
+
+Core.add_autocmd('PackChanged', {
+    callback = function(ev)
+        local name, kind = ev.data.spec.name, ev.data.kind
+        if name == 'nvim-treesitter' and kind == 'update' then
+            if not ev.data.active then
+                Core.add_plugin({ src = Core.gh('nvim-treesitter/nvim-treesitter'), version = 'main' })
+            end
+            vim.cmd('TSUpdate')
+        end
+    end,
+})
+
 require('nvim-treesitter').install({
     'javascript',
     'typescript',
