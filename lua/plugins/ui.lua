@@ -17,3 +17,9 @@ Core.add_autocmd('LspAttach', {
         require('better-diagnostic-virtual-text').setup()
     end,
 })
+
+Core.add_plugin({ Core.gh('OXY2DEV/markview.nvim') })
+
+require('markview').setup()
+
+Core.add_plugin({ Core.gh('chrisgrieser/nvim-rulebook') })

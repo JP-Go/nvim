@@ -31,6 +31,10 @@
       "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
       "src": "https://github.com/kdheepak/lazygit.nvim"
     },
+    "markview.nvim": {
+      "rev": "a55e91f25994617a477d4a0e0b326f9dfa648f80",
+      "src": "https://github.com/OXY2DEV/markview.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "0c2823e0418f3d9230ff8b201c976e84de1cb401",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
@@ -57,6 +61,10 @@
     "nvim-lspconfig": {
       "rev": "31026a13eefb20681124706a79fc1df6bf11ab27",
       "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-rulebook": {
+      "rev": "083dd66b498bc142386a7c96dddab73acbf4ec20",
+      "src": "https://github.com/chrisgrieser/nvim-rulebook"
     },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
