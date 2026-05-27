@@ -20,3 +20,18 @@ require('mason-lspconfig').setup({
 })
 
 vim.lsp.enable('lua_ls')
+
+Core.add_plugin({ Core.gh('lewis6991/gitsigns.nvim') })
+
+local gitsigns = require('gitsigns')
+gitsigns.setup({
+    current_line_blame = true,
+})
+
+Core.add_keymap('n', '<leader>bl', gitsigns.blame_line, { desc = 'Git Blame line' })
+Core.add_keymap('n', ']h', function()
+    gitsigns.nav_hunk('next')
+end, { desc = 'Git next hunk' })
+Core.add_keymap('n', '[h', function()
+    gitsigns.nav_hunk('prev')
+end, { desc = 'Git prev hunk' })
