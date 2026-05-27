@@ -31,6 +31,10 @@
       "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "incline.nvim": {
+      "rev": "debd628e9395f7a9da57bdc31ce75ca6b40a880b",
+      "src": "https://github.com/b0o/incline.nvim"
+    },
     "lazygit.nvim": {
       "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
       "src": "https://github.com/kdheepak/lazygit.nvim"
@@ -66,6 +70,10 @@
       "rev": "31026a13eefb20681124706a79fc1df6bf11ab27",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
+    "nvim-navic": {
+      "rev": "f5eba192f39b453675d115351808bd51276d9de5",
+      "src": "https://github.com/SmiteshP/nvim-navic"
+    },
     "nvim-rulebook": {
       "rev": "083dd66b498bc142386a7c96dddab73acbf4ec20",
       "src": "https://github.com/chrisgrieser/nvim-rulebook"
@@ -74,6 +82,10 @@
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
+    },
+    "nvim-web-devicons": {
+      "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oasis.nvim": {
       "rev": "9ee054e03d6dbbf86d575848845c6e88e18696ef",
