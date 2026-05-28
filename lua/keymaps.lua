@@ -1,3 +1,5 @@
 Core.add_keymap('n', '<ESC>', '<cmd>set nohlsearch<cr>', { desc = 'Clear highlights' })
 Core.add_keymap('n', '<Tab>', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
 Core.add_keymap('n', '<S-Tab>', '<cmd>bprev<cr>', { desc = 'Previous Buffer' })
+Core.add_keymap({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
+Core.add_keymap({ 'n', 'x' }, '<leader>p', '"+p', { desc = 'Yank to system clipboard' })
