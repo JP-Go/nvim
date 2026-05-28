@@ -18,6 +18,5 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.smarttab = true
 vim.opt.background = 'dark'
-vim.cmd.colorscheme('catppuccin')
 
 require('vim._core.ui2').enable({})
