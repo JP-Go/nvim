@@ -34,11 +34,20 @@ local navic = require('nvim-navic')
 
 navic.setup()
 
+Core.add_plugin({
+    Core.gh('lewis6991/async.nvim'),
+    Core.gh('ThePrimeagen/refactoring.nvim'),
+})
+
 vim.lsp.config('*', {
     on_attach = function(client, bufnr)
         if client.server_capabilities.documentSymbolProvider then
             navic.attach(client, bufnr)
         end
+
+        Core.add_keymap({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'Run code action' })
+        Core.add_keymap({ 'n', 'x' }, '<leader>rr', vim.lsp.buf.rename, { desc = 'Rename' })
+        Core.add_keymap({ 'n', 'x' }, '<leader>rf', require('refactoring').select_refactor, { desc = 'Refactor' })
     end,
 })
 
