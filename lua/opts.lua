@@ -4,7 +4,7 @@ vim.g.maplocalleader = ' '
 vim.opt.shortmess:append('c')
 vim.opt.cmdheight = 2
 vim.opt.number = true
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 1000
 vim.opt.updatetime = 4000
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
