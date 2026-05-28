@@ -27,16 +27,16 @@ local add_autocmd = function(...)
     vim.api.nvim_create_autocmd(...)
 end
 
---- load_module - Load a module. If there's an error, logs failure
+--- load_module - Load a module. If there's an error, logs the reason
 --- @param module_path string path for the plugin
 local load_module = function(module_path)
     if Core.__loaded_plugins[module_path] then
         vim.notify('Module ' .. module_path .. ' already loaded', vim.log.levels.INFO)
         return
     end
-    local ok, _ = pcall(require, module_path)
+    local ok, err = pcall(require, module_path)
     if not ok then
-        vim.notify('Failed to load module ' .. module_path, vim.log.levels.ERROR)
+        vim.notify('Failed to load module ' .. module_path .. '. ' .. err, vim.log.levels.ERROR)
     end
     Core.__loaded_plugins[module_path] = true
 end
