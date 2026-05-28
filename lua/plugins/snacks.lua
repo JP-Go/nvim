@@ -25,7 +25,6 @@ require('snacks').setup({
                 ttl = 5 * 60,
                 indent = 3,
             },
-            -- { section = 'startup' },
         },
     },
     explorer = { enabled = true },
@@ -36,7 +35,6 @@ require('snacks').setup({
     notifier = { enabled = true },
     quickfile = { enabled = true },
     terminal = { enabled = true },
-    scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
 })
