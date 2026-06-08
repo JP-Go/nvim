@@ -4,6 +4,10 @@
       "rev": "7a1d7d49933fbe902b84b55f352a3b10fd587331",
       "src": "https://github.com/lewis6991/async.nvim"
     },
+    "avante.nvim": {
+      "rev": "e7a167e5bf7de92d406e371d500c803603ec642f",
+      "src": "https://github.com/yetone/avante.nvim"
+    },
     "barbar.nvim": {
       "rev": "a4bef5b4fc1f064f2f673172252028eae18191c9",
       "src": "https://github.com/romgrk/barbar.nvim"
@@ -11,6 +15,10 @@
     "better-diagnostic-virtual-text": {
       "rev": "eb3a77e714aa6c295bdb4f074fccbda637090f6e",
       "src": "https://github.com/sontungexpt/better-diagnostic-virtual-text"
+    },
+    "blink-cmp-avante": {
+      "rev": "4f494c6e124acbe31a8f5d58effa0c14aa38a6d5",
+      "src": "https://github.com/Kaiser-Yang/blink-cmp-avante"
     },
     "blink.cmp": {
       "rev": "35e3923a09ff3db150ceff80004befcbbfa071a0",
@@ -69,6 +77,10 @@
       "rev": "88c52297ed3e69ecf9f8652837888ecc727a28ee",
       "src": "https://github.com/nvim-mini/mini.surround",
       "version": "'stable'"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim-lspconfig": {
       "rev": "31026a13eefb20681124706a79fc1df6bf11ab27",
