@@ -72,7 +72,7 @@ Core.add_keymap('n', '<leader>fr', function()
     Snacks.picker.recent()
 end, { desc = 'Recent' })
 Core.add_keymap('n', '<leader>fw', function()
-    Snacks.picker.grep_word()
+    Snacks.picker.grep()
 end, { desc = 'Find word' })
 -- git
 Core.add_keymap('n', '<leader>gb', function()
