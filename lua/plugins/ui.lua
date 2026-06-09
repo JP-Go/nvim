@@ -18,9 +18,9 @@ Core.add_autocmd('LspAttach', {
     end,
 })
 
-Core.add_plugin({ Core.gh('OXY2DEV/markview.nvim') })
+Core.add_plugin({ Core.gh('MeanderingProgrammer/render-markdown.nvim') })
 
-require('markview').setup()
+require('render-markdown').setup()
 
 Core.add_plugin({ Core.gh('chrisgrieser/nvim-rulebook') })
 

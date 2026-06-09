@@ -115,6 +115,10 @@
       "rev": "624c01e8175901484eac74512baf35e9dfe269b8",
       "src": "https://github.com/ThePrimeagen/refactoring.nvim"
     },
+    "render-markdown.nvim": {
+      "rev": "5adf0895310c1904e5abfaad40a2baad7fe44a07",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
       "src": "https://github.com/folke/snacks.nvim"
