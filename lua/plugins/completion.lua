@@ -12,7 +12,7 @@ cmp.build():wait(60000)
 cmp.setup({
     keymap = { preset = 'enter', ['<C-Space>'] = { 'show' } },
     sources = {
-        default = { 'avante', 'lsp', 'path', 'buffer' },
+        default = { 'avante', 'snippets', 'lsp', 'path', 'buffer' },
         providers = {
             avante = {
                 module = 'blink-cmp-avante',
