@@ -20,3 +20,5 @@ vim.opt.smarttab = true
 vim.opt.background = 'dark'
 
 require('vim._core.ui2').enable({})
+
+vim.diagnostic.config({ virtual_lines = true })
