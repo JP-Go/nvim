@@ -6,9 +6,15 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
+      "lewis6991/async.nvim"
     },
     lazy = false,
     opts = {},
+    keys = {
+      { '<leader>rs', function()
+        require("refactoring").select_refactor()
+      end }
+    }
   },
   {
     'johmsalas/text-case.nvim',
