@@ -15,7 +15,6 @@ return {
       'jay-babu/mason-nvim-dap.nvim',
     },
     config = function()
-      local lspconfig = require('lspconfig')
       require('mason').setup()
       require('mason-lspconfig').setup({
         automatic_enable = {
