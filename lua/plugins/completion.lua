@@ -3,8 +3,16 @@ return {
     'saghen/blink.cmp',
     dependencies = { 'rafamadriz/friendly-snippets', 'Kaiser-Yang/blink-cmp-avante' },
     version = '1.*',
+    build = 'cargo build --release',
 
     opts = {
+      fuzzy = {
+        implementation = "prefer_rust",
+        prebuilt_binaries = {
+          download = false,
+          ignore_version_mismatch = true
+        },
+      },
       sources = {
         default = {
           'lazydev',
