@@ -21,4 +21,4 @@ vim.opt.background = 'dark'
 
 require('vim._core.ui2').enable({})
 
-vim.diagnostic.config({ virtual_lines = true })
+vim.diagnostic.config({ underline = true, virtual_text = true })
