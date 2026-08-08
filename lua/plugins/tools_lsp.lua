@@ -52,3 +52,4 @@ vim.lsp.config('*', {
 })
 
 vim.lsp.enable(auto_install_lsps)
+vim.lsp.enable('ty')
