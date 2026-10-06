@@ -1,14 +1,3 @@
-Core.add_plugin({ Core.gh('romgrk/barbar.nvim') })
-
-require('barbar').setup({
-    icons = {
-        filetype = { enabled = false },
-    },
-})
-
-Core.add_keymap('n', '<Tab>', '<cmd>BufferNext<cr>', { desc = 'Next Buffer' })
-Core.add_keymap('n', '<S-Tab>', '<cmd>BufferPrevious<cr>', { desc = 'Previous Buffer' })
-
 Core.add_plugin({ Core.gh('sontungexpt/better-diagnostic-virtual-text') })
 
 Core.add_autocmd('LspAttach', {
@@ -18,17 +7,31 @@ Core.add_autocmd('LspAttach', {
     end,
 })
 
-Core.add_plugin({ Core.gh('MeanderingProgrammer/render-markdown.nvim') })
+Core.add_plugin({ Core.gh('OXY2DEV/markview.nvim') })
 
-require('render-markdown').setup()
+require('markview').setup()
 
 Core.add_plugin({ Core.gh('chrisgrieser/nvim-rulebook') })
 
-Core.add_plugin({ Core.gh('uhs-robert/oasis.nvim') })
+Core.add_plugin({ Core.gh('ofirgall/ofirkai.nvim') })
 
-require('oasis').setup()
+require('ofirkai').setup({})
 
-vim.cmd.colorscheme('oasis-desert')
+vim.cmd.colorscheme('ofirkai')
+
+Core.add_plugin({ Core.gh('akinsho/bufferline.nvim') })
+
+require('bufferline').setup({
+    highlights = require('ofirkai.tablines.bufferline').highlights, -- Must
+    options = { -- Optional, recommended
+        themable = true, -- Must
+        separator_style = 'slant',
+        offsets = { { filetype = 'NvimTree', text = 'File Explorer', text_align = 'center' } },
+        show_buffer_icons = true,
+        numbers = 'ordinal',
+        max_name_length = 40,
+    },
+})
 
 Core.add_plugin({ Core.gh('b0o/incline.nvim'), Core.gh('nvim-tree/nvim-web-devicons') })
 local helpers = require('incline.helpers')
